@@ -4,12 +4,14 @@ import { ThemeProvider } from '@mui/material'
 import { theme } from './theme'
 import './App.css'
 
-import { inputsConfig } from './assets/inputsConfig.js'
+// inputsConfig ideally not needed if other dataasets are pre-built from this data
+// import { inputsConfig } from './assets/inputsConfig.js'
+
 import { sortedXmlPaths } from './assets/sortedXmlPaths.js'
 import { topRanked } from './assets/topRanked.js'
 import { topRankedActionable } from './assets/topRankedActionable.js'
 
-console.log('inputsConfig', inputsConfig)
+// console.log('inputsConfig', inputsConfig)
 console.log('sortedXmlPaths', sortedXmlPaths)
 console.log('topRanked', topRanked)
 console.log('topRankedActionable', topRankedActionable)
