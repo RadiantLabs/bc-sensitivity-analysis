@@ -1,0 +1,222 @@
+export const topRankedActionable = [
+  {
+    "inputOrderId": 291,
+    "code": "X0058",
+    "xmlPath": "HPXML.Building.BuildingDetails.Appliances.ClothesDryer.extension.VentedFlowRate",
+    "shortName": null,
+    "categoricalValue": null,
+    "isActionable": true,
+    "dataType": "__double__",
+    "importanceRank": 61,
+    "stdev": 226804
+  },
+  {
+    "inputOrderId": 581,
+    "code": "X7674",
+    "xmlPath": "HPXML.Building.BuildingDetails.Systems.WaterHeating.WaterHeatingSystem[WaterHeater1].TankVolume",
+    "shortName": null,
+    "categoricalValue": null,
+    "isActionable": true,
+    "dataType": "__double__",
+    "importanceRank": 153,
+    "stdev": 140173
+  },
+  {
+    "inputOrderId": 315,
+    "code": "X0192",
+    "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACControl.SetupTempCoolingSeason",
+    "shortName": null,
+    "categoricalValue": null,
+    "isActionable": true,
+    "dataType": "__double__",
+    "importanceRank": 166,
+    "stdev": 123664
+  },
+  {
+    "inputOrderId": 314,
+    "code": "X0189",
+    "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACControl.SetbackTempHeatingSeason",
+    "shortName": null,
+    "categoricalValue": null,
+    "isActionable": true,
+    "dataType": "__double__",
+    "importanceRank": 190,
+    "stdev": 96363
+  },
+  {
+    "inputOrderId": 354,
+    "code": "X1687",
+    "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.FrameFloors.FrameFloor[FloorBelowAttic1].Insulation.AssemblyEffectiveRValue",
+    "shortName": null,
+    "categoricalValue": null,
+    "isActionable": true,
+    "dataType": "__double__",
+    "importanceRank": 215,
+    "stdev": 73874
+  },
+  {
+    "inputOrderId": 316,
+    "code": "X0193",
+    "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACControl.TotalSetbackHoursperWeekHeating",
+    "shortName": null,
+    "categoricalValue": null,
+    "isActionable": true,
+    "dataType": "__double__",
+    "importanceRank": 216,
+    "stdev": 73612
+  },
+  {
+    "inputOrderId": 317,
+    "code": "X0194",
+    "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACControl.TotalSetupHoursperWeekCooling",
+    "shortName": null,
+    "categoricalValue": null,
+    "isActionable": true,
+    "dataType": "__double__",
+    "importanceRank": 232,
+    "stdev": 62995
+  },
+  {
+    "inputOrderId": 318,
+    "code": "X0195",
+    "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACControl.extension.SetbackStartHourHeating",
+    "shortName": null,
+    "categoricalValue": null,
+    "isActionable": true,
+    "dataType": "__double__",
+    "importanceRank": 250,
+    "stdev": 34179
+  },
+  {
+    "inputOrderId": 507,
+    "code": "X5241",
+    "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[ASHP1].AnnualCoolingEfficiency.Value",
+    "shortName": null,
+    "categoricalValue": null,
+    "isActionable": true,
+    "dataType": "__double__",
+    "importanceRank": 253,
+    "stdev": 24837
+  },
+  {
+    "inputOrderId": 425,
+    "code": "X3807",
+    "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.Walls.Wall[WallExposed1].Insulation.AssemblyEffectiveRValue",
+    "shortName": null,
+    "categoricalValue": null,
+    "isActionable": true,
+    "dataType": "__double__",
+    "importanceRank": 254,
+    "stdev": 24768
+  },
+  {
+    "inputOrderId": 311,
+    "code": "X0177",
+    "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.AirInfiltration.AirInfiltrationMeasurement.BuildingAirLeakage.AirLeakage",
+    "shortName": null,
+    "categoricalValue": null,
+    "isActionable": true,
+    "dataType": "__double__",
+    "importanceRank": 255,
+    "stdev": 23833
+  },
+  {
+    "inputOrderId": 379,
+    "code": "X2677",
+    "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistStory2Exposed].Insulation.AssemblyEffectiveRValue",
+    "shortName": null,
+    "categoricalValue": null,
+    "isActionable": true,
+    "dataType": "__double__",
+    "importanceRank": 256,
+    "stdev": 23564
+  },
+  {
+    "inputOrderId": 520,
+    "code": "X5727",
+    "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[MiniSplitHP1].AnnualCoolingEfficiency.Value",
+    "shortName": null,
+    "categoricalValue": null,
+    "isActionable": true,
+    "dataType": "__double__",
+    "importanceRank": 257,
+    "stdev": 23564
+  },
+  {
+    "inputOrderId": 509,
+    "code": "X5277",
+    "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[ASHP1].AnnualHeatingEfficiency.Value",
+    "shortName": null,
+    "categoricalValue": null,
+    "isActionable": true,
+    "dataType": "__double__",
+    "importanceRank": 275,
+    "stdev": 19774
+  },
+  {
+    "inputOrderId": 494,
+    "code": "X4605",
+    "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].CoolingSystem[CentralAirConditioner1].AnnualCoolingEfficiency.Value",
+    "shortName": null,
+    "categoricalValue": null,
+    "isActionable": true,
+    "dataType": "__double__",
+    "importanceRank": 279,
+    "stdev": 19016
+  },
+  {
+    "inputOrderId": 522,
+    "code": "X5763",
+    "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[MiniSplitHP1].AnnualHeatingEfficiency.Value",
+    "shortName": null,
+    "categoricalValue": null,
+    "isActionable": true,
+    "dataType": "__double__",
+    "importanceRank": 283,
+    "stdev": 15317
+  },
+  {
+    "inputOrderId": 319,
+    "code": "X0196",
+    "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACControl.extension.SetupStartHourCooling",
+    "shortName": null,
+    "categoricalValue": null,
+    "isActionable": true,
+    "dataType": "__double__",
+    "importanceRank": 285,
+    "stdev": 12954
+  },
+  {
+    "inputOrderId": 342,
+    "code": "X1033",
+    "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallCrawlspaceVentedExposed1].Thickness",
+    "shortName": null,
+    "categoricalValue": null,
+    "isActionable": true,
+    "dataType": "__double__",
+    "importanceRank": 287,
+    "stdev": 11439
+  },
+  {
+    "inputOrderId": 335,
+    "code": "X0844",
+    "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallBasementConditionedToCrawlVented1].Thickness",
+    "shortName": null,
+    "categoricalValue": null,
+    "isActionable": true,
+    "dataType": "__double__",
+    "importanceRank": 288,
+    "stdev": 11439
+  },
+  {
+    "inputOrderId": 328,
+    "code": "X0466",
+    "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallBasementConditionedExposed1].Thickness",
+    "shortName": null,
+    "categoricalValue": null,
+    "isActionable": true,
+    "dataType": "__double__",
+    "importanceRank": 289,
+    "stdev": 11439
+  }
+]
