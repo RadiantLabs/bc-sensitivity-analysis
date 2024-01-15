@@ -11,7 +11,14 @@ import './App.css'
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <SensitivityPlot data={tempData} />
+      <div>
+        {tempDataList.map((data, index) => (
+          <div key={index}>
+            <h3>Chart {index + 1}</h3>
+            <SensitivityPlot data={data} />
+          </div>
+        ))}
+      </div>
       <Inference />
     </ThemeProvider>
   )
@@ -40,3 +47,5 @@ const tempData = [
   { inputName: 17, predicted: 7600 },
   { inputName: 18, predicted: 7700 },
 ]
+
+const tempDataList = [tempData, tempData, tempData]
