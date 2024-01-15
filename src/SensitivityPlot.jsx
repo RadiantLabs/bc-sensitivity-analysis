@@ -4,11 +4,17 @@ import * as Plot from '@observablehq/plot'
 import Slider from '@mui/material/Slider'
 import Box from '@mui/material/Box'
 
-const SensitivityPlot = ({ chartData, predictedData }) => {
+const SensitivityPlot = ({ chartData, predictedData, chartId, onSliderChange }) => {
   // Assuming your data array is sorted, the initial value of the slider could be the first inputName.
   // If not sorted, you could find the minimum inputName value.
   const [sliderValue, setSliderValue] = useState(Math.min(...predictedData.map((d) => d.inputName)))
   const chartRef = useRef()
+
+  const handleSliderChange = (event, newSliderVal) => {
+    console.log('newSliderVal', newSliderVal)
+    setSliderValue(newSliderVal)
+    onSliderChange(newSliderVal, chartId) // Pass newSliderVal and chartId to the parent handler
+  }
 
   useEffect(() => {
     const currentRef = chartRef.current
@@ -60,10 +66,6 @@ const SensitivityPlot = ({ chartData, predictedData }) => {
     }
   }, [chartData, predictedData, sliderValue]) // The chart will re-render when data or sliderValue changes
 
-  const handleSliderChange = (event, newValue) => {
-    setSliderValue(newValue)
-  }
-
   return (
     <div style={{ position: 'relative' }}>
       <Box sx={{ width: '100%', padding: 2 }}>
@@ -99,6 +101,8 @@ SensitivityPlot.propTypes = {
     sliderValue: PropTypes.number.isRequired,
     stepSize: PropTypes.number.isRequired,
   }),
+  chartId: PropTypes.number.isRequired,
+  onSliderChange: PropTypes.func.isRequired,
 }
 
 export default SensitivityPlot

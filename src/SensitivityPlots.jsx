@@ -7,11 +7,8 @@ const SensitivityPlots = ({ initialChartsData, initialPredictedDataSet }) => {
   const [chartsData, setChartsData] = useState(initialChartsData)
   const [predictedDataSet, setPredictedDataSet] = useState(initialPredictedDataSet)
 
-  const handleSliderChange = async (newSliderVal) => {
-    const updatedSliderVal = updateSliderVal(newSliderVal, chartsData)
-    setChartsData(updatedSliderVal)
-
-    const updatedPredictedDataSet = await calculateNewPredictedData(newSliderVal, chartsData, predictedDataSet)
+  const handleSliderChangeByChart = async (newSliderVal, chartId) => {
+    const updatedPredictedDataSet = await predictData(newSliderVal, chartsData, predictedDataSet)
     setPredictedDataSet(updatedPredictedDataSet)
   }
 
@@ -25,7 +22,12 @@ const SensitivityPlots = ({ initialChartsData, initialPredictedDataSet }) => {
         return (
           <div key={index}>
             <h3>Chart {index + 1}</h3>
-            <SensitivityPlot chartData={chartData} predictedData={predictedData} onSliderChange={handleSliderChange} />
+            <SensitivityPlot
+              chartId={index} // Passing chartId to the child component
+              chartData={chartData}
+              predictedData={predictedData}
+              onSliderChange={handleSliderChangeByChart}
+            />
           </div>
         )
       })}
@@ -34,6 +36,10 @@ const SensitivityPlots = ({ initialChartsData, initialPredictedDataSet }) => {
 }
 
 export default SensitivityPlots
+
+async function predictData(newSliderVal, chartsData, predictedData) {
+  return predictedData
+}
 
 SensitivityPlots.propTypes = {
   initialChartsData: PropTypes.arrayOf(
@@ -51,12 +57,4 @@ SensitivityPlots.propTypes = {
       }),
     ),
   ).isRequired,
-}
-
-async function calculateNewPredictedData(newSliderVal, chartsData, predictedData) {
-  return predictedData
-}
-
-function updateSliderVal(newSliderVal, chartsData) {
-  return newSliderVal
 }
