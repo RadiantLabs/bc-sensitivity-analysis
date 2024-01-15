@@ -4,14 +4,15 @@ import * as Plot from '@observablehq/plot'
 import Slider from '@mui/material/Slider'
 import Box from '@mui/material/Box'
 
-const SensitivityPlot = ({ data }) => {
+const SensitivityPlot = ({ chartData, predictedData }) => {
   // Assuming your data array is sorted, the initial value of the slider could be the first inputName.
   // If not sorted, you could find the minimum inputName value.
-  const [sliderValue, setSliderValue] = useState(Math.min(...data.map((d) => d.inputName)))
+  const [sliderValue, setSliderValue] = useState(Math.min(...predictedData.map((d) => d.inputName)))
   const chartRef = useRef()
 
   useEffect(() => {
     const currentRef = chartRef.current
+    console.log('sliderValue', sliderValue)
 
     // Clear the previous chart before appending a new one
     if (currentRef.firstChild) {
@@ -19,9 +20,10 @@ const SensitivityPlot = ({ data }) => {
     }
 
     // Find the active data point
-    const activeData = data.find((d) => d.inputName === sliderValue)
+    const activeData = predictedData.find((d) => d.inputName === sliderValue)
+    console.log('activeData', activeData)
 
-    // Initialize the chart on mount
+    // Initialize chart on mount
     const chart = Plot.plot({
       y: {
         axis: null,
@@ -31,7 +33,7 @@ const SensitivityPlot = ({ data }) => {
         axis: null,
       },
       marks: [
-        Plot.barY(data, {
+        Plot.barY(predictedData, {
           x: 'inputName',
           y: 'predicted',
           fill: (d) => (d.inputName === sliderValue ? '#000' : '#dfdfdf'),
@@ -56,7 +58,7 @@ const SensitivityPlot = ({ data }) => {
     return () => {
       currentRef.removeChild(chart)
     }
-  }, [data, sliderValue]) // The chart will re-render when data or sliderValue changes
+  }, [chartData, predictedData, sliderValue]) // The chart will re-render when data or sliderValue changes
 
   const handleSliderChange = (event, newValue) => {
     setSliderValue(newValue)
@@ -72,9 +74,9 @@ const SensitivityPlot = ({ data }) => {
           value={sliderValue}
           onChange={handleSliderChange}
           step={1}
-          marks={data.map((d) => ({ value: d.inputName, label: d.inputName.toString() }))}
-          min={Math.min(...data.map((d) => d.inputName))}
-          max={Math.max(...data.map((d) => d.inputName))}
+          marks={predictedData.map((d) => ({ value: d.inputName, label: d.inputName.toString() }))}
+          min={Math.min(...predictedData.map((d) => d.inputName))}
+          max={Math.max(...predictedData.map((d) => d.inputName))}
           valueLabelDisplay="off"
           track={false}
           style={getSliderStyles()}
@@ -86,12 +88,17 @@ const SensitivityPlot = ({ data }) => {
 }
 
 SensitivityPlot.propTypes = {
-  data: PropTypes.arrayOf(
+  predictedData: PropTypes.arrayOf(
     PropTypes.shape({
       inputName: PropTypes.number.isRequired,
       predicted: PropTypes.number.isRequired,
     }),
-  ).isRequired,
+  ),
+  chartData: PropTypes.shape({
+    xmlPath: PropTypes.string.isRequired,
+    sliderValue: PropTypes.number.isRequired,
+    stepSize: PropTypes.number.isRequired,
+  }),
 }
 
 export default SensitivityPlot

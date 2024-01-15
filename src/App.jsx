@@ -1,5 +1,5 @@
 import Inference from './Inference'
-import SensitivityPlot from './SensitivityPlot'
+import SensitivityPlots from './SensitivityPlots'
 import { ThemeProvider } from '@mui/material'
 import { theme } from './theme'
 import './App.css'
@@ -11,14 +11,7 @@ import './App.css'
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <div>
-        {tempDataList.map((data, index) => (
-          <div key={index}>
-            <h3>Chart {index + 1}</h3>
-            <SensitivityPlot data={data} />
-          </div>
-        ))}
-      </div>
+      <SensitivityPlots initialChartsData={initialChartsData} initialPredictedDataSet={initialPredictedDataSet} />
       <Inference />
     </ThemeProvider>
   )
@@ -26,7 +19,7 @@ function App() {
 
 export default App
 
-const tempData = [
+const predictedData = [
   { inputName: 0, predicted: 5900 },
   { inputName: 1, predicted: 6000 },
   { inputName: 2, predicted: 6100 },
@@ -48,4 +41,17 @@ const tempData = [
   { inputName: 18, predicted: 7700 },
 ]
 
-const tempDataList = [tempData, tempData, tempData]
+const initialPredictedDataSet = [predictedData, predictedData, predictedData]
+
+const initialChartsData = [
+  {
+    xmlPath: 'ABC',
+    sliderValue: 0,
+    stepSize: 1,
+  },
+  {
+    xmlPath: 'DEF',
+    sliderValue: 3,
+    stepSize: 1,
+  },
+]
