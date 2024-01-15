@@ -10,22 +10,29 @@ import { getCodeToXmlPathLookup } from './utils/getCodeToXmlPathLookup.js'
 import { getCSV } from './utils/getCSV.js'
 import { toJsonString } from '../src/utils/toJsonString.js'
 
-// Paths to CSV source and JS output files
+// Paths to directories
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const assetsPath = path.join(__dirname, '../src/assets')
+const intermediatesPath = path.join(__dirname, './intermediates')
+
+// Paths to CSV source files
 const inputsConfigSourcePath = path.join(__dirname, 'sources/inputs_config_source.csv')
-const sortedXmlOutPath = path.join(assetsPath, 'sortedXmlPaths.js')
-const topRankedOutPath = path.join(assetsPath, 'topRanked.js')
-const topRankedActionableOutPath = path.join(assetsPath, 'topRankedActionable.js')
 const hudsonWeatherSourcePath = path.join(__dirname, 'sources/hudson_ny.csv')
-const hudsonWeatherOutPath = path.join(assetsPath, 'hudsonWeather.js')
 const santarosaWeatherSourcePath = path.join(__dirname, 'sources/santa_rosa_ca.csv')
-const santarosaWeatherOutPath = path.join(assetsPath, 'santarosaWeather.js')
 const percentilesSourcePath = path.join(__dirname, 'sources/input_percentiles.csv')
+
+// Intermediate output files for debugging
+const sortedXmlOutPath = path.join(intermediatesPath, 'sortedXmlPaths.js')
+const topRankedOutPath = path.join(intermediatesPath, 'topRanked.js')
+const topRankedActionableOutPath = path.join(intermediatesPath, 'topRankedActionable.js')
+
+// Assets to be bundled
+const hudsonWeatherOutPath = path.join(assetsPath, 'hudsonWeather.js')
+const santarosaWeatherOutPath = path.join(assetsPath, 'santarosaWeather.js')
 const percentilesOutPath = path.join(assetsPath, 'inputPercentiles.js')
 
-const topRankCount = 20
-const topRankActionableCount = 20
+const topRankCount = 100
+const topRankActionableCount = 100
 
 // Function to read CSV and convert to JSON
 function buildInputsConfigAssets(inputsConfigSourcePath) {
