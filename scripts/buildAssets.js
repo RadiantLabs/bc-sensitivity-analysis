@@ -25,14 +25,11 @@ const percentilesSourcePath = path.join(__dirname, 'sources/input_percentiles.cs
 const sortedXmlOutPath = path.join(intermediatesPath, 'sortedXmlPaths.js')
 const topRankedOutPath = path.join(intermediatesPath, 'topRanked.js')
 const topRankedActionableOutPath = path.join(intermediatesPath, 'topRankedActionable.js')
+const percentilesOutPath = path.join(intermediatesPath, 'inputPercentiles.js')
 
 // Assets to be bundled
 const hudsonWeatherOutPath = path.join(assetsPath, 'hudsonWeather.js')
 const santarosaWeatherOutPath = path.join(assetsPath, 'santarosaWeather.js')
-const percentilesOutPath = path.join(assetsPath, 'inputPercentiles.js')
-
-const topRankCount = 100
-const topRankActionableCount = 100
 
 // Function to read CSV and convert to JSON
 function buildInputsConfigAssets(inputsConfigSourcePath) {
@@ -44,38 +41,30 @@ function buildInputsConfigAssets(inputsConfigSourcePath) {
     complete: async (results) => {
       const inputsConfig = results.data // Don't need to write to file
       const sortedXmlPaths = getInputsSortOrder(inputsConfig)
-      const topRanked = getTopRank(inputsConfig, topRankCount)
-      const topRankedActionable = getTopRankActionable(inputsConfig, topRankActionableCount)
-      const codeToXmlPathLookup = getCodeToXmlPathLookup(inputsConfig) // Don't need to write to file
+      const topRanked = getTopRank(inputsConfig)
+      const topRankedActionable = getTopRankActionable(inputsConfig)
+      const codeToXmlPathLookup = getCodeToXmlPathLookup(inputsConfig)
+      const percentiles = await getPercentiles(percentilesSourcePath, codeToXmlPathLookup)
+      const hudsonWeather = await getCSV(hudsonWeatherSourcePath)
+      const santarosaWeather = await getCSV(santarosaWeatherSourcePath)
 
+      // Intermediate output files for debugging
       writeFile(sortedXmlPaths, 'sortedXmlPaths', sortedXmlOutPath)
       writeFile(topRanked, 'topRanked', topRankedOutPath)
       writeFile(topRankedActionable, 'topRankedActionable', topRankedActionableOutPath)
+      writeFile(percentiles, 'percentiles', percentilesOutPath)
 
-      // TODO: I probably don't want to write this to file. Only take the top 20
-      await buildPercentileAssets(percentilesSourcePath, 'inputPercentiles', percentilesOutPath, codeToXmlPathLookup)
+      // Final assets to be used in the app
+      writeFile(hudsonWeather, 'hudsonWeather', hudsonWeatherOutPath)
+      writeFile(santarosaWeather, 'santarosaWeather', santarosaWeatherOutPath)
     },
   })
-}
-
-async function buildWeatherAssets(sourcePath, label, outPath) {
-  const json = await getCSV(sourcePath)
-  writeFile(json, label, outPath)
-}
-
-async function buildPercentileAssets(sourcePath, label, outPath, codeToXmlPathLookup) {
-  const json = await getCSV(sourcePath)
-  const percentiles = getPercentiles(json, codeToXmlPathLookup)
-  writeFile(percentiles, label, outPath)
 }
 
 // -------------------------------------------------------------------------
 // Main calling functions
 // -------------------------------------------------------------------------
 buildInputsConfigAssets(inputsConfigSourcePath)
-buildWeatherAssets(hudsonWeatherSourcePath, 'hudsonWeather', hudsonWeatherOutPath)
-buildWeatherAssets(santarosaWeatherSourcePath, 'santarosaWeather', santarosaWeatherOutPath)
-// buildPercentileAssets(percentilesSourcePath, 'inputPercentiles', percentilesOutPath)
 
 // -------------------------------------------------------------------------
 // Helper functions

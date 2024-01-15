@@ -1,3 +1,4 @@
+import { getCSV } from './getCSV.js'
 import _ from 'lodash'
 
 /*
@@ -27,7 +28,9 @@ The reduce function converts it to this:
 5. Replace the codes with xmlPaths
 
 */
-export function getPercentiles(rawJson, codeToXmlPathLookup) {
+export async function getPercentiles(sourcePath, codeToXmlPathLookup) {
+  const rawJson = await getCSV(sourcePath)
+
   // Remove count, std, min, max, mean
   const percentilesOnly = rawJson.filter((row) => row.percentile.includes('%'))
 
