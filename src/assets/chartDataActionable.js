@@ -1,48 +1,8 @@
-export const chartData = [
-  {
-    xmlPath: 'HPXML.Building.BuildingDetails.BuildingSummary.BuildingConstruction.ConditionedFloorArea',
-    percentileSteps: [875, 1000, 1090, 1160, 1226, 1295, 1360, 1428, 1500, 1580, 1671, 1770, 1874, 1992, 2128, 2287, 2500, 2800, 3320],
-    evenSteps: [875, 1004, 1132, 1261, 1390, 1518, 1647, 1776, 1904, 2033, 2162, 2291, 2419, 2548, 2677, 2805, 2934, 3063, 3191, 3320],
-  },
-  {
-    xmlPath: 'HPXML.Building.BuildingDetails.Enclosure.Walls.Wall[WallExposed1].Area',
-    percentileSteps: [944, 1016, 1072, 1112, 1152, 1192, 1232, 1280, 1344, 1416, 1520, 1632, 1744, 1872, 1992, 2112, 2240, 2416, 2736],
-    evenSteps: [944, 1038, 1133, 1227, 1321, 1416, 1510, 1604, 1699, 1793, 1887, 1981, 2076, 2170, 2264, 2359, 2453, 2547, 2642, 2736],
-  },
-  {
-    xmlPath: 'HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistCrawlspaceVentedExposed1].Area',
-    percentileSteps: [0, 0, 0, 0, 0, 0, 0, 0, 0, 41, 85, 109, 119, 126, 133, 138, 144, 152, 164],
-    evenSteps: [0, 9, 17, 26, 35, 43, 52, 60, 69, 78, 86, 95, 104, 112, 121, 129, 138, 147, 155, 164],
-  },
-  {
-    xmlPath: 'HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistStory2Exposed].Area',
-    percentileSteps: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 81, 96, 105, 112, 120, 127, 134, 142, 155],
-    evenSteps: [0, 8, 16, 24, 33, 41, 49, 57, 65, 73, 82, 90, 98, 106, 114, 122, 131, 139, 147, 155, 163],
-  },
+export const chartDataActionable = [
   {
     xmlPath: 'HPXML.Building.BuildingDetails.Appliances.ClothesDryer.extension.VentedFlowRate',
     percentileSteps: [0, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150],
     evenSteps: [0, 8, 16, 24, 32, 39, 47, 55, 63, 71, 79, 87, 95, 103, 111, 118, 126, 134, 142, 150],
-  },
-  {
-    xmlPath: 'HPXML.Building.BuildingDetails.Enclosure.Windows.Window[WindowSouth1].Area',
-    percentileSteps: [0, 0, 32, 36, 38, 39, 41, 42, 44, 46, 49, 53, 57, 62, 67, 72, 77, 84, 96],
-    evenSteps: [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 51, 56, 61, 66, 71, 76, 81, 86, 91, 96],
-  },
-  {
-    xmlPath: 'HPXML.Building.BuildingDetails.Enclosure.Windows.Window[WindowNorth1].Area',
-    percentileSteps: [0, 0, 32, 36, 38, 39, 41, 42, 44, 46, 49, 53, 57, 62, 67, 72, 77, 84, 96],
-    evenSteps: [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 51, 56, 61, 66, 71, 76, 81, 86, 91, 96],
-  },
-  {
-    xmlPath: 'HPXML.Building.BuildingDetails.Enclosure.Windows.Window[WindowEast1].Area',
-    percentileSteps: [0, 0, 32, 36, 38, 39, 41, 42, 44, 46, 49, 53, 57, 62, 67, 72, 77, 83, 95],
-    evenSteps: [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95],
-  },
-  {
-    xmlPath: 'HPXML.Building.BuildingDetails.Enclosure.Windows.Window[WindowWest1].Area',
-    percentileSteps: [0, 0, 32, 36, 38, 39, 41, 42, 44, 46, 49, 53, 57, 62, 67, 72, 77, 83, 95],
-    evenSteps: [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95],
   },
   {
     xmlPath: 'HPXML.Building.BuildingDetails.Systems.WaterHeating.WaterHeatingSystem[WaterHeater1].TankVolume',
@@ -75,11 +35,6 @@ export const chartData = [
     evenSteps: [0, 2, 4, 7, 9, 11, 13, 15, 18, 20, 22, 24, 27, 29, 31, 33, 35, 38, 40, 42],
   },
   {
-    xmlPath: 'HPXML.Building.BuildingDetails.Systems.HVAC.HVACControl.extension.SetbackStartHourHeating',
-    percentileSteps: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23],
-    evenSteps: [0, 1, 2, 4, 5, 6, 7, 8, 10, 11, 12, 13, 15, 16, 17, 18, 19, 21, 22, 23],
-  },
-  {
     xmlPath: 'HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[ASHP1].AnnualCoolingEfficiency.Value',
     percentileSteps: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 16, 16, 16, 16, 17],
     evenSteps: [0, 1, 2, 3, 4, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17],
@@ -98,5 +53,52 @@ export const chartData = [
     xmlPath: 'HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistStory2Exposed].Insulation.AssemblyEffectiveRValue',
     percentileSteps: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 11, 11, 16],
     evenSteps: [0, 1, 2, 3, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 13, 14, 15, 16],
+  },
+  {
+    xmlPath: 'HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[ASHP1].AnnualHeatingEfficiency.Value',
+    percentileSteps: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 11, 14, 14, 14, 14],
+    evenSteps: [0, 1, 1, 2, 3, 4, 4, 5, 6, 7, 7, 8, 9, 10, 10, 11, 12, 13, 13, 14],
+  },
+  {
+    xmlPath: 'HPXML.Building.BuildingDetails.Systems.HVAC.HVACControl.extension.SetupStartHourCooling',
+    percentileSteps: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9],
+    evenSteps: [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9],
+  },
+  {
+    xmlPath: 'HPXML.Building.BuildingDetails.Appliances.ClothesDryer.CombinedEnergyFactor',
+    percentileSteps: [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5],
+    evenSteps: [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
+  },
+  {
+    xmlPath: 'HPXML.Building.BuildingDetails.Systems.WaterHeating.WaterHeatingSystem[WaterHeater1].EnergyFactor',
+    percentileSteps: [1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+    evenSteps: [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4],
+  },
+  {
+    xmlPath: 'HPXML.Building.BuildingDetails.Enclosure.FrameFloors.FrameFloor[FloorAboveVentedCrawl1].Insulation.AssemblyEffectiveRValue',
+    percentileSteps: [0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+    evenSteps: [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3],
+  },
+  {
+    xmlPath: 'HPXML.Building.BuildingDetails.Systems.HVAC.HVACDistribution[HVACDistributionAir1].DistributionSystemType.AirDistribution.NumberofReturnRegisters',
+    percentileSteps: [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3],
+    evenSteps: [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3],
+  },
+  {
+    xmlPath: 'HPXML.Building.BuildingDetails.Enclosure.Slabs.Slab[SlabOfBasementConditioned1].extension.CarpetRValue',
+    percentileSteps: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2],
+    evenSteps: [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2],
+  },
+  {
+    xmlPath:
+      'HPXML.Building.BuildingDetails.Systems.HVAC.HVACDistribution[HVACDistributionAir1].DistributionSystemType.AirDistribution.DuctLeakageMeasurement[HVACDistributionAir1Supply].DuctLeakage.TotalOrToOutside',
+    percentileSteps: [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    evenSteps: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  },
+  {
+    xmlPath:
+      'HPXML.Building.BuildingDetails.Systems.HVAC.HVACDistribution[HVACDistributionAir1].DistributionSystemType.AirDistribution.DuctLeakageMeasurement[HVACDistributionAir1Return].DuctLeakage.TotalOrToOutside',
+    percentileSteps: [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    evenSteps: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
   },
 ]

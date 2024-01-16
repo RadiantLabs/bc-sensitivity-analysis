@@ -8,6 +8,9 @@ import './App.css'
 // import { topRanked } from './assets/topRanked.js'
 // import { topRankedActionable } from './assets/topRankedActionable.js'
 
+import { chartData } from './assets/chartData.js'
+import { chartDataActionable } from './assets/chartDataActionable.js'
+
 function App() {
   return (
     <ThemeProvider theme={theme}>

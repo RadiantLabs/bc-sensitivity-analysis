@@ -8,6 +8,8 @@ import { getTopRank } from './utils/getTopRank.js'
 import { getPercentiles } from './utils/getPercentiles.js'
 import { getCodeToXmlPathLookup } from './utils/getCodeToXmlPathLookup.js'
 import { getChartData } from './utils/getChartData.js'
+import { topRankedManual } from './sources/topRankedManual.js'
+import { topRankedActionableManual } from './sources/topRankedActionableManual.js'
 import { getCSV } from './utils/getCSV.js'
 import { toJsonString } from '../src/utils/toJsonString.js'
 
@@ -30,6 +32,7 @@ const percentilesOutPath = path.join(intermediatesPath, 'inputPercentiles.js')
 
 // Assets to be bundled
 const chartDataOutPath = path.join(assetsPath, 'chartData.js')
+const chartDataActionableOutPath = path.join(assetsPath, 'chartDataActionable.js')
 const hudsonWeatherOutPath = path.join(assetsPath, 'hudsonWeather.js')
 const santarosaWeatherOutPath = path.join(assetsPath, 'santarosaWeather.js')
 
@@ -49,7 +52,8 @@ function buildInputsConfigAssets(inputsConfigSourcePath) {
       const percentiles = await getPercentiles(percentilesSourcePath, codeToXmlPathLookup)
       const hudsonWeather = await getCSV(hudsonWeatherSourcePath)
       const santarosaWeather = await getCSV(santarosaWeatherSourcePath)
-      const chartData = getChartData(percentiles, codeToXmlPathLookup)
+      const chartData = getChartData(percentiles, codeToXmlPathLookup, topRankedManual)
+      const chartDataActionable = getChartData(percentiles, codeToXmlPathLookup, topRankedActionableManual)
 
       // Intermediate output files for debugging
       writeFile(sortedXmlPaths, 'sortedXmlPaths', sortedXmlOutPath)
@@ -59,6 +63,7 @@ function buildInputsConfigAssets(inputsConfigSourcePath) {
 
       // Final assets to be used in the app
       writeFile(chartData, 'chartData', chartDataOutPath)
+      writeFile(chartDataActionable, 'chartDataActionable', chartDataActionableOutPath)
       writeFile(hudsonWeather, 'hudsonWeather', hudsonWeatherOutPath)
       writeFile(santarosaWeather, 'santarosaWeather', santarosaWeatherOutPath)
     },

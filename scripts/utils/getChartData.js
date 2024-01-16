@@ -11,8 +11,11 @@ import _ from 'lodash'
   ]
 
 */
-export function getChartData(percentiles, xmlPathLabels) {
-  return _.map(percentiles, (percentile, xmlPath) => {
+export function getChartData(percentiles, xmlPathLabels, topRanked) {
+  // Only output the chart data that we will be displaying
+  const topRankedPercentiles = _.pick(percentiles, topRanked)
+
+  return _.map(topRankedPercentiles, (percentile, xmlPath) => {
     const label = xmlPathLabels[xmlPath]
     const percentileSteps = _.map(percentiles[xmlPath], Math.round)
     const evenSteps = getEvenSteps(percentileSteps)
