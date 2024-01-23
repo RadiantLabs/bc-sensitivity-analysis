@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import SensitivityPlot from './SensitivityPlot'
 import _ from 'lodash'
 
-const SensitivityPlots = ({ initialChartsData, initialPredictedDataSet }) => {
-  const [chartsData, setChartsData] = useState(initialChartsData)
+const SensitivityPlots = ({ chartData, initialPredictedDataSet }) => {
+  const [chartsData, setChartsData] = useState(chartData)
   const [predictedDataSet, setPredictedDataSet] = useState(initialPredictedDataSet)
 
   const handleSliderChangeByChart = async (newSliderVal, chartId) => {
@@ -42,11 +42,12 @@ async function predictData(newSliderVal, chartsData, predictedData) {
 }
 
 SensitivityPlots.propTypes = {
-  initialChartsData: PropTypes.arrayOf(
+  chartData: PropTypes.arrayOf(
     PropTypes.shape({
       xmlPath: PropTypes.string.isRequired,
-      sliderValue: PropTypes.number.isRequired,
-      stepSize: PropTypes.number.isRequired,
+      label: PropTypes.string.isRequired,
+      percentileSteps: PropTypes.arrayOf(PropTypes.number).isRequired,
+      evenSteps: PropTypes.arrayOf(PropTypes.number).isRequired,
     }),
   ).isRequired,
   initialPredictedDataSet: PropTypes.arrayOf(

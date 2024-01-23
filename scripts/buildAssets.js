@@ -8,6 +8,7 @@ import { getTopRank } from './utils/getTopRank.js'
 import { getPercentiles } from './utils/getPercentiles.js'
 import { getCodeToXmlPathLookup } from './utils/getCodeToXmlPathLookup.js'
 import { getChartData } from './utils/getChartData.js'
+import { xmlPathLabels } from './sources/xmlPathLabels.js'
 import { topRankedManual } from './sources/topRankedManual.js'
 import { topRankedActionableManual } from './sources/topRankedActionableManual.js'
 import { getCSV } from './utils/getCSV.js'
@@ -52,8 +53,8 @@ function buildInputsConfigAssets(inputsConfigSourcePath) {
       const percentiles = await getPercentiles(percentilesSourcePath, codeToXmlPathLookup)
       const hudsonWeather = await getCSV(hudsonWeatherSourcePath)
       const santarosaWeather = await getCSV(santarosaWeatherSourcePath)
-      const chartData = getChartData(percentiles, codeToXmlPathLookup, topRankedManual)
-      const chartDataActionable = getChartData(percentiles, codeToXmlPathLookup, topRankedActionableManual)
+      const chartData = getChartData(percentiles, xmlPathLabels, topRankedManual)
+      const chartDataActionable = getChartData(percentiles, xmlPathLabels, topRankedActionableManual)
 
       // Intermediate output files for debugging
       writeFile(sortedXmlPaths, 'sortedXmlPaths', sortedXmlOutPath)

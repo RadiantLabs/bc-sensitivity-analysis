@@ -9,12 +9,13 @@ import './App.css'
 // import { topRankedActionable } from './assets/topRankedActionable.js'
 
 import { chartData } from './assets/chartData.js'
-import { chartDataActionable } from './assets/chartDataActionable.js'
+// import { chartDataActionable } from './assets/chartDataActionable.js'
+console.log('chartData', chartData)
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <SensitivityPlots initialChartsData={initialChartsData} initialPredictedDataSet={initialPredictedDataSet} />
+      <SensitivityPlots chartData={chartData} initialPredictedDataSet={initialPredictedDataSet} />
       <Inference />
     </ThemeProvider>
   )
@@ -45,16 +46,3 @@ const predictedData = [
 ]
 
 const initialPredictedDataSet = [predictedData, predictedData, predictedData]
-
-const initialChartsData = [
-  {
-    xmlPath: 'ABC',
-    sliderValue: 0,
-    stepSize: 1,
-  },
-  {
-    xmlPath: 'DEF',
-    sliderValue: 3,
-    stepSize: 1,
-  },
-]
