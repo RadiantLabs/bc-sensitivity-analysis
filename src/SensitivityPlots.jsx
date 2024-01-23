@@ -4,11 +4,10 @@ import SensitivityPlot from './SensitivityPlot'
 import _ from 'lodash'
 
 const SensitivityPlots = ({ chartData, initialPredictedDataSet }) => {
-  const [chartsData, setChartsData] = useState(chartData)
   const [predictedDataSet, setPredictedDataSet] = useState(initialPredictedDataSet)
 
   const handleSliderChangeByChart = async (newSliderVal, chartId) => {
-    const updatedPredictedDataSet = await predictData(newSliderVal, chartsData, predictedDataSet)
+    const updatedPredictedDataSet = await predictData(newSliderVal, chartData, predictedDataSet)
     setPredictedDataSet(updatedPredictedDataSet)
   }
 
@@ -17,13 +16,13 @@ const SensitivityPlots = ({ chartData, initialPredictedDataSet }) => {
   }
   return (
     <div>
-      {chartsData.map((chartData, index) => {
+      {chartData.map((chartData, index) => {
         const predictedData = predictedDataSet[index]
         return (
           <div key={index}>
             <h3>Chart {index + 1}</h3>
             <SensitivityPlot
-              chartId={index} // Passing chartId to the child component
+              chartId={index} //
               chartData={chartData}
               predictedData={predictedData}
               onSliderChange={handleSliderChangeByChart}
@@ -37,7 +36,7 @@ const SensitivityPlots = ({ chartData, initialPredictedDataSet }) => {
 
 export default SensitivityPlots
 
-async function predictData(newSliderVal, chartsData, predictedData) {
+async function predictData(newSliderVal, chartData, predictedData) {
   return predictedData
 }
 
@@ -53,7 +52,7 @@ SensitivityPlots.propTypes = {
   initialPredictedDataSet: PropTypes.arrayOf(
     PropTypes.arrayOf(
       PropTypes.shape({
-        inputName: PropTypes.number.isRequired,
+        inputValue: PropTypes.number.isRequired,
         predicted: PropTypes.number.isRequired,
       }),
     ),

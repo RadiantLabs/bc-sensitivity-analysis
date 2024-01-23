@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import * as Plot from '@observablehq/plot'
 import Slider from '@mui/material/Slider'
 import Box from '@mui/material/Box'
+import _ from 'lodash'
 
 const SensitivityPlot = ({ chartData, predictedData, chartId, onSliderChange }) => {
-  // Assuming your data array is sorted, the initial value of the slider could be the first inputName.
-  // If not sorted, you could find the minimum inputName value.
-  const [sliderValue, setSliderValue] = useState(Math.min(...predictedData.map((d) => d.inputName)))
+  // Find the minimum inputValue value for the initial slider value
+  const [sliderValue, setSliderValue] = useState(_.min(_.map(predictedData, 'inputValue')) || 0)
   const chartRef = useRef()
 
   const handleSliderChange = (event, newSliderVal) => {
@@ -18,16 +18,17 @@ const SensitivityPlot = ({ chartData, predictedData, chartId, onSliderChange }) 
 
   useEffect(() => {
     const currentRef = chartRef.current
-    console.log('sliderValue', sliderValue)
+    if (!currentRef) {
+      return undefined
+    }
 
     // Clear the previous chart before appending a new one
     if (currentRef.firstChild) {
       currentRef.removeChild(currentRef.firstChild)
     }
 
-    // Find the active data point
-    const activeData = predictedData.find((d) => d.inputName === sliderValue)
-    console.log('activeData', activeData)
+    // Find the bar that the slider is under so we can highlight it
+    const activeData = predictedData.find((d) => d.inputValue === sliderValue)
 
     // Initialize chart on mount
     const chart = Plot.plot({
@@ -40,14 +41,14 @@ const SensitivityPlot = ({ chartData, predictedData, chartId, onSliderChange }) 
       },
       marks: [
         Plot.barY(predictedData, {
-          x: 'inputName',
+          x: 'inputValue',
           y: 'predicted',
-          fill: (d) => (d.inputName === sliderValue ? '#000' : '#dfdfdf'),
+          fill: (d) => (d.inputValue === sliderValue ? '#000' : '#dfdfdf'),
         }),
         ...(activeData
           ? [
               Plot.text([activeData], {
-                x: 'inputName',
+                x: 'inputValue',
                 y: 'predicted',
                 text: (d) => d.predicted,
                 dy: -10,
@@ -66,6 +67,9 @@ const SensitivityPlot = ({ chartData, predictedData, chartId, onSliderChange }) 
     }
   }, [chartData, predictedData, sliderValue]) // The chart will re-render when data or sliderValue changes
 
+  if (_.isEmpty(predictedData)) {
+    return <div>Loading...</div>
+  }
   return (
     <div style={{ position: 'relative' }}>
       <Box sx={{ width: '100%', padding: 2 }}>
@@ -76,9 +80,11 @@ const SensitivityPlot = ({ chartData, predictedData, chartId, onSliderChange }) 
           value={sliderValue}
           onChange={handleSliderChange}
           step={1}
-          marks={predictedData.map((d) => ({ value: d.inputName, label: d.inputName.toString() }))}
-          min={Math.min(...predictedData.map((d) => d.inputName))}
-          max={Math.max(...predictedData.map((d) => d.inputName))}
+          marks={predictedData.map((d) => ({ value: d.inputValue, label: d.inputValue.toString() }))}
+          min={Math.min(...predictedData.map((d) => d.inputValue))}
+          max={Math.max(...predictedData.map((d) => d.inputValue))}
+          // marks={chartData.evenSteps.map((step) => ({ value: step, label: step.toString() }))}
+          // step={null}
           valueLabelDisplay="off"
           track={false}
           style={getSliderStyles()}
@@ -92,14 +98,15 @@ const SensitivityPlot = ({ chartData, predictedData, chartId, onSliderChange }) 
 SensitivityPlot.propTypes = {
   predictedData: PropTypes.arrayOf(
     PropTypes.shape({
-      inputName: PropTypes.number.isRequired,
+      inputValue: PropTypes.number.isRequired,
       predicted: PropTypes.number.isRequired,
     }),
   ),
   chartData: PropTypes.shape({
     xmlPath: PropTypes.string.isRequired,
-    sliderValue: PropTypes.number.isRequired,
-    stepSize: PropTypes.number.isRequired,
+    label: PropTypes.string,
+    percentileSteps: PropTypes.arrayOf(PropTypes.number),
+    evenSteps: PropTypes.arrayOf(PropTypes.number),
   }),
   chartId: PropTypes.number.isRequired,
   onSliderChange: PropTypes.func.isRequired,
