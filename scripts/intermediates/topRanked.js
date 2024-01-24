@@ -1,9 +1,9 @@
 export const topRanked = [
   {
-    "inputOrderId": 300,
+    "id": 300,
     "code": "X0138",
     "xmlPath": "HPXML.Building.BuildingDetails.BuildingSummary.BuildingConstruction.ConditionedFloorArea",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -11,10 +11,10 @@ export const topRanked = [
     "stdev": 5336155
   },
   {
-    "inputOrderId": 423,
+    "id": 423,
     "code": "X3714",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.Walls.Wall[WallExposed1].Area",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -22,10 +22,10 @@ export const topRanked = [
     "stdev": 4525102
   },
   {
-    "inputOrderId": 475,
+    "id": 475,
     "code": "X4386",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACDistribution[HVACDistributionAir1].ConditionedFloorAreaServed",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -33,10 +33,10 @@ export const topRanked = [
     "stdev": 4344854
   },
   {
-    "inputOrderId": 397,
+    "id": 397,
     "code": "X3141",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.Roofs.Roof[Roof1].Area",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -44,10 +44,10 @@ export const topRanked = [
     "stdev": 3778129
   },
   {
-    "inputOrderId": 353,
+    "id": 353,
     "code": "X1597",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.FrameFloors.FrameFloor[FloorBelowAttic1].Area",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -55,10 +55,10 @@ export const topRanked = [
     "stdev": 3378743
   },
   {
-    "inputOrderId": 408,
+    "id": 408,
     "code": "X3435",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.Slabs.Slab[SlabOnGrade1].Area",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -66,10 +66,10 @@ export const topRanked = [
     "stdev": 2981271
   },
   {
-    "inputOrderId": 418,
+    "id": 418,
     "code": "X3576",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.Slabs.Slab[SlabUnderCrawlspaceVented1].Area",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -77,10 +77,10 @@ export const topRanked = [
     "stdev": 2509553
   },
   {
-    "inputOrderId": 349,
+    "id": 349,
     "code": "X1417",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.FrameFloors.FrameFloor[FloorAboveVentedCrawl1].Area",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -88,10 +88,10 @@ export const topRanked = [
     "stdev": 2509553
   },
   {
-    "inputOrderId": 322,
+    "id": 322,
     "code": "X0280",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallBasementConditionedExposed1].Area",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -99,10 +99,10 @@ export const topRanked = [
     "stdev": 1006427
   },
   {
-    "inputOrderId": 336,
+    "id": 336,
     "code": "X0847",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallCrawlspaceVentedExposed1].Area",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -110,10 +110,10 @@ export const topRanked = [
     "stdev": 994293
   },
   {
-    "inputOrderId": 400,
+    "id": 400,
     "code": "X3297",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.Slabs.Slab[SlabOfBasementConditioned1].Area",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -121,10 +121,10 @@ export const topRanked = [
     "stdev": 760709
   },
   {
-    "inputOrderId": 345,
+    "id": 345,
     "code": "X1237",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.FrameFloors.FrameFloor[FloorAboveConditionedBasement1].Area",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -132,10 +132,10 @@ export const topRanked = [
     "stdev": 760709
   },
   {
-    "inputOrderId": 463,
+    "id": 463,
     "code": "X4209",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.Windows.Window[WindowWest1].Azimuth",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -143,10 +143,10 @@ export const topRanked = [
     "stdev": 408817
   },
   {
-    "inputOrderId": 459,
+    "id": 459,
     "code": "X4197",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.Windows.Window[WindowSouth1].Azimuth",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -154,10 +154,10 @@ export const topRanked = [
     "stdev": 272307
   },
   {
-    "inputOrderId": 409,
+    "id": 409,
     "code": "X3441",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.Slabs.Slab[SlabOnGrade1].ExposedPerimeter",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -165,10 +165,10 @@ export const topRanked = [
     "stdev": 267757
   },
   {
-    "inputOrderId": 361,
+    "id": 361,
     "code": "X2149",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistCrawlspaceVentedExposed1].Area",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -176,10 +176,10 @@ export const topRanked = [
     "stdev": 248039
   },
   {
-    "inputOrderId": 419,
+    "id": 419,
     "code": "X3579",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.Slabs.Slab[SlabUnderCrawlspaceVented1].ExposedPerimeter",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -187,10 +187,10 @@ export const topRanked = [
     "stdev": 248039
   },
   {
-    "inputOrderId": 367,
+    "id": 367,
     "code": "X2522",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistStory2Exposed].Area",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -198,10 +198,10 @@ export const topRanked = [
     "stdev": 234388
   },
   {
-    "inputOrderId": 291,
+    "id": 291,
     "code": "X0058",
     "xmlPath": "HPXML.Building.BuildingDetails.Appliances.ClothesDryer.extension.VentedFlowRate",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -209,10 +209,10 @@ export const topRanked = [
     "stdev": 226804
   },
   {
-    "inputOrderId": 368,
+    "id": 368,
     "code": "X2523",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistStory3Exposed].Area",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -220,10 +220,10 @@ export const topRanked = [
     "stdev": 147932
   },
   {
-    "inputOrderId": 458,
+    "id": 458,
     "code": "X4194",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.Windows.Window[WindowSouth1].Area",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -231,10 +231,10 @@ export const topRanked = [
     "stdev": 144899
   },
   {
-    "inputOrderId": 447,
+    "id": 447,
     "code": "X4158",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.Windows.Window[WindowNorth1].Area",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -242,10 +242,10 @@ export const topRanked = [
     "stdev": 144899
   },
   {
-    "inputOrderId": 435,
+    "id": 435,
     "code": "X4122",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.Windows.Window[WindowEast1].Area",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -253,10 +253,10 @@ export const topRanked = [
     "stdev": 143382
   },
   {
-    "inputOrderId": 462,
+    "id": 462,
     "code": "X4206",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.Windows.Window[WindowWest1].Area",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -264,10 +264,10 @@ export const topRanked = [
     "stdev": 143382
   },
   {
-    "inputOrderId": 581,
+    "id": 581,
     "code": "X7674",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.WaterHeating.WaterHeatingSystem[WaterHeater1].TankVolume",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -275,10 +275,10 @@ export const topRanked = [
     "stdev": 140173
   },
   {
-    "inputOrderId": 436,
+    "id": 436,
     "code": "X4125",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.Windows.Window[WindowEast1].Azimuth",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -286,10 +286,10 @@ export const topRanked = [
     "stdev": 135798
   },
   {
-    "inputOrderId": 315,
+    "id": 315,
     "code": "X0192",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACControl.SetupTempCoolingSeason",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -297,10 +297,10 @@ export const topRanked = [
     "stdev": 123664
   },
   {
-    "inputOrderId": 401,
+    "id": 401,
     "code": "X3300",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.Slabs.Slab[SlabOfBasementConditioned1].ExposedPerimeter",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -308,10 +308,10 @@ export const topRanked = [
     "stdev": 114563
   },
   {
-    "inputOrderId": 355,
+    "id": 355,
     "code": "X1777",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistBasementConditionedExposed1].Area",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -319,10 +319,10 @@ export const topRanked = [
     "stdev": 114563
   },
   {
-    "inputOrderId": 329,
+    "id": 329,
     "code": "X0658",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallBasementConditionedToCrawlVented1].Area",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -330,10 +330,10 @@ export const topRanked = [
     "stdev": 103946
   },
   {
-    "inputOrderId": 314,
+    "id": 314,
     "code": "X0189",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACControl.SetbackTempHeatingSeason",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -341,10 +341,10 @@ export const topRanked = [
     "stdev": 96363
   },
   {
-    "inputOrderId": 354,
+    "id": 354,
     "code": "X1687",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.FrameFloors.FrameFloor[FloorBelowAttic1].Insulation.AssemblyEffectiveRValue",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -352,10 +352,10 @@ export const topRanked = [
     "stdev": 73874
   },
   {
-    "inputOrderId": 316,
+    "id": 316,
     "code": "X0193",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACControl.TotalSetbackHoursperWeekHeating",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -363,10 +363,10 @@ export const topRanked = [
     "stdev": 73612
   },
   {
-    "inputOrderId": 317,
+    "id": 317,
     "code": "X0194",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACControl.TotalSetupHoursperWeekCooling",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -374,10 +374,10 @@ export const topRanked = [
     "stdev": 62995
   },
   {
-    "inputOrderId": 318,
+    "id": 318,
     "code": "X0195",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACControl.extension.SetbackStartHourHeating",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -385,10 +385,10 @@ export const topRanked = [
     "stdev": 34179
   },
   {
-    "inputOrderId": 507,
+    "id": 507,
     "code": "X5241",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[ASHP1].AnnualCoolingEfficiency.Value",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -396,10 +396,10 @@ export const topRanked = [
     "stdev": 24837
   },
   {
-    "inputOrderId": 425,
+    "id": 425,
     "code": "X3807",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.Walls.Wall[WallExposed1].Insulation.AssemblyEffectiveRValue",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -407,10 +407,10 @@ export const topRanked = [
     "stdev": 24768
   },
   {
-    "inputOrderId": 311,
+    "id": 311,
     "code": "X0177",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.AirInfiltration.AirInfiltrationMeasurement.BuildingAirLeakage.AirLeakage",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -418,10 +418,10 @@ export const topRanked = [
     "stdev": 23833
   },
   {
-    "inputOrderId": 379,
+    "id": 379,
     "code": "X2677",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistStory2Exposed].Insulation.AssemblyEffectiveRValue",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -429,10 +429,10 @@ export const topRanked = [
     "stdev": 23564
   },
   {
-    "inputOrderId": 520,
+    "id": 520,
     "code": "X5727",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[MiniSplitHP1].AnnualCoolingEfficiency.Value",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -440,10 +440,10 @@ export const topRanked = [
     "stdev": 23564
   },
   {
-    "inputOrderId": 509,
+    "id": 509,
     "code": "X5277",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[ASHP1].AnnualHeatingEfficiency.Value",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -451,10 +451,10 @@ export const topRanked = [
     "stdev": 19774
   },
   {
-    "inputOrderId": 494,
+    "id": 494,
     "code": "X4605",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].CoolingSystem[CentralAirConditioner1].AnnualCoolingEfficiency.Value",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -462,10 +462,10 @@ export const topRanked = [
     "stdev": 19016
   },
   {
-    "inputOrderId": 522,
+    "id": 522,
     "code": "X5763",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[MiniSplitHP1].AnnualHeatingEfficiency.Value",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -473,10 +473,10 @@ export const topRanked = [
     "stdev": 15317
   },
   {
-    "inputOrderId": 319,
+    "id": 319,
     "code": "X0196",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACControl.extension.SetupStartHourCooling",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -484,10 +484,10 @@ export const topRanked = [
     "stdev": 12954
   },
   {
-    "inputOrderId": 325,
+    "id": 325,
     "code": "X0373",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallBasementConditionedExposed1].Height",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -495,10 +495,10 @@ export const topRanked = [
     "stdev": 11439
   },
   {
-    "inputOrderId": 342,
+    "id": 342,
     "code": "X1033",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallCrawlspaceVentedExposed1].Thickness",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -506,10 +506,10 @@ export const topRanked = [
     "stdev": 11439
   },
   {
-    "inputOrderId": 335,
+    "id": 335,
     "code": "X0844",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallBasementConditionedToCrawlVented1].Thickness",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -517,10 +517,10 @@ export const topRanked = [
     "stdev": 11439
   },
   {
-    "inputOrderId": 328,
+    "id": 328,
     "code": "X0466",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallBasementConditionedExposed1].Thickness",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -528,10 +528,10 @@ export const topRanked = [
     "stdev": 11439
   },
   {
-    "inputOrderId": 323,
+    "id": 323,
     "code": "X0283",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallBasementConditionedExposed1].DepthBelowGrade",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -539,10 +539,10 @@ export const topRanked = [
     "stdev": 9925
   },
   {
-    "inputOrderId": 307,
+    "id": 307,
     "code": "X0155",
     "xmlPath": "HPXML.Building.BuildingDetails.BuildingSummary.BuildingOccupancy.NumberofResidents",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -550,10 +550,10 @@ export const topRanked = [
     "stdev": 9666
   },
   {
-    "inputOrderId": 288,
+    "id": 288,
     "code": "X0000",
     "xmlPath": "HPXML.Building.BuildingDetails.Appliances.ClothesDryer.CombinedEnergyFactor",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -561,10 +561,10 @@ export const topRanked = [
     "stdev": 8342
   },
   {
-    "inputOrderId": 302,
+    "id": 302,
     "code": "X0140",
     "xmlPath": "HPXML.Building.BuildingDetails.BuildingSummary.BuildingConstruction.NumberofBedrooms",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -572,10 +572,10 @@ export const topRanked = [
     "stdev": 7562
   },
   {
-    "inputOrderId": 301,
+    "id": 301,
     "code": "X0139",
     "xmlPath": "HPXML.Building.BuildingDetails.BuildingSummary.BuildingConstruction.NumberofBathrooms",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -583,10 +583,10 @@ export const topRanked = [
     "stdev": 5576
   },
   {
-    "inputOrderId": 576,
+    "id": 576,
     "code": "X7509",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.WaterHeating.WaterHeatingSystem[WaterHeater1].EnergyFactor",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -594,10 +594,10 @@ export const topRanked = [
     "stdev": 5557
   },
   {
-    "inputOrderId": 414,
+    "id": 414,
     "code": "X3549",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.Slabs.Slab[SlabOnGrade1].Thickness",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -605,10 +605,10 @@ export const topRanked = [
     "stdev": 5392
   },
   {
-    "inputOrderId": 380,
+    "id": 380,
     "code": "X2678",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistStory3Exposed].Insulation.AssemblyEffectiveRValue",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -616,10 +616,10 @@ export const topRanked = [
     "stdev": 5392
   },
   {
-    "inputOrderId": 404,
+    "id": 404,
     "code": "X3408",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.Slabs.Slab[SlabOfBasementConditioned1].Thickness",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -627,10 +627,10 @@ export const topRanked = [
     "stdev": 5392
   },
   {
-    "inputOrderId": 339,
+    "id": 339,
     "code": "X0940",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallCrawlspaceVentedExposed1].Height",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -638,10 +638,10 @@ export const topRanked = [
     "stdev": 5392
   },
   {
-    "inputOrderId": 332,
+    "id": 332,
     "code": "X0751",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallBasementConditionedToCrawlVented1].Height",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -649,10 +649,10 @@ export const topRanked = [
     "stdev": 5392
   },
   {
-    "inputOrderId": 304,
+    "id": 304,
     "code": "X0142",
     "xmlPath": "HPXML.Building.BuildingDetails.BuildingSummary.BuildingConstruction.NumberofConditionedFloorsAboveGrade",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -660,10 +660,10 @@ export const topRanked = [
     "stdev": 4084
   },
   {
-    "inputOrderId": 303,
+    "id": 303,
     "code": "X0141",
     "xmlPath": "HPXML.Building.BuildingDetails.BuildingSummary.BuildingConstruction.NumberofConditionedFloors",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -671,10 +671,10 @@ export const topRanked = [
     "stdev": 4084
   },
   {
-    "inputOrderId": 351,
+    "id": 351,
     "code": "X1507",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.FrameFloors.FrameFloor[FloorAboveVentedCrawl1].Insulation.AssemblyEffectiveRValue",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -682,10 +682,10 @@ export const topRanked = [
     "stdev": 4040
   },
   {
-    "inputOrderId": 488,
+    "id": 488,
     "code": "X4542",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACDistribution[HVACDistributionAir1].DistributionSystemType.AirDistribution.NumberofReturnRegisters",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -693,10 +693,10 @@ export const topRanked = [
     "stdev": 3891
   },
   {
-    "inputOrderId": 337,
+    "id": 337,
     "code": "X0850",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallCrawlspaceVentedExposed1].DepthBelowGrade",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -704,10 +704,10 @@ export const topRanked = [
     "stdev": 3891
   },
   {
-    "inputOrderId": 330,
+    "id": 330,
     "code": "X0661",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallBasementConditionedToCrawlVented1].DepthBelowGrade",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": false,
     "dataType": "__double__",
@@ -715,10 +715,10 @@ export const topRanked = [
     "stdev": 3891
   },
   {
-    "inputOrderId": 407,
+    "id": 407,
     "code": "X3432",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.Slabs.Slab[SlabOfBasementConditioned1].extension.CarpetRValue",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -726,10 +726,10 @@ export const topRanked = [
     "stdev": 2408
   },
   {
-    "inputOrderId": 519,
+    "id": 519,
     "code": "X5685",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[MiniSplitHP1].AnnualCoolingEfficiency.Units",
-    "shortName": null,
+    "label": null,
     "categoricalValue": "SEER",
     "isActionable": false,
     "dataType": null,
@@ -737,10 +737,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 525,
+    "id": 525,
     "code": "X5805",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[MiniSplitHP1].BackupSystemFuel",
-    "shortName": null,
+    "label": null,
     "categoricalValue": "electricity",
     "isActionable": true,
     "dataType": null,
@@ -748,10 +748,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 482,
+    "id": 482,
     "code": "X4452",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACDistribution[HVACDistributionAir1].DistributionSystemType.AirDistribution.DuctLeakageMeasurement[HVACDistributionAir1Supply].DuctLeakage.TotalOrToOutside",
-    "shortName": null,
+    "label": null,
     "categoricalValue": "to outside",
     "isActionable": true,
     "dataType": null,
@@ -759,10 +759,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 481,
+    "id": 481,
     "code": "X4441",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACDistribution[HVACDistributionAir1].DistributionSystemType.AirDistribution.DuctLeakageMeasurement[HVACDistributionAir1Return].DuctType",
-    "shortName": null,
+    "label": null,
     "categoricalValue": "return",
     "isActionable": false,
     "dataType": null,
@@ -770,10 +770,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 479,
+    "id": 479,
     "code": "X4413",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACDistribution[HVACDistributionAir1].DistributionSystemType.AirDistribution.DuctLeakageMeasurement[HVACDistributionAir1Return].DuctLeakage.Units",
-    "shortName": null,
+    "label": null,
     "categoricalValue": "Percent",
     "isActionable": false,
     "dataType": null,
@@ -781,10 +781,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 478,
+    "id": 478,
     "code": "X4398",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACDistribution[HVACDistributionAir1].DistributionSystemType.AirDistribution.DuctLeakageMeasurement[HVACDistributionAir1Return].DuctLeakage.TotalOrToOutside",
-    "shortName": null,
+    "label": null,
     "categoricalValue": "to outside",
     "isActionable": true,
     "dataType": null,
@@ -792,10 +792,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 476,
+    "id": 476,
     "code": "X4389",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACDistribution[HVACDistributionAir1].DistributionSystemType.AirDistribution.AirDistributionType",
-    "shortName": null,
+    "label": null,
     "categoricalValue": "regular velocity",
     "isActionable": true,
     "dataType": null,
@@ -803,10 +803,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 477,
+    "id": 477,
     "code": "X4391",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACDistribution[HVACDistributionAir1].DistributionSystemType.AirDistribution.AirDistributionType",
-    "shortName": null,
+    "label": null,
     "categoricalValue": "gravity",
     "isActionable": true,
     "dataType": null,
@@ -814,10 +814,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 295,
+    "id": 295,
     "code": "X0094",
     "xmlPath": "HPXML.Building.BuildingDetails.Appliances.CookingRange.FuelType",
-    "shortName": null,
+    "label": null,
     "categoricalValue": "electricity",
     "isActionable": true,
     "dataType": null,
@@ -825,10 +825,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 296,
+    "id": 296,
     "code": "X0096",
     "xmlPath": "HPXML.Building.BuildingDetails.Appliances.CookingRange.FuelType",
-    "shortName": null,
+    "label": null,
     "categoricalValue": "natural gas",
     "isActionable": true,
     "dataType": null,
@@ -836,10 +836,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 297,
+    "id": 297,
     "code": "X0107",
     "xmlPath": "HPXML.Building.BuildingDetails.Appliances.CookingRange.FuelType",
-    "shortName": null,
+    "label": null,
     "categoricalValue": "propane",
     "isActionable": true,
     "dataType": null,
@@ -847,10 +847,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 524,
+    "id": 524,
     "code": "X5799",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[MiniSplitHP1].BackupAnnualHeatingEfficiency.Value",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -858,10 +858,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 521,
+    "id": 521,
     "code": "X5733",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[MiniSplitHP1].AnnualHeatingEfficiency.Units",
-    "shortName": null,
+    "label": null,
     "categoricalValue": "HSPF",
     "isActionable": false,
     "dataType": null,
@@ -869,10 +869,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 485,
+    "id": 485,
     "code": "X4494",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACDistribution[HVACDistributionAir1].DistributionSystemType.AirDistribution.DuctLeakageMeasurement[HVACDistributionAir1Supply].DuctType",
-    "shortName": null,
+    "label": null,
     "categoricalValue": "supply",
     "isActionable": true,
     "dataType": null,
@@ -880,10 +880,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 324,
+    "id": 324,
     "code": "X0303",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallBasementConditionedExposed1].ExteriorAdjacentTo",
-    "shortName": null,
+    "label": null,
     "categoricalValue": "ground",
     "isActionable": false,
     "dataType": null,
@@ -891,10 +891,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 359,
+    "id": 359,
     "code": "X1879",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistBasementConditionedExposed1].InteriorAdjacentTo",
-    "shortName": null,
+    "label": null,
     "categoricalValue": "basement - conditioned",
     "isActionable": false,
     "dataType": null,
@@ -902,10 +902,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 526,
+    "id": 526,
     "code": "X5951",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[MiniSplitHP1].CompressorType",
-    "shortName": null,
+    "label": null,
     "categoricalValue": "variable speed",
     "isActionable": false,
     "dataType": null,
@@ -913,10 +913,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 527,
+    "id": 527,
     "code": "X5967",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[MiniSplitHP1].FractionCoolLoadServed",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -924,10 +924,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 327,
+    "id": 327,
     "code": "X0385",
     "xmlPath": "HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallBasementConditionedExposed1].InteriorAdjacentTo",
-    "shortName": null,
+    "label": null,
     "categoricalValue": "basement - conditioned",
     "isActionable": false,
     "dataType": null,
@@ -935,10 +935,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 289,
+    "id": 289,
     "code": "X0056",
     "xmlPath": "HPXML.Building.BuildingDetails.Appliances.ClothesDryer.extension.IsVented",
-    "shortName": null,
+    "label": null,
     "categoricalValue": false,
     "isActionable": true,
     "dataType": null,
@@ -946,10 +946,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 290,
+    "id": 290,
     "code": "X0057",
     "xmlPath": "HPXML.Building.BuildingDetails.Appliances.ClothesDryer.extension.IsVented",
-    "shortName": null,
+    "label": null,
     "categoricalValue": true,
     "isActionable": true,
     "dataType": null,
@@ -957,10 +957,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 528,
+    "id": 528,
     "code": "X5973",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[MiniSplitHP1].FractionHeatLoadServed",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -968,10 +968,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 529,
+    "id": 529,
     "code": "X5979",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[MiniSplitHP1].HeatPumpFuel",
-    "shortName": null,
+    "label": null,
     "categoricalValue": "electricity",
     "isActionable": true,
     "dataType": null,
@@ -979,10 +979,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 483,
+    "id": 483,
     "code": "X4467",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACDistribution[HVACDistributionAir1].DistributionSystemType.AirDistribution.DuctLeakageMeasurement[HVACDistributionAir1Supply].DuctLeakage.Units",
-    "shortName": null,
+    "label": null,
     "categoricalValue": "Percent",
     "isActionable": false,
     "dataType": null,
@@ -990,10 +990,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 486,
+    "id": 486,
     "code": "X4513",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACDistribution[HVACDistributionAir1].DistributionSystemType.AirDistribution.Ducts[HVACDistribution1Return].DuctType",
-    "shortName": null,
+    "label": null,
     "categoricalValue": "return",
     "isActionable": false,
     "dataType": null,
@@ -1001,10 +1001,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 517,
+    "id": 517,
     "code": "X5639",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[ASHP1].HeatPumpType",
-    "shortName": null,
+    "label": null,
     "categoricalValue": "air-to-air",
     "isActionable": false,
     "dataType": null,
@@ -1012,10 +1012,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 508,
+    "id": 508,
     "code": "X5247",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[ASHP1].AnnualHeatingEfficiency.Units",
-    "shortName": null,
+    "label": null,
     "categoricalValue": "HSPF",
     "isActionable": false,
     "dataType": null,
@@ -1023,10 +1023,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 516,
+    "id": 516,
     "code": "X5493",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[ASHP1].HeatPumpFuel",
-    "shortName": null,
+    "label": null,
     "categoricalValue": "electricity",
     "isActionable": true,
     "dataType": null,
@@ -1034,10 +1034,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 515,
+    "id": 515,
     "code": "X5487",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[ASHP1].FractionHeatLoadServed",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -1045,10 +1045,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 514,
+    "id": 514,
     "code": "X5481",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[ASHP1].FractionCoolLoadServed",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -1056,10 +1056,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 513,
+    "id": 513,
     "code": "X5465",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[ASHP1].CompressorType",
-    "shortName": null,
+    "label": null,
     "categoricalValue": "variable speed",
     "isActionable": false,
     "dataType": null,
@@ -1067,10 +1067,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 512,
+    "id": 512,
     "code": "X5319",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[ASHP1].BackupSystemFuel",
-    "shortName": null,
+    "label": null,
     "categoricalValue": "electricity",
     "isActionable": true,
     "dataType": null,
@@ -1078,10 +1078,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 511,
+    "id": 511,
     "code": "X5313",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[ASHP1].BackupAnnualHeatingEfficiency.Value",
-    "shortName": null,
+    "label": null,
     "categoricalValue": null,
     "isActionable": true,
     "dataType": "__double__",
@@ -1089,10 +1089,10 @@ export const topRanked = [
     "stdev": 1601
   },
   {
-    "inputOrderId": 510,
+    "id": 510,
     "code": "X5287",
     "xmlPath": "HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[ASHP1].BackupAnnualHeatingEfficiency.Units",
-    "shortName": null,
+    "label": null,
     "categoricalValue": "Percent",
     "isActionable": false,
     "dataType": null,

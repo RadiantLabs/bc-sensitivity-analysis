@@ -1,11 +1,16 @@
 ### TODO Data
 
-- [ ] Build rounding precision into xmlPath label object
+- [ ] Rename inputsConfig to something more obvious
+- [ ] Move label definitions to spreadsheet instead of JS file
+- [ ] Create initial prediction input set
+- [ ] Run initialPrediction
 - [ ] Validate that the input array always has the correct number of elements
+- [ ] Build rounding precision into xmlPath label object
 - [ ] Get rid of vite.svg in the prod build
 
 ### TODO UI
 
+- [ ] Define slider steps as eventSteps or percentileSteps
 - [ ] Toggle between actionable and mixed actionable
 - [ ] Have a toggle to switch the weather
 

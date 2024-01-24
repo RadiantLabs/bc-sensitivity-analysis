@@ -20,12 +20,13 @@ const assetsPath = path.join(__dirname, '../src/assets')
 const intermediatesPath = path.join(__dirname, './intermediates')
 
 // Paths to CSV source files
-const inputsConfigSourcePath = path.join(__dirname, 'sources/inputs_config_source.csv')
+const modelInputsMetadataSourcePath = path.join(__dirname, 'sources/model_inputs_metadata.csv')
 const hudsonWeatherSourcePath = path.join(__dirname, 'sources/hudson_ny.csv')
 const santarosaWeatherSourcePath = path.join(__dirname, 'sources/santa_rosa_ca.csv')
 const percentilesSourcePath = path.join(__dirname, 'sources/input_percentiles.csv')
 
 // Intermediate output files for debugging
+const modelInputsMetadataPath = path.join(intermediatesPath, 'modelInputsMetadata.js')
 const sortedXmlOutPath = path.join(intermediatesPath, 'sortedXmlPaths.js')
 const topRankedOutPath = path.join(intermediatesPath, 'topRanked.js')
 const topRankedActionableOutPath = path.join(intermediatesPath, 'topRankedActionable.js')
@@ -38,18 +39,18 @@ const hudsonWeatherOutPath = path.join(assetsPath, 'hudsonWeather.js')
 const santarosaWeatherOutPath = path.join(assetsPath, 'santarosaWeather.js')
 
 // Function to read CSV and convert to JSON
-function buildInputsConfigAssets(inputsConfigSourcePath) {
-  const file = fs.readFileSync(inputsConfigSourcePath, 'utf8')
+function buildAssets(modelInputsMetadataSourcePath) {
+  const file = fs.readFileSync(modelInputsMetadataSourcePath, 'utf8')
   Papa.parse(file, {
     header: true,
     dynamicTyping: true,
     skipEmptyLines: true,
     complete: async (results) => {
-      const inputsConfig = results.data // Don't need to write to file
-      const sortedXmlPaths = getInputsSortOrder(inputsConfig)
-      const topRanked = getTopRank(inputsConfig)
-      const topRankedActionable = getTopRankActionable(inputsConfig)
-      const codeToXmlPathLookup = getCodeToXmlPathLookup(inputsConfig)
+      const modelInputsMetadata = results.data
+      const sortedXmlPaths = getInputsSortOrder(modelInputsMetadata)
+      const topRanked = getTopRank(modelInputsMetadata)
+      const topRankedActionable = getTopRankActionable(modelInputsMetadata)
+      const codeToXmlPathLookup = getCodeToXmlPathLookup(modelInputsMetadata)
       const percentiles = await getPercentiles(percentilesSourcePath, codeToXmlPathLookup)
       const hudsonWeather = await getCSV(hudsonWeatherSourcePath)
       const santarosaWeather = await getCSV(santarosaWeatherSourcePath)
@@ -57,6 +58,7 @@ function buildInputsConfigAssets(inputsConfigSourcePath) {
       const chartDataActionable = getChartData(percentiles, xmlPathLabels, topRankedActionableManual)
 
       // Intermediate output files for debugging
+      writeFile(modelInputsMetadata, 'modelInputsMetadata', modelInputsMetadataPath)
       writeFile(sortedXmlPaths, 'sortedXmlPaths', sortedXmlOutPath)
       writeFile(topRanked, 'topRanked', topRankedOutPath)
       writeFile(topRankedActionable, 'topRankedActionable', topRankedActionableOutPath)
@@ -74,7 +76,7 @@ function buildInputsConfigAssets(inputsConfigSourcePath) {
 // -------------------------------------------------------------------------
 // Main calling functions
 // -------------------------------------------------------------------------
-buildInputsConfigAssets(inputsConfigSourcePath)
+buildAssets(modelInputsMetadataSourcePath)
 
 // -------------------------------------------------------------------------
 // Helper functions
