@@ -28,7 +28,7 @@ The reduce function converts it to this:
 5. Replace the codes with xmlPaths
 
 */
-export async function getPercentiles(sourcePath, codeToXmlPathLookup) {
+export async function getPercentiles(sourcePath, inputCodeToXmlPathLookup) {
   const rawJson = await getCSV(sourcePath)
 
   // Remove count, std, min, max, mean
@@ -52,7 +52,7 @@ export async function getPercentiles(sourcePath, codeToXmlPathLookup) {
   }, {})
 
   // Replace codes with xmlPaths
-  const percentilesAsXmlPaths = _.mapKeys(percentilesAsCodes, (val, codeKey) => codeToXmlPathLookup[codeKey])
+  const percentilesAsXmlPaths = _.mapKeys(percentilesAsCodes, (val, codeKey) => inputCodeToXmlPathLookup[codeKey])
 
   return percentilesAsXmlPaths
 }

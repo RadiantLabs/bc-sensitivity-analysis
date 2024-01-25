@@ -4,13 +4,7 @@ import { ThemeProvider } from '@mui/material'
 import { theme } from './theme'
 import './App.css'
 
-// import { sortedXmlPaths } from './assets/sortedXmlPaths.js'
-// import { topRanked } from './assets/topRanked.js'
-// import { topRankedActionable } from './assets/topRankedActionable.js'
-
 import { chartData } from './assets/chartData.js'
-// import { chartDataActionable } from './assets/chartDataActionable.js'
-console.log('chartData', chartData)
 
 function App() {
   return (

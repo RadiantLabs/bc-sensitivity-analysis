@@ -1,4 +1,4 @@
-﻿inputOrder,code,xmlPath,label,categoricalValue,isActionable,dataType,importanceRank,stdev
+﻿inputOrder,InputCode,xmlPath,label,categoricalValue,isActionable,dataType,importanceRank,stdev
 0,WEATHER_DIFFUSE_SOLAR_RADIATION_AVG_01,WEATHER_DIFFUSE_SOLAR_RADIATION_AVG_01,,,,,,
 1,WEATHER_DIFFUSE_SOLAR_RADIATION_AVG_02,WEATHER_DIFFUSE_SOLAR_RADIATION_AVG_02,,,,,,
 2,WEATHER_DIFFUSE_SOLAR_RADIATION_AVG_03,WEATHER_DIFFUSE_SOLAR_RADIATION_AVG_03,,,,,,

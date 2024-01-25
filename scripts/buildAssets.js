@@ -6,7 +6,7 @@ import { getInputsSortOrder } from './utils/getInputsSortOrder.js'
 import { getTopRankActionable } from './utils/getTopRankActionable.js'
 import { getTopRank } from './utils/getTopRank.js'
 import { getPercentiles } from './utils/getPercentiles.js'
-import { getCodeToXmlPathLookup } from './utils/getCodeToXmlPathLookup.js'
+import { getInputCodeToXmlPathLookup } from './utils/getInputCodeToXmlPathLookup.js'
 import { getChartData } from './utils/getChartData.js'
 import { xmlPathLabels } from './sources/xmlPathLabels.js'
 import { topRankedManual } from './sources/topRankedManual.js'
@@ -27,12 +27,13 @@ const percentilesSourcePath = path.join(__dirname, 'sources/input_percentiles.cs
 
 // Intermediate output files for debugging
 const modelInputsMetadataPath = path.join(intermediatesPath, 'modelInputsMetadata.js')
-const sortedXmlOutPath = path.join(intermediatesPath, 'sortedXmlPaths.js')
 const topRankedOutPath = path.join(intermediatesPath, 'topRanked.js')
 const topRankedActionableOutPath = path.join(intermediatesPath, 'topRankedActionable.js')
-const percentilesOutPath = path.join(intermediatesPath, 'inputPercentiles.js')
+const inputCodeToXmlPathLookupPath = path.join(intermediatesPath, 'inputCodeToXmlPathLookup.js')
+const inputPercentilesOutPath = path.join(intermediatesPath, 'inputPercentiles.js')
 
 // Assets to be bundled
+const inputsSortOrderPath = path.join(assetsPath, 'inputsSortOrder.js')
 const chartDataOutPath = path.join(assetsPath, 'chartData.js')
 const chartDataActionableOutPath = path.join(assetsPath, 'chartDataActionable.js')
 const hudsonWeatherOutPath = path.join(assetsPath, 'hudsonWeather.js')
@@ -47,24 +48,35 @@ function buildAssets(modelInputsMetadataSourcePath) {
     skipEmptyLines: true,
     complete: async (results) => {
       const modelInputsMetadata = results.data
-      const sortedXmlPaths = getInputsSortOrder(modelInputsMetadata)
+      const inputsSortOrder = getInputsSortOrder(modelInputsMetadata)
       const topRanked = getTopRank(modelInputsMetadata)
       const topRankedActionable = getTopRankActionable(modelInputsMetadata)
-      const codeToXmlPathLookup = getCodeToXmlPathLookup(modelInputsMetadata)
-      const percentiles = await getPercentiles(percentilesSourcePath, codeToXmlPathLookup)
+
+      // Input codes (like X0754) are used instead of xml paths in the percentiles calculation spreadsheet
+      // We use xml paths for the rest of the calculations so this maps from input codes to xml paths.
+      const inputCodeToXmlPathLookup = getInputCodeToXmlPathLookup(modelInputsMetadata)
+
+      // JP calculated 5% to 95% values for each input in steps of 5%. This will be used to create
+      // steps of the sliders
+      const inputPercentiles = await getPercentiles(percentilesSourcePath, inputCodeToXmlPathLookup)
+
+      // We want to be able to toggle between weather stations to see how that impacts model sensitivity
       const hudsonWeather = await getCSV(hudsonWeatherSourcePath)
       const santarosaWeather = await getCSV(santarosaWeatherSourcePath)
-      const chartData = getChartData(percentiles, xmlPathLabels, topRankedManual)
-      const chartDataActionable = getChartData(percentiles, xmlPathLabels, topRankedActionableManual)
+
+      // Generate the chart configuration data, including what xml paths are used and the steps for the sliders
+      const chartData = getChartData(inputPercentiles, xmlPathLabels, topRankedManual)
+      const chartDataActionable = getChartData(inputPercentiles, xmlPathLabels, topRankedActionableManual)
 
       // Intermediate output files for debugging
       writeFile(modelInputsMetadata, 'modelInputsMetadata', modelInputsMetadataPath)
-      writeFile(sortedXmlPaths, 'sortedXmlPaths', sortedXmlOutPath)
       writeFile(topRanked, 'topRanked', topRankedOutPath)
       writeFile(topRankedActionable, 'topRankedActionable', topRankedActionableOutPath)
-      writeFile(percentiles, 'percentiles', percentilesOutPath)
+      writeFile(inputCodeToXmlPathLookup, 'inputCodeToXmlPathLookup', inputCodeToXmlPathLookupPath)
+      writeFile(inputPercentiles, 'inputPercentiles', inputPercentilesOutPath)
 
       // Final assets to be used in the app
+      writeFile(inputsSortOrder, 'inputsSortOrder', inputsSortOrderPath)
       writeFile(chartData, 'chartData', chartDataOutPath)
       writeFile(chartDataActionable, 'chartDataActionable', chartDataActionableOutPath)
       writeFile(hudsonWeather, 'hudsonWeather', hudsonWeatherOutPath)

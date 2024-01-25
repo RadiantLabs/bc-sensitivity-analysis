@@ -2,5 +2,5 @@
 // Sorting mutates the array. Not a big deal but I don't like side effects. So clone it at the beginning.
 export function getInputsSortOrder(modelInputsMetadata) {
   const clonedArray = [...modelInputsMetadata]
-  return clonedArray.sort((a, b) => a.id - b.id).map((item) => item.xmlPath)
+  return clonedArray.sort((a, b) => a.inputOrder - b.inputOrder).map((item) => item.xmlPath)
 }

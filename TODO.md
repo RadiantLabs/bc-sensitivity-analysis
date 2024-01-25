@@ -1,12 +1,11 @@
 ### TODO Data
 
-- [ ] Rename inputsConfig to something more obvious
-- [ ] Move label definitions to spreadsheet instead of JS file
 - [ ] Create initial prediction input set
 - [ ] Run initialPrediction
 - [ ] Validate that the input array always has the correct number of elements
-- [ ] Build rounding precision into xmlPath label object
 - [ ] Get rid of vite.svg in the prod build
+- [ ] Move label definitions to spreadsheet instead of JS file
+- [ ] Add rounding precision to spreadsheet and use for step sizes
 
 ### TODO UI
 
@@ -23,6 +22,7 @@
 
 ### Done
 
+- [x] Rename inputsConfig to modelInputsMetadata
 - [x] Manually create top 20 to remove redundant variations of inputs such as conditioned floor area
 - [x] Create chartData data structure to loop over charts
 - [x] Add percentile input data for top ranked (domain.csv)
