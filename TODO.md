@@ -1,5 +1,6 @@
-### TODO Data
+### TODO
 
+- [ ] Switch to Zustand for state management, hook up to Redux devtools
 - [ ] Create initial prediction input set
 - [ ] Run initialPrediction
 - [ ] Validate that the input array always has the correct number of elements
@@ -7,14 +8,13 @@
 - [ ] Move label definitions to spreadsheet instead of JS file
 - [ ] Add rounding precision to spreadsheet and use for step sizes
 
-### TODO UI
-
 - [ ] Define slider steps as eventSteps or percentileSteps
 - [ ] Toggle between actionable and mixed actionable
 - [ ] Have a toggle to switch the weather
 
 ### Maybe
 
+- [ ] Consider using lodash-es for smaller builds
 - [ ] Create grouped array of categorical inputs (if it's in the top 20)
 - [ ] Build function that takes categorical inputs and the value to turn on and return the whole set with the rest as zeros. (only if categorical is included in the top 20)
 - [ ] Build assets along with production `npm run build`. You can't run in dev mode without these assets and they are checked in, so not sure this is needed.

@@ -1,32 +1,33 @@
-import { useState } from 'react'
+import { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import SensitivityPlot from './SensitivityPlot'
 import _ from 'lodash'
+import { store } from './store'
 
-const SensitivityPlots = ({ chartData, initialPredictedDataSet }) => {
-  const [predictedDataSet, setPredictedDataSet] = useState(initialPredictedDataSet)
+const SensitivityPlots = ({ chartDataProp, initialPredictedDataSetProp }) => {
+  const { chartData, initialPredictedDataSet, setChartData, setInitialPredictedDataSet } = store((state) => ({
+    chartData: state.chartData,
+    initialPredictedDataSet: state.initialPredictedDataSet,
+    setChartData: state.setChartData,
+    setInitialPredictedDataSet: state.setInitialPredictedDataSet,
+  }))
 
-  const handleSliderChangeByChart = async (newSliderVal, chartId) => {
-    const updatedPredictedDataSet = await predictData(newSliderVal, chartData, predictedDataSet)
-    setPredictedDataSet(updatedPredictedDataSet)
-  }
+  useEffect(() => {
+    setChartData(chartDataProp)
+    setInitialPredictedDataSet(initialPredictedDataSetProp)
+  }, [chartDataProp, initialPredictedDataSetProp, setChartData, setInitialPredictedDataSet])
 
-  if (_.isEmpty(predictedDataSet)) {
+  if (_.isEmpty(initialPredictedDataSet)) {
     return <div>Loading...</div>
   }
   return (
     <div>
-      {chartData.map((chartData, index) => {
-        const predictedData = predictedDataSet[index]
+      {chartData.map((data, index) => {
+        const predictedData = initialPredictedDataSet[index]
         return (
           <div key={index}>
             <h3>Chart {index + 1}</h3>
-            <SensitivityPlot
-              chartId={index} //
-              chartData={chartData}
-              predictedData={predictedData}
-              onSliderChange={handleSliderChangeByChart}
-            />
+            <SensitivityPlot chartId={index} predictedData={predictedData} />
           </div>
         )
       })}
@@ -36,12 +37,8 @@ const SensitivityPlots = ({ chartData, initialPredictedDataSet }) => {
 
 export default SensitivityPlots
 
-async function predictData(newSliderVal, chartData, predictedData) {
-  return predictedData
-}
-
 SensitivityPlots.propTypes = {
-  chartData: PropTypes.arrayOf(
+  chartDataProp: PropTypes.arrayOf(
     PropTypes.shape({
       xmlPath: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
@@ -49,7 +46,7 @@ SensitivityPlots.propTypes = {
       evenSteps: PropTypes.arrayOf(PropTypes.number).isRequired,
     }),
   ).isRequired,
-  initialPredictedDataSet: PropTypes.arrayOf(
+  initialPredictedDataSetProp: PropTypes.arrayOf(
     PropTypes.arrayOf(
       PropTypes.shape({
         inputValue: PropTypes.number.isRequired,

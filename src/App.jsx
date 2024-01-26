@@ -4,12 +4,12 @@ import { ThemeProvider } from '@mui/material'
 import { theme } from './theme'
 import './App.css'
 
-import { chartData } from './assets/chartData.js'
+import { chartData as chartDataProp } from './assets/chartData.js'
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <SensitivityPlots chartData={chartData} initialPredictedDataSet={initialPredictedDataSet} />
+      <SensitivityPlots chartDataProp={chartDataProp} initialPredictedDataSetProp={initialPredictedDataSetProp} />
       <Inference />
     </ThemeProvider>
   )
@@ -39,4 +39,4 @@ const predictedData = [
   { inputValue: 18, predicted: 7700 },
 ]
 
-const initialPredictedDataSet = [predictedData, predictedData, predictedData]
+const initialPredictedDataSetProp = [predictedData, predictedData, predictedData]

@@ -1,19 +1,24 @@
-import { useState, useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import * as Plot from '@observablehq/plot'
 import Slider from '@mui/material/Slider'
 import Box from '@mui/material/Box'
 import _ from 'lodash'
+import { store } from './store'
 
-const SensitivityPlot = ({ chartData, predictedData, chartId, onSliderChange }) => {
-  // Find the minimum inputValue value for the initial slider value
-  const [sliderValue, setSliderValue] = useState(_.min(_.map(predictedData, 'inputValue')) || 0)
+const SensitivityPlot = ({ predictedData, chartId }) => {
+  const { sliderValues, setSliderValue } = store((state) => ({
+    sliderValues: state.sliderValues,
+    setSliderValue: state.setSliderValue,
+  }))
+
+  // Retrieve the current slider value for this chart
+  const sliderValue = sliderValues[chartId] || _.min(_.map(predictedData, 'inputValue')) || 0
+
   const chartRef = useRef()
 
   const handleSliderChange = (event, newSliderVal) => {
-    console.log('newSliderVal', newSliderVal)
-    setSliderValue(newSliderVal)
-    onSliderChange(newSliderVal, chartId) // Pass newSliderVal and chartId to the parent handler
+    setSliderValue(chartId, newSliderVal)
   }
 
   useEffect(() => {
@@ -65,7 +70,7 @@ const SensitivityPlot = ({ chartData, predictedData, chartId, onSliderChange }) 
     return () => {
       currentRef.removeChild(chart)
     }
-  }, [chartData, predictedData, sliderValue]) // The chart will re-render when data or sliderValue changes
+  }, [predictedData, sliderValue]) // The chart will re-render when data or sliderValue changes
 
   if (_.isEmpty(predictedData)) {
     return <div>Loading...</div>
@@ -109,7 +114,6 @@ SensitivityPlot.propTypes = {
     evenSteps: PropTypes.arrayOf(PropTypes.number),
   }),
   chartId: PropTypes.number.isRequired,
-  onSliderChange: PropTypes.func.isRequired,
 }
 
 export default SensitivityPlot

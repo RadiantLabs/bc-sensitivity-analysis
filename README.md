@@ -33,6 +33,11 @@ Run normal JS build process
 npm run build
 ```
 
+## Datastore
+
+Uses a single Zustand datastore for global state management
+Can use Redux devtools in Chrome to view and manipulate state
+
 ## Notes
 
 Top ranked inputs to model: To find top ranked, sort by cumulative std dev
