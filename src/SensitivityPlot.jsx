@@ -40,11 +40,9 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
     const chart = Plot.plot({
       y: {
         axis: null,
-        // tickSize: 0,
       },
       x: {
         axis: null,
-        // tickSize: 0,
       },
       marks: [
         Plot.barY(predictedData, {
@@ -60,7 +58,6 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
                 x: 'inputValue',
                 y: 'predicted',
                 text: (d) => `${d.predictedData}`,
-                // text: (d) => d.predictedData,
                 dy: -10,
                 fill: 'black',
                 textAlign: 'center',

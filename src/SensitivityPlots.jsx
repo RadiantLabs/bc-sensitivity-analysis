@@ -12,18 +12,18 @@ const SensitivityPlots = () => {
     return <div>Loading...</div>
   }
   return (
-    <div>
-      {chartDataSet.map((data, index) => {
-        const predictedData = predictedDataSet[index]
-        const { xmlPath, label } = data
+    <>
+      {chartDataSet.map((chartData, index) => {
+        const { xmlPath, label } = chartData
+        const predictedData = predictedDataSet[xmlPath]
         return (
           <div key={index}>
             <h3>{label}</h3>
-            <SensitivityPlot chartId={xmlPath} predictedData={predictedData} chartData={data} />
+            <SensitivityPlot chartId={xmlPath} predictedData={predictedData} chartData={chartData} />
           </div>
         )
       })}
-    </div>
+    </>
   )
 }
 
