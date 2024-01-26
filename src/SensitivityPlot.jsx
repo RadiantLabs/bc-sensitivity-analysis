@@ -40,32 +40,37 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
     const chart = Plot.plot({
       y: {
         axis: null,
-        grid: true,
+        // tickSize: 0,
       },
       x: {
         axis: null,
+        // tickSize: 0,
       },
       marks: [
         Plot.barY(predictedData, {
           x: 'inputValue',
           y: 'predicted',
           fill: (d) => (d.inputValue === sliderValue ? '#000' : '#dfdfdf'),
+          stroke: '#bbb',
+          strokeWidth: 0.5,
         }),
         ...(activeData
           ? [
               Plot.text([activeData], {
                 x: 'inputValue',
                 y: 'predicted',
-                text: (d) => d.predictedData,
+                text: (d) => `${d.predictedData}`,
+                // text: (d) => d.predictedData,
                 dy: -10,
                 fill: 'black',
                 textAlign: 'center',
+                font: 'small-caption',
+                fontWeight: 'bold',
               }),
             ]
           : []),
       ],
       height: 100,
-      marginTop: 30,
     })
     currentRef.appendChild(chart)
     return () => {
