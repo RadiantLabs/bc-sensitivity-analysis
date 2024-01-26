@@ -1,5 +1,7 @@
 import { getCSV } from './getCSV.js'
-import _ from 'lodash'
+import sortBy from 'lodash/sortBy'
+import omit from 'lodash/omit'
+import mapKeys from 'lodash/mapKeys'
 
 /*
 1. First remove count, mean, std, min, max.
@@ -35,10 +37,10 @@ export async function getPercentiles(sourcePath, inputCodeToXmlPathLookup) {
   const percentilesOnly = rawJson.filter((row) => row.percentile.includes('%'))
 
   // Make sure this array of objects is sorted by percentile
-  const sortedPercentiles = _.sortBy(percentilesOnly, (row) => parseInt(row.percentile.replace('%', ''), 10))
+  const sortedPercentiles = sortBy(percentilesOnly, (row) => parseInt(row.percentile.replace('%', ''), 10))
 
   // Remove percentile column
-  const codesOnly = sortedPercentiles.map((row) => _.omit(row, 'percentile'))
+  const codesOnly = sortedPercentiles.map((row) => omit(row, 'percentile'))
 
   // Create an object of arrays, where each array is a list of percentiles for a given code
   const percentilesAsCodes = codesOnly.reduce((acc, row) => {
@@ -52,7 +54,7 @@ export async function getPercentiles(sourcePath, inputCodeToXmlPathLookup) {
   }, {})
 
   // Replace codes with xmlPaths
-  const percentilesAsXmlPaths = _.mapKeys(percentilesAsCodes, (val, codeKey) => inputCodeToXmlPathLookup[codeKey])
+  const percentilesAsXmlPaths = mapKeys(percentilesAsCodes, (val, codeKey) => inputCodeToXmlPathLookup[codeKey])
 
   return percentilesAsXmlPaths
 }

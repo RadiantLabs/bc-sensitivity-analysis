@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 import * as Plot from '@observablehq/plot'
 import Slider from '@mui/material/Slider'
 import Box from '@mui/material/Box'
-import _ from 'lodash'
 import { useStore } from './useStore'
+import map from 'lodash/map'
+import isEmpty from 'lodash/isEmpty'
 
 const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
   const { sliderValues, setSliderValue } = useStore((state) => ({
@@ -13,7 +14,7 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
   }))
 
   // Retrieve the current slider value for this chart
-  const sliderValue = sliderValues[chartId] || _.min(_.map(predictedData, 'inputValue')) || 0
+  const sliderValue = sliderValues[chartId] || Math.min(map(predictedData, 'inputValue')) || 0
 
   const chartRef = useRef()
 
@@ -72,7 +73,7 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
     }
   }, [predictedData, sliderValue]) // The chart will re-render when data or sliderValue changes
 
-  if (_.isEmpty(predictedData)) {
+  if (isEmpty(predictedData)) {
     return <div>Loading...</div>
   }
   return (

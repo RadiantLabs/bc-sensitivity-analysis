@@ -1,4 +1,6 @@
-import _ from 'lodash'
+import map from 'lodash/map'
+import pick from 'lodash/pick'
+import range from 'lodash/range'
 
 /* Return
   [
@@ -13,21 +15,21 @@ import _ from 'lodash'
 */
 export function getChartDataSet(percentiles, xmlPathLabels, topRanked) {
   // Only output the chart data that we will be displaying
-  const topRankedPercentiles = _.pick(percentiles, topRanked)
+  const topRankedPercentiles = pick(percentiles, topRanked)
 
-  return _.map(topRankedPercentiles, (percentile, xmlPath) => {
+  return map(topRankedPercentiles, (percentile, xmlPath) => {
     const label = xmlPathLabels[xmlPath]
-    const percentileSteps = _.map(percentiles[xmlPath], Math.round)
+    const percentileSteps = map(percentiles[xmlPath], Math.round)
     const evenSteps = getEvenSteps(percentileSteps)
     return { xmlPath, label, percentileSteps, evenSteps }
   })
 }
 
 function getEvenSteps(percentileSteps) {
-  const min = _.min(percentileSteps)
-  const max = _.max(percentileSteps)
+  const min = Math.min(percentileSteps)
+  const max = Math.max(percentileSteps)
   const steps = 20
   const stepSize = (max - min) / (steps - 1)
-  const range = _.range(min, max + stepSize, stepSize)
-  return _.map(range, Math.round)
+  const stepRange = range(min, max + stepSize, stepSize)
+  return map(stepRange, Math.round)
 }

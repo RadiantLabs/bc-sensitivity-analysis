@@ -1,5 +1,5 @@
 import SensitivityPlot from './SensitivityPlot'
-import _ from 'lodash'
+import isEmpty from 'lodash/isEmpty'
 import { useStore } from './useStore'
 
 const SensitivityPlots = () => {
@@ -8,7 +8,7 @@ const SensitivityPlots = () => {
     predictedDataSet: state.predictedDataSet,
   }))
 
-  if (_.isEmpty(predictedDataSet)) {
+  if (isEmpty(predictedDataSet)) {
     return <div>Loading...</div>
   }
   return (

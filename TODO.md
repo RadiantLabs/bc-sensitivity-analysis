@@ -1,11 +1,6 @@
 ### TODO
 
-- [ ] Fix slider position in global store. Key is getting replaced during merge. Should chartId be xmlPath?
-- [ ] store: Set initial slider positions as initial state in store
-- [ ] don't pass down `predicted` to SensitivityPlot. Get from store
-
 - [ ] Create initial prediction input set
-- [ ] Run initialPrediction
 - [ ] Validate that the input array always has the correct number of elements
 - [ ] Get rid of vite.svg in the prod build
 - [ ] Move label definitions to spreadsheet instead of JS file
@@ -17,7 +12,6 @@
 
 ### Maybe
 
-- [ ] Consider using lodash-es for smaller builds
 - [ ] Create grouped array of categorical inputs (if it's in the top 20)
 - [ ] Build function that takes categorical inputs and the value to turn on and return the whole set with the rest as zeros. (only if categorical is included in the top 20)
 - [ ] Build assets along with production `npm run build`. You can't run in dev mode without these assets and they are checked in, so not sure this is needed.
@@ -25,6 +19,8 @@
 
 ### Done
 
+- [x] store: Set initial slider positions as initial state in store
+- [-] Consider using lodash-es for smaller builds (used lodash/map style imports for treeshaking)
 - [x] Switch to Zustand for state management, hook up to Redux devtools
 - [x] Rename inputsConfig to modelInputsMetadata
 - [x] Manually create top 20 to remove redundant variations of inputs such as conditioned floor area
