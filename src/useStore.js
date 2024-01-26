@@ -26,11 +26,13 @@ const predictedData = [
 
 const initialPredictedDataSet = [predictedData, predictedData, predictedData]
 
-export const store = create(
+export const useStore = create(
   devtools((set) => ({
     chartData: chartData,
     setChartData: (newChartData) => set({ chartData: newChartData }),
 
+    // Is this where the async predict function should go? Do I have access to the rest of the state?
+    // Or is that a derived value from state and shouldn't be redundantly stored in state?
     predictedDataSet: initialPredictedDataSet,
     setPredictedDataSet: (newPredictedDataSet) => set({ predictedDataSet: newPredictedDataSet }),
 

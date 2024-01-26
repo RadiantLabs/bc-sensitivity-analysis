@@ -1,9 +1,9 @@
 import SensitivityPlot from './SensitivityPlot'
 import _ from 'lodash'
-import { store } from './store'
+import { useStore } from './useStore'
 
 const SensitivityPlots = () => {
-  const { chartData, predictedDataSet } = store((state) => ({
+  const { chartData, predictedDataSet } = useStore((state) => ({
     chartData: state.chartData,
     predictedDataSet: state.predictedDataSet,
   }))

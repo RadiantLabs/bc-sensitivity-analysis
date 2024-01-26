@@ -4,10 +4,10 @@ import * as Plot from '@observablehq/plot'
 import Slider from '@mui/material/Slider'
 import Box from '@mui/material/Box'
 import _ from 'lodash'
-import { store } from './store'
+import { useStore } from './useStore'
 
 const SensitivityPlot = ({ predictedData, chartId }) => {
-  const { sliderValues, setSliderValue } = store((state) => ({
+  const { sliderValues, setSliderValue } = useStore((state) => ({
     sliderValues: state.sliderValues,
     setSliderValue: state.setSliderValue,
   }))
