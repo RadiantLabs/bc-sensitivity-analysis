@@ -1,6 +1,9 @@
 ### TODO
 
-- [ ] Switch to Zustand for state management, hook up to Redux devtools
+- [ ] Fix slider position in global store. Key is getting replaced during merge. Should chartId be xmlPath?
+- [ ] store: Set initial slider positions as initial state in store
+- [ ] don't pass down `predicted` to SensitivityPlot. Get from store
+
 - [ ] Create initial prediction input set
 - [ ] Run initialPrediction
 - [ ] Validate that the input array always has the correct number of elements
@@ -22,6 +25,7 @@
 
 ### Done
 
+- [x] Switch to Zustand for state management, hook up to Redux devtools
 - [x] Rename inputsConfig to modelInputsMetadata
 - [x] Manually create top 20 to remove redundant variations of inputs such as conditioned floor area
 - [x] Create chartData data structure to loop over charts

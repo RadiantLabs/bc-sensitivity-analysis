@@ -55,7 +55,7 @@ const SensitivityPlot = ({ predictedData, chartId }) => {
               Plot.text([activeData], {
                 x: 'inputValue',
                 y: 'predicted',
-                text: (d) => d.predicted,
+                text: (d) => d.predictedData,
                 dy: -10,
                 fill: 'black',
                 textAlign: 'center',
