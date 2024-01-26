@@ -3,8 +3,8 @@ import _ from 'lodash'
 import { useStore } from './useStore'
 
 const SensitivityPlots = () => {
-  const { chartData, predictedDataSet } = useStore((state) => ({
-    chartData: state.chartData,
+  const { chartDataSet, predictedDataSet } = useStore((state) => ({
+    chartDataSet: state.chartDataSet,
     predictedDataSet: state.predictedDataSet,
   }))
 
@@ -13,12 +13,13 @@ const SensitivityPlots = () => {
   }
   return (
     <div>
-      {chartData.map((data, index) => {
+      {chartDataSet.map((data, index) => {
         const predictedData = predictedDataSet[index]
+        const { xmlPath, label } = data
         return (
           <div key={index}>
-            <h3>Chart {index + 1}</h3>
-            <SensitivityPlot chartId={index} predictedData={predictedData} />
+            <h3>{label}</h3>
+            <SensitivityPlot chartId={xmlPath} predictedData={predictedData} chartData={data} />
           </div>
         )
       })}

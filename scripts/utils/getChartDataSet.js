@@ -11,7 +11,7 @@ import _ from 'lodash'
   ]
 
 */
-export function getChartData(percentiles, xmlPathLabels, topRanked) {
+export function getChartDataSet(percentiles, xmlPathLabels, topRanked) {
   // Only output the chart data that we will be displaying
   const topRankedPercentiles = _.pick(percentiles, topRanked)
 

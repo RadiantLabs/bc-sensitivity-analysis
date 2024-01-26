@@ -7,7 +7,7 @@ import { getTopRankActionable } from './utils/getTopRankActionable.js'
 import { getTopRank } from './utils/getTopRank.js'
 import { getPercentiles } from './utils/getPercentiles.js'
 import { getInputCodeToXmlPathLookup } from './utils/getInputCodeToXmlPathLookup.js'
-import { getChartData } from './utils/getChartData.js'
+import { getChartDataSet } from './utils/getChartDataSet.js'
 import { xmlPathLabels } from './sources/xmlPathLabels.js'
 import { topRankedManual } from './sources/topRankedManual.js'
 import { topRankedActionableManual } from './sources/topRankedActionableManual.js'
@@ -34,8 +34,8 @@ const inputPercentilesOutPath = path.join(intermediatesPath, 'inputPercentiles.j
 
 // Assets to be bundled
 const inputsSortOrderPath = path.join(assetsPath, 'inputsSortOrder.js')
-const chartDataOutPath = path.join(assetsPath, 'chartData.js')
-const chartDataActionableOutPath = path.join(assetsPath, 'chartDataActionable.js')
+const chartDataSetOutPath = path.join(assetsPath, 'chartDataSet.js')
+const chartDataSetActionableOutPath = path.join(assetsPath, 'chartDataSetActionable.js')
 const hudsonWeatherOutPath = path.join(assetsPath, 'hudsonWeather.js')
 const santarosaWeatherOutPath = path.join(assetsPath, 'santarosaWeather.js')
 
@@ -65,8 +65,8 @@ function buildAssets(modelInputsMetadataSourcePath) {
       const santarosaWeather = await getCSV(santarosaWeatherSourcePath)
 
       // Generate the chart configuration data, including what xml paths are used and the steps for the sliders
-      const chartData = getChartData(inputPercentiles, xmlPathLabels, topRankedManual)
-      const chartDataActionable = getChartData(inputPercentiles, xmlPathLabels, topRankedActionableManual)
+      const chartDataSet = getChartDataSet(inputPercentiles, xmlPathLabels, topRankedManual)
+      const chartDataSetActionable = getChartDataSet(inputPercentiles, xmlPathLabels, topRankedActionableManual)
 
       // Intermediate output files for debugging
       writeFile(modelInputsMetadata, 'modelInputsMetadata', modelInputsMetadataPath)
@@ -77,8 +77,8 @@ function buildAssets(modelInputsMetadataSourcePath) {
 
       // Final assets to be used in the app
       writeFile(inputsSortOrder, 'inputsSortOrder', inputsSortOrderPath)
-      writeFile(chartData, 'chartData', chartDataOutPath)
-      writeFile(chartDataActionable, 'chartDataActionable', chartDataActionableOutPath)
+      writeFile(chartDataSet, 'chartDataSet', chartDataSetOutPath)
+      writeFile(chartDataSetActionable, 'chartDataSetActionable', chartDataSetActionableOutPath)
       writeFile(hudsonWeather, 'hudsonWeather', hudsonWeatherOutPath)
       writeFile(santarosaWeather, 'santarosaWeather', santarosaWeatherOutPath)
     },

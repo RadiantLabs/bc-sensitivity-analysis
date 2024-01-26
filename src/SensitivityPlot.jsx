@@ -6,7 +6,7 @@ import Box from '@mui/material/Box'
 import _ from 'lodash'
 import { useStore } from './useStore'
 
-const SensitivityPlot = ({ predictedData, chartId }) => {
+const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
   const { sliderValues, setSliderValue } = useStore((state) => ({
     sliderValues: state.sliderValues,
     setSliderValue: state.setSliderValue,
@@ -84,12 +84,12 @@ const SensitivityPlot = ({ predictedData, chartId }) => {
           size="small"
           value={sliderValue}
           onChange={handleSliderChange}
-          step={1}
-          marks={predictedData.map((d) => ({ value: d.inputValue, label: d.inputValue.toString() }))}
-          min={Math.min(...predictedData.map((d) => d.inputValue))}
-          max={Math.max(...predictedData.map((d) => d.inputValue))}
-          // marks={chartData.evenSteps.map((step) => ({ value: step, label: step.toString() }))}
-          // step={null}
+          // step={1}
+          // marks={predictedData.map((d) => ({ value: d.inputValue, label: d.inputValue.toString() }))}
+          // min={Math.min(...predictedData.map((d) => d.inputValue))}
+          // max={Math.max(...predictedData.map((d) => d.inputValue))}
+          marks={chartData.evenSteps.map((step) => ({ value: step, label: step.toString() }))}
+          step={null}
           valueLabelDisplay="off"
           track={false}
           style={getSliderStyles()}
@@ -113,7 +113,7 @@ SensitivityPlot.propTypes = {
     percentileSteps: PropTypes.arrayOf(PropTypes.number),
     evenSteps: PropTypes.arrayOf(PropTypes.number),
   }),
-  chartId: PropTypes.number.isRequired,
+  chartId: PropTypes.string.isRequired,
 }
 
 export default SensitivityPlot
