@@ -35,12 +35,8 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
 
     // Initialize chart on mount
     const chart = Plot.plot({
-      y: {
-        axis: null,
-      },
-      x: {
-        axis: null,
-      },
+      y: { axis: null },
+      x: { axis: null },
       marks: [
         Plot.barY(predictedData, {
           x: 'inputValue',
@@ -54,7 +50,7 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
               Plot.text([activeData], {
                 x: 'inputValue',
                 y: 'predicted',
-                text: (d) => `${d.predictedData}`,
+                text: (d) => `${d.predicted}`,
                 dy: -10,
                 fill: 'black',
                 textAlign: 'center',
@@ -65,6 +61,7 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
           : []),
       ],
       height: 100,
+      marginTop: 20,
     })
 
     // Append chart to chartRef div & define cleanup function to remove it on component unmount.
