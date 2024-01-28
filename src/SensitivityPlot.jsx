@@ -7,9 +7,10 @@ import { useStore } from './useStore'
 import isEmpty from 'lodash/isEmpty'
 
 const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
-  const { sliderValues, setSliderValue } = useStore((state) => ({
+  const { sliderValues, setSliderValue, stepType } = useStore((state) => ({
     sliderValues: state.sliderValues,
     setSliderValue: state.setSliderValue,
+    stepType: state.stepType,
   }))
 
   const chartRef = useRef()
@@ -75,7 +76,7 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
     return <div>Loading...</div>
   }
 
-  const marks = chartData.evenSteps
+  const steps = chartData[stepType]
   return (
     <div style={{ position: 'relative' }}>
       <Box sx={{ width: '100%', padding: 2 }}>
@@ -83,9 +84,9 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
         <Slider
           value={sliderValue}
           onChange={handleSliderChange}
-          marks={marks.map((step) => ({ value: step, label: step.toString() }))}
-          max={Math.max(...marks)}
-          min={Math.min(...marks)}
+          marks={steps.map((step) => ({ value: step, label: step.toString() }))}
+          max={Math.max(...steps)}
+          min={Math.min(...steps)}
           step={null}
           valueLabelDisplay='auto'
           aria-label='Model Input Value'
