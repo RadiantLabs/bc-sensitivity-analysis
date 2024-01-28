@@ -1,6 +1,16 @@
-// Will use Tensorflow. Needs to be async
-// See Inference.jsx.
-export function predict(chartDataSet, stepType) {
+/* Return an object like:
+  BuildingDetails.BuildingSummary.BuildingConstruction.ConditionedFloorArea: [
+    {inputValue: 875, predicted: 875}
+    {inputValue: 1004, predicted: 1004}
+    {inputValue: 1132, predicted: 1132}
+  ],
+  BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistCrawlspaceVentedExposed1].Area: []
+    {inputValue: 0, predicted: 0}
+    {inputValue: 9, predicted: 9}
+    {inputValue: 17, predicted: 17}
+  ]
+*/
+export function predict(chartDataSet, stepType, model) {
   return chartDataSet.reduce((acc, chartItem) => {
     acc[chartItem.xmlPath] = chartItem[stepType].map((inputStep) => {
       return {

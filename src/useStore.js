@@ -7,6 +7,13 @@ import { predict } from './utils/predict.js'
 const initialSliderValues = getInitialSliderValues(chartDataSet, 'evenSteps')
 const initialPredictedDataSet = predict(chartDataSet, 'evenSteps')
 
+console.log('initialSliderValues :>> ', initialSliderValues)
+console.log('initialPredictedDataSet :>> ', initialPredictedDataSet)
+
+import { loadModel } from './utils/loadModel'
+const modelPath = 'https://permanent-public.s3.us-west-2.amazonaws.com/bill-calibration/model3/model.json'
+const model = await loadModel(modelPath)
+
 export const useStore = create(
   devtools((set) => ({
     chartDataSet: chartDataSet,
