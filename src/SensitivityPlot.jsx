@@ -4,7 +4,6 @@ import * as Plot from '@observablehq/plot'
 import Slider from '@mui/material/Slider'
 import Box from '@mui/material/Box'
 import { useStore } from './useStore'
-import map from 'lodash/map'
 import isEmpty from 'lodash/isEmpty'
 
 const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
@@ -13,10 +12,8 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
     setSliderValue: state.setSliderValue,
   }))
 
-  // Retrieve the current slider value for this chart
-  const sliderValue = sliderValues[chartId] || Math.min(map(predictedData, 'inputValue')) || 0
-
   const chartRef = useRef()
+  const sliderValue = sliderValues[chartId]
 
   const handleSliderChange = (event, newSliderVal) => {
     setSliderValue(chartId, newSliderVal)
@@ -69,31 +66,33 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
       ],
       height: 100,
     })
+
+    // Append chart to chartRef div & define cleanup function to remove it on component unmount.
     currentRef.appendChild(chart)
     return () => {
       currentRef.removeChild(chart)
     }
-  }, [predictedData, sliderValue]) // The chart will re-render when data or sliderValue changes
+  }, [predictedData, sliderValue]) // The chart will re-render only when these values change
 
   if (isEmpty(predictedData)) {
     return <div>Loading...</div>
   }
+
+  const marks = chartData.evenSteps
   return (
     <div style={{ position: 'relative' }}>
       <Box sx={{ width: '100%', padding: 2 }}>
         <div ref={chartRef} style={{ width: '100%' }} />
         <Slider
-          aria-label="Input Name"
-          size="small"
           value={sliderValue}
           onChange={handleSliderChange}
-          // step={1}
-          // marks={predictedData.map((d) => ({ value: d.inputValue, label: d.inputValue.toString() }))}
-          // min={Math.min(...predictedData.map((d) => d.inputValue))}
-          // max={Math.max(...predictedData.map((d) => d.inputValue))}
-          marks={chartData.evenSteps.map((step) => ({ value: step, label: step.toString() }))}
+          marks={marks.map((step) => ({ value: step, label: step.toString() }))}
+          max={Math.max(...marks)}
+          min={Math.min(...marks)}
           step={null}
-          valueLabelDisplay="off"
+          valueLabelDisplay='auto'
+          aria-label='Model Input Value'
+          size='small'
           track={false}
           style={getSliderStyles()}
           sx={getSliderStyles()}
@@ -108,7 +107,7 @@ SensitivityPlot.propTypes = {
     PropTypes.shape({
       inputValue: PropTypes.number.isRequired,
       predicted: PropTypes.number.isRequired,
-    }),
+    })
   ),
   chartData: PropTypes.shape({
     xmlPath: PropTypes.string.isRequired,

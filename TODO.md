@@ -5,6 +5,7 @@
 - [ ] Get rid of vite.svg in the prod build
 - [ ] Move label definitions to spreadsheet instead of JS file
 - [ ] Add rounding precision to spreadsheet and use for step sizes
+- [ ] Remove HPXML.Building from xmlPath since it's redundant
 
 - [ ] Define slider steps as eventSteps or percentileSteps
 - [ ] Toggle between actionable and mixed actionable
