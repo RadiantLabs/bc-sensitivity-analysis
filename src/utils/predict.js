@@ -1,3 +1,5 @@
+import isEmpty from 'lodash/isEmpty'
+
 /* Return an object like:
   BuildingDetails.BuildingSummary.BuildingConstruction.ConditionedFloorArea: [
     {inputValue: 875, predicted: 875}
@@ -10,7 +12,10 @@
     {inputValue: 17, predicted: 17}
   ]
 */
-export function predict(chartDataSet, stepType, model) {
+export function predict(chartDataSet, model, stepType) {
+  if (isEmpty(model) || isEmpty(chartDataSet) || isEmpty(stepType)) {
+    return null
+  }
   return chartDataSet.reduce((acc, chartItem) => {
     acc[chartItem.xmlPath] = chartItem[stepType].map((inputStep) => {
       return {

@@ -10,7 +10,7 @@ const initialSliderValues = getInitialSliderValues(chartDataSet, 'evenSteps')
 const initialPredictedDataSet = predict(chartDataSet, 'evenSteps')
 
 export const useStore = create(
-  devtools((set) => ({
+  devtools((set, get) => ({
     chartDataSet: chartDataSet,
     setChartDataSet: (newChartDataSet) => set({ chartDataSet: newChartDataSet }),
 
@@ -23,8 +23,7 @@ export const useStore = create(
     setStepType: (newStepType) => set({ stepType: newStepType }),
 
     // This is a derived value from state. I need to decide if this should be in the store.
-    predictedDataSet: initialPredictedDataSet,
-    setPredictedDataSet: (newPredictedDataSet) => set({ predictedDataSet: newPredictedDataSet }),
+    predictedDataSet: () => predict(get().chartDataSet, get().model, 'evenSteps'),
 
     // Slider values will be stored in an object with chartId as key
     sliderValues: initialSliderValues,
