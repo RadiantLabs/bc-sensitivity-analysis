@@ -17,6 +17,7 @@
 - [ ] Build function that takes categorical inputs and the value to turn on and return the whole set with the rest as zeros. (only if categorical is included in the top 20)
 - [ ] Build assets along with production `npm run build`. You can't run in dev mode without these assets and they are checked in, so not sure this is needed.
 - [ ] Write test for percentile transformation
+- [ ] Remove window.useStore = useStore for production deploy (can this be part of the build process?)
 
 ### Done
 

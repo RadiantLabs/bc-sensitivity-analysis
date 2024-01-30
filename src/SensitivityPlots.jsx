@@ -1,12 +1,13 @@
 import SensitivityPlot from './SensitivityPlot'
 import isEmpty from 'lodash/isEmpty'
-import { useStore } from './useStore'
+import { useStore, usePredictedDataSet } from './useStore'
 
 const SensitivityPlots = () => {
-  const { chartDataSet, predictedDataSet } = useStore((state) => ({
+  const { chartDataSet } = useStore((state) => ({
     chartDataSet: state.chartDataSet,
-    predictedDataSet: state.predictedDataSet,
   }))
+  const predictedDataSet = usePredictedDataSet()
+  console.log('predictedDataSet', predictedDataSet)
 
   if (isEmpty(predictedDataSet)) {
     return <div>Loading...</div>

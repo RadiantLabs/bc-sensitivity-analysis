@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
 import * as tf from '@tensorflow/tfjs'
@@ -7,26 +8,16 @@ import { predict } from './utils/predict.js'
 const modelPath = 'https://permanent-public.s3.us-west-2.amazonaws.com/bill-calibration/model3/model.json'
 
 const initialSliderValues = getInitialSliderValues(chartDataSet, 'evenSteps')
-const initialPredictedDataSet = predict(chartDataSet, 'evenSteps')
 
 export const useStore = create(
-  devtools((set, get) => ({
+  devtools((set) => ({
     chartDataSet: chartDataSet,
-    setChartDataSet: (newChartDataSet) => set({ chartDataSet: newChartDataSet }),
-
-    // Load model asyncronously. This belongs in state because it's either loaded or not.
-    // predictedDataset will depend on model being loaded along with sliderValues and chartDataSet
-    model: null,
-
-    // Slider steps can either by evenly distributed or based on percentiles
+    model: null, // Loads async remotely
     stepType: 'evenSteps',
-    setStepType: (newStepType) => set({ stepType: newStepType }),
+    sliderValues: initialSliderValues, // stored in an object with chartId as key
 
-    // This is a derived value from state. I need to decide if this should be in the store.
-    predictedDataSet: () => predict(get().chartDataSet, get().model, 'evenSteps'),
-
-    // Slider values will be stored in an object with chartId as key
-    sliderValues: initialSliderValues,
+    setChartDataSet: (newChartDataSet) => set({ chartDataSet: newChartDataSet }),
+    setStepType: (newStepType) => set({ stepType: newStepType }), // Can be evenly distributed or based on percentiles
     setSliderValue: (chartId, newSliderValue) =>
       set((state) => ({
         sliderValues: { ...state.sliderValues, [chartId]: newSliderValue },
@@ -34,10 +25,22 @@ export const useStore = create(
   }))
 )
 
-// --------------------------------------------------
+// Debugging
+window.useStore = useStore
+
+// Custom React hook that derives data from state. It should only update when chartDataSet, model, stepType change.
+// Therefore, any components that depend on this should re-render only when these values change.
+export const usePredictedDataSet = () => {
+  const { chartDataSet, model, stepType } = useStore()
+  return useMemo(() => {
+    return predict(chartDataSet, model, stepType) // returns null if any of the inputs are empty
+  }, [chartDataSet, model, stepType])
+}
+
+// -------------------------------------------------------------------------------------------------
 // Helper functions
-// --------------------------------------------------
-// Async function to fetch bears and update the store
+// -------------------------------------------------------------------------------------------------
+// Async function to fetch the Tensorflow model and update the store
 const fetchModel = async () => {
   try {
     const model = await tf.loadLayersModel(modelPath)
