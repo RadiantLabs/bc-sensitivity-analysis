@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
-import * as tf from '@tensorflow/tfjs'
+import { loadLayersModel } from '@tensorflow/tfjs'
 import { chartDataSet } from './assets/chartDataSet.js'
 import { getInitialSliderValues } from './utils/getInitialSliderValues'
 import { predict } from './utils/predict.js'
@@ -31,10 +31,10 @@ window.useStore = useStore
 // Custom React hook that derives data from state. It should only update when chartDataSet, model, stepType change.
 // Therefore, any components that depend on this should re-render only when these values change.
 export const usePredictedDataSet = () => {
-  const { chartDataSet, model, stepType } = useStore()
+  const { chartDataSet, model, stepType, sliderValues } = useStore()
   return useMemo(() => {
-    return predict(chartDataSet, model, stepType) // returns null if any of the inputs are empty
-  }, [chartDataSet, model, stepType])
+    return predict(chartDataSet, model, sliderValues, stepType) // returns null if any of the inputs are empty
+  }, [chartDataSet, model, sliderValues, stepType])
 }
 
 // -------------------------------------------------------------------------------------------------
@@ -43,7 +43,7 @@ export const usePredictedDataSet = () => {
 // Async function to fetch the Tensorflow model and update the store
 const fetchModel = async () => {
   try {
-    const model = await tf.loadLayersModel(modelPath)
+    const model = await loadLayersModel(modelPath)
     useStore.setState({ model })
   } catch (error) {
     console.error('Failed to fetch model', error)

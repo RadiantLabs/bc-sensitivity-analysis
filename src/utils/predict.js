@@ -1,4 +1,5 @@
 import isEmpty from 'lodash/isEmpty'
+import random from 'lodash/random'
 
 /* Return an object like:
   BuildingDetails.BuildingSummary.BuildingConstruction.ConditionedFloorArea: [
@@ -12,17 +13,26 @@ import isEmpty from 'lodash/isEmpty'
     {inputValue: 17, predicted: 17}
   ]
 */
-export function predict(chartDataSet, model, stepType) {
-  if (isEmpty(model) || isEmpty(chartDataSet) || isEmpty(stepType)) {
+export function predict(chartDataSet, model, sliderValues, stepType) {
+  if (isEmpty(model) || isEmpty(chartDataSet) || isEmpty(sliderValues) || isEmpty(stepType)) {
     return null
   }
   return chartDataSet.reduce((acc, chartItem) => {
-    acc[chartItem.xmlPath] = chartItem[stepType].map((inputStep) => {
+    console.log('chartItem :>> ', chartItem)
+    console.log('sliderValues :>> ', sliderValues)
+    const { xmlPath } = chartItem
+    acc[xmlPath] = chartItem[stepType].map((inputStep) => {
       return {
         inputValue: inputStep,
-        predicted: inputStep,
+        predicted: inputStep + random(100, 200),
       }
     })
     return acc
   }, {})
 }
+
+// -------------------------------------------------------------------------------------------------
+// Helper functions
+// -------------------------------------------------------------------------------------------------
+// async function runInference(model, inputs) {
+// }

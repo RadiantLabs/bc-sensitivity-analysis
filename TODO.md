@@ -1,6 +1,7 @@
 ### TODO
 
 - [ ] Create initial prediction input set
+- [ ] Should getInitialSliderValues() be calculated at top of store?
 - [ ] Validate that the input array always has the correct number of elements
 - [ ] Get rid of vite.svg in the prod build
 - [ ] Move label definitions to spreadsheet instead of JS file
