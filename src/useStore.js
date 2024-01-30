@@ -1,30 +1,28 @@
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
+import * as tf from '@tensorflow/tfjs'
 import { chartDataSet } from './assets/chartDataSet.js'
 import { getInitialSliderValues } from './utils/getInitialSliderValues'
 import { predict } from './utils/predict.js'
+const modelPath = 'https://permanent-public.s3.us-west-2.amazonaws.com/bill-calibration/model3/model.json'
 
 const initialSliderValues = getInitialSliderValues(chartDataSet, 'evenSteps')
 const initialPredictedDataSet = predict(chartDataSet, 'evenSteps')
-
-console.log('initialSliderValues :>> ', initialSliderValues)
-console.log('initialPredictedDataSet :>> ', initialPredictedDataSet)
-
-import { loadModel } from './utils/loadModel'
-const modelPath = 'https://permanent-public.s3.us-west-2.amazonaws.com/bill-calibration/model3/model.json'
-const model = await loadModel(modelPath)
 
 export const useStore = create(
   devtools((set) => ({
     chartDataSet: chartDataSet,
     setChartDataSet: (newChartDataSet) => set({ chartDataSet: newChartDataSet }),
 
+    // Load model asyncronously. This belongs in state because it's either loaded or not.
+    // predictedDataset will depend on model being loaded along with sliderValues and chartDataSet
+    model: null,
+
     // Slider steps can either by evenly distributed or based on percentiles
     stepType: 'evenSteps',
     setStepType: (newStepType) => set({ stepType: newStepType }),
 
-    // Is this where the async predict function should go? Do I have access to the rest of the state?
-    // Or is that a derived value from state and shouldn't be redundantly stored in state?
+    // This is a derived value from state. I need to decide if this should be in the store.
     predictedDataSet: initialPredictedDataSet,
     setPredictedDataSet: (newPredictedDataSet) => set({ predictedDataSet: newPredictedDataSet }),
 
@@ -36,3 +34,17 @@ export const useStore = create(
       })),
   }))
 )
+
+// --------------------------------------------------
+// Helper functions
+// --------------------------------------------------
+// Async function to fetch bears and update the store
+const fetchModel = async () => {
+  try {
+    const model = await tf.loadLayersModel(modelPath)
+    useStore.setState({ model })
+  } catch (error) {
+    console.error('Failed to fetch model', error)
+  }
+}
+fetchModel()
