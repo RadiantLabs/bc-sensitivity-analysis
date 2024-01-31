@@ -7,7 +7,6 @@ const SensitivityPlots = () => {
     chartDataSet: state.chartDataSet,
   }))
   const predictedDataSet = usePredictedDataSet()
-  console.log('predictedDataSet', predictedDataSet)
 
   if (isEmpty(predictedDataSet)) {
     return <div>Loading...</div>

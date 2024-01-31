@@ -1,6 +1,23 @@
+## Notes
+
+- Every slider value will have the same predicted value (like NYT)
+- Each step on a slider is a new prediction
+
+0. Build lookup object betweeen xmlpath and inputVectorIndex
+1. Run current slider positions through the prediction. Just get that working in console.log. Use map for now.
+2. ???
+
+How to update the initialInputs vector every slide?
+
+1. Have a "last modified slider value" so the input vector only needs to be updated for a single index. That requires us to keep track of the last modified input vector.
+2. Always update the initial input vector with every slider value (easier but might not be as performant).
+
+If I'm iterating over every element in the input vector each time then it may not matter if I'm updating 1 or 29
+
 ### TODO
 
 - [ ] Create initial prediction input set
+- [ ] Remove inputVectorIndex from chartData if not needed
 - [ ] Should getInitialSliderValues() be calculated at top of store?
 - [ ] Validate that the input array always has the correct number of elements
 - [ ] Get rid of vite.svg in the prod build

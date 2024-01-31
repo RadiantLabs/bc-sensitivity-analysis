@@ -8,6 +8,7 @@ import { getTopRank } from './utils/getTopRank.js'
 import { getPercentiles } from './utils/getPercentiles.js'
 import { getInputCodeToXmlPathLookup } from './utils/getInputCodeToXmlPathLookup.js'
 import { getChartDataSet } from './utils/getChartDataSet.js'
+import { getInputVectorIndexLookup } from './utils/getInputVectorIndexLookup.js'
 import { xmlPathLabels } from './sources/xmlPathLabels.js'
 import { topRankedManual } from './sources/topRankedManual.js'
 import { topRankedActionableManual } from './sources/topRankedActionableManual.js'
@@ -51,6 +52,7 @@ function buildAssets(modelInputsMetadataSourcePath) {
     complete: async (results) => {
       const modelInputsMetadata = results.data
       const inputVectorSortOrder = getInputVectorSortOrder(modelInputsMetadata)
+      const inputVectorIndexLookup = getInputVectorIndexLookup(modelInputsMetadata)
       const topRanked = getTopRank(modelInputsMetadata)
       const topRankedActionable = getTopRankActionable(modelInputsMetadata)
 
@@ -82,6 +84,7 @@ function buildAssets(modelInputsMetadataSourcePath) {
       writeFile(inputVectorSortOrder, 'inputVectorSortOrder', inputVectorSortOrderPath)
 
       // Final assets to be used in the app
+      writeFile(inputVectorIndexLookup, 'inputVectorIndexLookup', path.join(assetsPath, 'inputVectorIndexLookup.js'))
       writeFile(initialInputs, 'initialInputs', initialInputsOutPath)
       writeFile(chartDataSet, 'chartDataSet', chartDataSetOutPath)
       writeFile(chartDataSetActionable, 'chartDataSetActionable', chartDataSetActionableOutPath)
