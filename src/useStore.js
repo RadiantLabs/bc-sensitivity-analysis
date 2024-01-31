@@ -7,12 +7,12 @@ import { getInitialSliderValues } from './utils/getInitialSliderValues'
 import { predict } from './utils/predict.js'
 const modelPath = 'https://permanent-public.s3.us-west-2.amazonaws.com/bill-calibration/model3/model.json'
 
-const initialSliderValues = getInitialSliderValues(chartDataSet, 'evenSteps')
+const initialSliderValues = getInitialSliderValues(chartDataSet, 'evenSteps') // returns middle step
 
 export const useStore = create(
   devtools((set) => ({
     chartDataSet: chartDataSet,
-    model: null, // Loads async remotely
+    model: null, // Loads async remotely from fetchModel
     stepType: 'evenSteps',
     sliderValues: initialSliderValues, // stored in an object with chartId as key
 

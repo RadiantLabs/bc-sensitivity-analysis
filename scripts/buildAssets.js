@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import Papa from 'papaparse'
-import { getInputsSortOrder } from './utils/getInputsSortOrder.js'
+import { getInputVectorSortOrder } from './utils/getInputVectorSortOrder.js'
 import { getTopRankActionable } from './utils/getTopRankActionable.js'
 import { getTopRank } from './utils/getTopRank.js'
 import { getPercentiles } from './utils/getPercentiles.js'
@@ -24,6 +24,7 @@ const modelInputsMetadataSourcePath = path.join(__dirname, 'sources/model_inputs
 const hudsonWeatherSourcePath = path.join(__dirname, 'sources/hudson_ny.csv')
 const santarosaWeatherSourcePath = path.join(__dirname, 'sources/santa_rosa_ca.csv')
 const percentilesSourcePath = path.join(__dirname, 'sources/input_percentiles.csv')
+const initialInputsSourcePath = path.join(__dirname, 'sources/initial_inputs.json')
 
 // Intermediate output files for debugging
 const modelInputsMetadataPath = path.join(intermediatesPath, 'modelInputsMetadata.js')
@@ -31,9 +32,10 @@ const topRankedOutPath = path.join(intermediatesPath, 'topRanked.js')
 const topRankedActionableOutPath = path.join(intermediatesPath, 'topRankedActionable.js')
 const inputCodeToXmlPathLookupPath = path.join(intermediatesPath, 'inputCodeToXmlPathLookup.js')
 const inputPercentilesOutPath = path.join(intermediatesPath, 'inputPercentiles.js')
+const inputVectorSortOrderPath = path.join(intermediatesPath, 'inputVectorSortOrder.js')
 
 // Assets to be bundled
-const inputsSortOrderPath = path.join(assetsPath, 'inputsSortOrder.js')
+const initialInputsOutPath = path.join(assetsPath, 'initialInputs.js')
 const chartDataSetOutPath = path.join(assetsPath, 'chartDataSet.js')
 const chartDataSetActionableOutPath = path.join(assetsPath, 'chartDataSetActionable.js')
 const hudsonWeatherOutPath = path.join(assetsPath, 'hudsonWeather.js')
@@ -48,7 +50,7 @@ function buildAssets(modelInputsMetadataSourcePath) {
     skipEmptyLines: true,
     complete: async (results) => {
       const modelInputsMetadata = results.data
-      const inputsSortOrder = getInputsSortOrder(modelInputsMetadata)
+      const inputVectorSortOrder = getInputVectorSortOrder(modelInputsMetadata)
       const topRanked = getTopRank(modelInputsMetadata)
       const topRankedActionable = getTopRankActionable(modelInputsMetadata)
 
@@ -64,9 +66,12 @@ function buildAssets(modelInputsMetadataSourcePath) {
       const hudsonWeather = await getCSV(hudsonWeatherSourcePath)
       const santarosaWeather = await getCSV(santarosaWeatherSourcePath)
 
+      // Get initial input vector for the model
+      const initialInputs = JSON.parse(fs.readFileSync(initialInputsSourcePath, 'utf8'))
+
       // Generate the chart configuration data, including what xml paths are used and the steps for the sliders
-      const chartDataSet = getChartDataSet(inputPercentiles, xmlPathLabels, topRankedManual)
-      const chartDataSetActionable = getChartDataSet(inputPercentiles, xmlPathLabels, topRankedActionableManual)
+      const chartDataSet = getChartDataSet(inputPercentiles, xmlPathLabels, topRankedManual, inputVectorSortOrder)
+      const chartDataSetActionable = getChartDataSet(inputPercentiles, xmlPathLabels, topRankedActionableManual, inputVectorSortOrder)
 
       // Intermediate output files for debugging
       writeFile(modelInputsMetadata, 'modelInputsMetadata', modelInputsMetadataPath)
@@ -74,9 +79,10 @@ function buildAssets(modelInputsMetadataSourcePath) {
       writeFile(topRankedActionable, 'topRankedActionable', topRankedActionableOutPath)
       writeFile(inputCodeToXmlPathLookup, 'inputCodeToXmlPathLookup', inputCodeToXmlPathLookupPath)
       writeFile(inputPercentiles, 'inputPercentiles', inputPercentilesOutPath)
+      writeFile(inputVectorSortOrder, 'inputVectorSortOrder', inputVectorSortOrderPath)
 
       // Final assets to be used in the app
-      writeFile(inputsSortOrder, 'inputsSortOrder', inputsSortOrderPath)
+      writeFile(initialInputs, 'initialInputs', initialInputsOutPath)
       writeFile(chartDataSet, 'chartDataSet', chartDataSetOutPath)
       writeFile(chartDataSetActionable, 'chartDataSetActionable', chartDataSetActionableOutPath)
       writeFile(hudsonWeather, 'hudsonWeather', hudsonWeatherOutPath)

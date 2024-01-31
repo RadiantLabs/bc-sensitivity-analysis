@@ -1,6 +1,4 @@
-import map from 'lodash/map'
-import pick from 'lodash/pick'
-import range from 'lodash/range'
+import _ from 'lodash'
 
 /* Return
   [
@@ -13,23 +11,41 @@ import range from 'lodash/range'
   ]
 
 */
-export function getChartDataSet(percentiles, xmlPathLabels, topRanked) {
+export function getChartDataSet(percentiles, xmlPathLabels, topRanked, inputVectorSortOrder) {
   // Only output the chart data that we will be displaying
-  const topRankedPercentiles = pick(percentiles, topRanked)
+  const topRankedPercentiles = _.pick(percentiles, topRanked)
 
-  return map(topRankedPercentiles, (percentile, xmlPath) => {
+  return _.map(topRankedPercentiles, (percentile, xmlPath) => {
     const label = xmlPathLabels[xmlPath]
-    const percentileSteps = map(percentiles[xmlPath], Math.round)
+    const percentileSteps = _.map(percentiles[xmlPath], Math.round)
     const evenSteps = getEvenSteps(percentileSteps)
-    return { xmlPath, label, percentileSteps, evenSteps }
+    const inputVectorIndex = getInputVectorIndex(xmlPath, inputVectorSortOrder)
+    return {
+      xmlPath,
+      inputVectorIndex,
+      label,
+      percentileSteps,
+      evenSteps,
+    }
   })
 }
 
+// -------------------------------------------------------------------------
+// Helper functions
+// -------------------------------------------------------------------------
 function getEvenSteps(percentileSteps) {
-  const min = Math.min(percentileSteps)
-  const max = Math.max(percentileSteps)
+  const min = Math.min(...percentileSteps)
+  const max = Math.max(...percentileSteps)
   const steps = 20
   const stepSize = (max - min) / (steps - 1)
-  const stepRange = range(min, max + stepSize, stepSize)
-  return map(stepRange, Math.round)
+  const stepRange = _.range(min, max + stepSize, stepSize)
+  return _.map(stepRange, Math.round)
+}
+
+function getInputVectorIndex(xmlPath, inputVectorSortOrder) {
+  const index = inputVectorSortOrder.indexOf(xmlPath)
+  if (index === -1) {
+    console.error('xmlPath not found in inputVectorSortOrder', xmlPath)
+  }
+  return index
 }
