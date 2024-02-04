@@ -8,6 +8,8 @@ import isEmpty from 'lodash/isEmpty'
 import { styled } from '@mui/material/styles'
 
 const chartWidth = 700
+const highlightColor = '#bad80a'
+const inactiveColor = '#e0e0e0'
 const formatTick = format(',.2s') // SI notation: https://observablehq.com/@observablehq/plot-cheatsheets-scales
 
 const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
@@ -46,7 +48,7 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
         Plot.barY(predictedData, {
           x: 'inputValue',
           y: 'predicted',
-          fill: (d) => (d.inputValue === sliderValue ? '#000' : '#dfdfdf'),
+          fill: (d) => (d.inputValue === sliderValue ? highlightColor : inactiveColor),
           stroke: '#bbb',
           strokeWidth: 0.5,
         }),
@@ -65,7 +67,7 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
             ]
           : []),
       ],
-      height: 200,
+      height: 100,
       width: chartWidth,
       marginTop: 20,
     })
@@ -97,7 +99,6 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
           aria-label='Model Input Value'
           size='small'
           track={false}
-          sx={getSliderStyles()}
         />
       </div>
     </div>
@@ -127,23 +128,16 @@ export default SensitivityPlot
 // ---------------------------------------------------------------------------------------------
 // Create a styled version of the Slider
 const CustomSlider = styled(Slider)({
+  // Notice the & and . for MuiSlider-root adjacent
   '&.MuiSlider-root': {
     position: 'relative',
-  },
-  '&.MuiSlider-track': {
+    width: '92%',
+    color: highlightColor,
     height: 0,
+    marginTop: '2px',
   },
-  '&.MuiSlider-rail': {
-    // height: 0,
-    color: 'gray',
+  // Notice the & and . for MuiSlider-markLabel have a space between them
+  '& .MuiSlider-markLabel': {
+    top: '20px',
   },
 })
-
-function getSliderStyles() {
-  return {
-    // position: 'absolute',
-    // top: '93%', // Adjust this if necessary to position below the chart
-    // left: '27px',
-    // width: chartWidth - 54,
-  }
-}
