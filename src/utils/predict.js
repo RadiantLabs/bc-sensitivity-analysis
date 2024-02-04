@@ -1,10 +1,12 @@
 import * as tf from '@tensorflow/tfjs'
 import isEmpty from 'lodash/isEmpty'
-import random from 'lodash/random'
 import mapKeys from 'lodash/mapKeys'
 import has from 'lodash/has'
+import chunk from 'lodash/chunk'
+import map from 'lodash/map'
 import { inputVectorIndexLookup } from '../assets/inputVectorIndexLookup.js'
 import { initialInputs } from '../assets/initialInputs.js'
+import { functionTimer } from './functionTimer.js'
 
 /* Return an object like:
   BuildingDetails.BuildingSummary.BuildingConstruction.ConditionedFloorArea: [
@@ -22,20 +24,41 @@ export function predict(chartDataSet, model, sliderValues, stepType) {
   if (isEmpty(model) || isEmpty(chartDataSet) || isEmpty(sliderValues) || isEmpty(stepType)) {
     return null
   }
-  console.log('sliderValues :>> ', sliderValues)
-  const updatedInputVector = buildInputVector(sliderValues, inputVectorIndexLookup, initialInputs)
+  const stepsPerChart = chartDataSet[0][stepType].length
 
-  const inputTensor = tf.tensor2d([updatedInputVector])
-  const predictionResult = model.predict(inputTensor)
-  const predictedVector = predictionResult.dataSync()
-  console.log('predictedVector :>> ', predictedVector)
+  // Get the input vector of the current slider positions. Not 100% sure this is correct
+  const sliderValuesInputVector = buildInputVector(sliderValues, inputVectorIndexLookup, initialInputs)
 
-  return chartDataSet.reduce((acc, chartItem) => {
+  // Create tensor that will be passed to Tensorflow.
+  // inputTensor: NxM matrix of input vectors.
+  // Each row in the matrix represents a chart. Each element in row is the input vector used to predict bar height
+  // The tensor needs to be flattened into a single horizontal row and passed into Tensorflow.
+  // The prediction will be a single row of scalars (predctions). Then convert back to NxM matrix of predictions
+  const inputTensor = chartDataSet.map((chartItem) => {
+    const { evenSteps, inputVectorIndex } = chartItem
+    return evenSteps.map((inputStep) => {
+      const newInputVector = [...sliderValuesInputVector] // Copy the array
+      newInputVector[inputVectorIndex] = inputStep // Mutate array, insert slider value at correct index
+      return newInputVector
+    })
+  })
+
+  // Convert to flatted single row of input vectors to pass into tf.tensor2d
+  const inputTensorFlattened = inputTensor.flat()
+
+  // Run predictions, 1 for every bar in the charts
+  const predictedVector2d = functionTimer('runInference2d', runInference2d, model, inputTensorFlattened)
+
+  // Convert back to 2d matrix of predicted values so they can be used for the charts
+  const predictedTensor = chunk(map(predictedVector2d, Math.round), stepsPerChart)
+
+  return chartDataSet.reduce((acc, chartItem, chartIndex) => {
     const { xmlPath } = chartItem
-    acc[xmlPath] = chartItem[stepType].map((inputStep) => {
+    acc[xmlPath] = chartItem[stepType].map((inputStep, stepIndex) => {
+      const predicted = predictedTensor[chartIndex][stepIndex]
       return {
         inputValue: inputStep,
-        predicted: inputStep + random(100, 200),
+        predicted: predicted,
       }
     })
     return acc
@@ -45,14 +68,17 @@ export function predict(chartDataSet, model, sliderValues, stepType) {
 // -------------------------------------------------------------------------------------------------
 // Helper functions
 // -------------------------------------------------------------------------------------------------
-// async function runInference(model, inputs) {
-// }
+// This function may need to be called async. Check for async version of predictionResult.dataSync()
+function runInference2d(model, inputTensor) {
+  const tfInputTensor = tf.tensor2d(inputTensor) // [inputVectorArray1, inputVectorArray2, ...]
+  const predictionResult = model.predict(tfInputTensor)
+  return predictionResult.dataSync()
+}
 
 // First convert xmlPaths to inputVectorIndices.
 // Then replace the initialInputs with the sliderValues at the correct index of the input vector
 function buildInputVector(sliderValues, inputVectorIndexLookup, initialInputs) {
   const sliderValuesByInputVectorIndices = convertXmlpathToInputVectorIndex(sliderValues, inputVectorIndexLookup)
-
   return initialInputs.map((input, index) => {
     return has(sliderValuesByInputVectorIndices, index) ? sliderValuesByInputVectorIndices[index] : input
   })

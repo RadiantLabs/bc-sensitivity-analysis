@@ -1,12 +1,5 @@
 ## Notes
 
-- Every slider value will have the same predicted value (like NYT)
-- Each step on a slider is a new prediction
-
-0. Build lookup object betweeen xmlpath and inputVectorIndex
-1. Run current slider positions through the prediction. Just get that working in console.log. Use map for now.
-2. ???
-
 How to update the initialInputs vector every slide?
 
 1. Have a "last modified slider value" so the input vector only needs to be updated for a single index. That requires us to keep track of the last modified input vector.
@@ -16,7 +9,7 @@ If I'm iterating over every element in the input vector each time then it may no
 
 ### TODO
 
-- [ ] Create initial prediction input set
+- [ ] Make sure I'm creating the input tensor for prediction correctly. Harder than it seems
 - [ ] Remove inputVectorIndex from chartData if not needed
 - [ ] Should getInitialSliderValues() be calculated at top of store?
 - [ ] Validate that the input array always has the correct number of elements
@@ -39,6 +32,9 @@ If I'm iterating over every element in the input vector each time then it may no
 
 ### Done
 
+- [x] Figure out how to make a prediction 29 times (one for every bar). But also every current slider (active bar) will have the same prediction value
+- [x] Run current slider positions through the prediction.
+- [x] Build lookup object betweeen xmlpath and inputVectorIndex
 - [x] store: Set initial slider positions as initial state in store
 - [-] Consider using lodash-es for smaller builds (used lodash/map style imports for treeshaking)
 - [x] Switch to Zustand for state management, hook up to Redux devtools

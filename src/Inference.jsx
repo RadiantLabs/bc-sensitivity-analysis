@@ -46,10 +46,6 @@ function Inference() {
         <p>
           Predicted Value:
           <br />
-          {/* {prediction.map((p, key) => {
-            console.log('p: ', p)
-            return <div key={key}>{p.toFixed(2)}</div>
-          })} */}
           {prediction.map((p) => p.toFixed(2)).join(', ')}
         </p>
       )}
