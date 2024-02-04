@@ -1,22 +1,24 @@
 import { useMemo } from 'react'
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
+import take from 'lodash/take'
 import { loadLayersModel } from '@tensorflow/tfjs'
 import { chartDataSet } from './assets/chartDataSet.js'
 import { getInitialSliderValues } from './utils/getInitialSliderValues'
 import { predict } from './utils/predict.js'
+import { chartCount } from './utils/const.js'
 const modelPath = 'https://permanent-public.s3.us-west-2.amazonaws.com/bill-calibration/model3/model.json'
 
 const initialSliderValues = getInitialSliderValues(chartDataSet, 'evenSteps') // returns middle step
 
 export const useStore = create(
   devtools((set) => ({
-    chartDataSet: chartDataSet,
+    chartDataSet: take(chartDataSet, chartCount),
     model: null, // Loads async remotely from fetchModel
     stepType: 'evenSteps',
     sliderValues: initialSliderValues, // stored in an object with chartId as key
 
-    setChartDataSet: (newChartDataSet) => set({ chartDataSet: newChartDataSet }),
+    setChartDataSet: (newChartDataSet) => set({ chartDataSet: take(newChartDataSet, chartCount) }),
     setStepType: (newStepType) => set({ stepType: newStepType }), // Can be evenly distributed or based on percentiles
     setSliderValue: (chartId, newSliderValue) =>
       set((state) => ({
@@ -25,10 +27,10 @@ export const useStore = create(
   }))
 )
 
-// Debugging
-window.useStore = useStore
+// window.useStore = useStore  // Debugging
 
-// Custom React hook that derives data from state. It should only update when chartDataSet, model, stepType change.
+// Custom React hook that derives predicted results from state. It should only update when
+// chartDataSet, model, stepType change.
 // Therefore, any components that depend on this should re-render only when these values change.
 export const usePredictedDataSet = () => {
   const { chartDataSet, model, stepType, sliderValues } = useStore()

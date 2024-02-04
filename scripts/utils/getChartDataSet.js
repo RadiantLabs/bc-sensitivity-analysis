@@ -17,7 +17,7 @@ export function getChartDataSet(percentiles, xmlPathLabels, topRanked, inputVect
 
   return _.map(topRankedPercentiles, (percentile, xmlPath) => {
     const label = xmlPathLabels[xmlPath]
-    const percentileSteps = _.map(percentiles[xmlPath], Math.round)
+    const percentileSteps = _.map(percentiles[xmlPath], Math.round) // TODO: use metadata to decide precision
     const evenSteps = getEvenSteps(percentileSteps)
     const inputVectorIndex = getInputVectorIndex(xmlPath, inputVectorSortOrder)
     return {
@@ -38,8 +38,11 @@ function getEvenSteps(percentileSteps) {
   const max = Math.max(...percentileSteps)
   const steps = 20
   const stepSize = (max - min) / (steps - 1)
-  const stepRange = _.range(min, max + stepSize, stepSize)
-  return _.map(stepRange, Math.round)
+  const stepRange = _.take(_.range(min, max + stepSize, stepSize), steps) // Edge cases where we might get more than 20
+  if (stepRange.length !== steps) {
+    throw new Error('stepRange.length !== steps')
+  }
+  return _.map(stepRange, Math.round) // TODO: use metadata to decide precision
 }
 
 function getInputVectorIndex(xmlPath, inputVectorSortOrder) {

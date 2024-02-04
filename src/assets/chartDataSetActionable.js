@@ -11,7 +11,7 @@ export const chartDataSetActionable = [
     inputVectorIndex: 581,
     label: 'Water Heater Tank Volume',
     percentileSteps: [40, 40, 40, 40, 40, 40, 40, 40, 50, 50, 65, 65, 80, 80, 80, 80, 80, 80, 80],
-    evenSteps: [40, 42, 44, 46, 48, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 72, 74, 76, 78, 80, 82],
+    evenSteps: [40, 42, 44, 46, 48, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 72, 74, 76, 78, 80],
   },
   {
     xmlPath: 'HPXML.Building.BuildingDetails.Systems.HVAC.HVACControl.SetupTempCoolingSeason',
@@ -67,7 +67,7 @@ export const chartDataSetActionable = [
     inputVectorIndex: 311,
     label: 'Air Leakage',
     percentileSteps: [5, 7, 7, 7, 7, 10, 10, 10, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15],
-    evenSteps: [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 16],
+    evenSteps: [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15],
   },
   {
     xmlPath: 'HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistStory2Exposed].Insulation.AssemblyEffectiveRValue',

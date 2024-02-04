@@ -1,16 +1,11 @@
 import { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import * as Plot from '@observablehq/plot'
-import { format } from 'd3-format'
 import Slider from '@mui/material/Slider'
 import { useStore } from './useStore'
 import isEmpty from 'lodash/isEmpty'
 import { styled } from '@mui/material/styles'
-
-const chartWidth = 700
-const highlightColor = '#bad80a'
-const inactiveColor = '#e0e0e0'
-const formatTick = format(',.2s') // SI notation: https://observablehq.com/@observablehq/plot-cheatsheets-scales
+import { formatTick, chartWidth, highlightColor, inactiveColor, barStroke } from './utils/const'
 
 const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
   const { sliderValues, setSliderValue, stepType } = useStore((state) => ({
@@ -49,7 +44,7 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
           x: 'inputValue',
           y: 'predicted',
           fill: (d) => (d.inputValue === sliderValue ? highlightColor : inactiveColor),
-          stroke: '#bbb',
+          stroke: barStroke,
           strokeWidth: 0.5,
         }),
         ...(activeData
@@ -84,6 +79,9 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
   }
 
   const steps = chartData[stepType]
+  const maxSteps = Math.max(...steps)
+  const minSteps = Math.min(...steps)
+  const marks = steps.map((step) => ({ value: step, label: formatTick(step) }))
   return (
     <div style={{ position: 'relative' }}>
       <div style={{ marginBottom: '50px' }}>
@@ -91,9 +89,9 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
         <CustomSlider
           value={sliderValue}
           onChange={handleSliderChange}
-          marks={steps.map((step) => ({ value: step, label: formatTick(step) }))}
-          max={Math.max(...steps)}
-          min={Math.min(...steps)}
+          marks={marks}
+          max={maxSteps}
+          min={minSteps}
           step={null}
           valueLabelDisplay='auto'
           aria-label='Model Input Value'
@@ -128,7 +126,7 @@ export default SensitivityPlot
 // ---------------------------------------------------------------------------------------------
 // Create a styled version of the Slider
 const CustomSlider = styled(Slider)({
-  // Notice the & and . for MuiSlider-root adjacent
+  // Notice the & and . for MuiSlider-root has no space between them
   '&.MuiSlider-root': {
     position: 'relative',
     width: '92%',
@@ -139,5 +137,11 @@ const CustomSlider = styled(Slider)({
   // Notice the & and . for MuiSlider-markLabel have a space between them
   '& .MuiSlider-markLabel': {
     top: '20px',
+  },
+  '& .MuiSlider-mark': {
+    width: '3px',
+    height: '3px',
+    borderRadius: '50%',
+    color: barStroke,
   },
 })

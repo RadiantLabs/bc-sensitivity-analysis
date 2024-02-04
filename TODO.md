@@ -10,6 +10,8 @@ How to update the initialInputs vector every slide?
 - [ ] Adjust y axis scale dynamically
 - [ ] Move label definitions to spreadsheet instead of JS file
 - [ ] Add rounding precision to spreadsheet and use for step sizes
+  - getChartDataSet.js: const percentileSteps = \_.map(percentiles[xmlPath], Math.round)
+  - getChartDataSet.js: \_.map(stepRange, Math.round)
 - [ ] Make sure I'm creating the input tensor for prediction correctly. Harder than it seems
 - [ ] Get rid of vite.svg in the prod build
 
