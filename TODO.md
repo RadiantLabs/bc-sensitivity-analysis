@@ -5,18 +5,13 @@ How to update the initialInputs vector every slide?
 1. Have a "last modified slider value" so the input vector only needs to be updated for a single index. That requires us to keep track of the last modified input vector.
 2. Always update the initial input vector with every slider value (easier but might not be as performant).
 
-If I'm iterating over every element in the input vector each time then it may not matter if I'm updating 1 or 29
-
 ### TODO
 
-- [ ] Make sure I'm creating the input tensor for prediction correctly. Harder than it seems
-- [ ] Remove inputVectorIndex from chartData if not needed
-- [ ] Should getInitialSliderValues() be calculated at top of store?
-- [ ] Validate that the input array always has the correct number of elements
-- [ ] Get rid of vite.svg in the prod build
+- [ ] Adjust y axis scale dynamically
 - [ ] Move label definitions to spreadsheet instead of JS file
 - [ ] Add rounding precision to spreadsheet and use for step sizes
-- [ ] Remove HPXML.Building from xmlPath since it's redundant
+- [ ] Make sure I'm creating the input tensor for prediction correctly. Harder than it seems
+- [ ] Get rid of vite.svg in the prod build
 
 - [ ] Define slider steps as eventSteps or percentileSteps
 - [ ] Toggle between actionable and mixed actionable
@@ -24,6 +19,8 @@ If I'm iterating over every element in the input vector each time then it may no
 
 ### Maybe
 
+- [ ] Remove inputVectorIndex from chartData if not needed
+- [ ] Remove HPXML.Building from xmlPath since it's redundant
 - [ ] Create grouped array of categorical inputs (if it's in the top 20)
 - [ ] Build function that takes categorical inputs and the value to turn on and return the whole set with the rest as zeros. (only if categorical is included in the top 20)
 - [ ] Build assets along with production `npm run build`. You can't run in dev mode without these assets and they are checked in, so not sure this is needed.
@@ -32,6 +29,7 @@ If I'm iterating over every element in the input vector each time then it may no
 
 ### Done
 
+- [-] Validate that the input array always has the correct number of elements
 - [x] Figure out how to make a prediction 29 times (one for every bar). But also every current slider (active bar) will have the same prediction value
 - [x] Run current slider positions through the prediction.
 - [x] Build lookup object betweeen xmlpath and inputVectorIndex

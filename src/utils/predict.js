@@ -47,7 +47,8 @@ export function predict(chartDataSet, model, sliderValues, stepType) {
   const inputTensorFlattened = inputTensor.flat()
 
   // Run predictions, 1 for every bar in the charts
-  const predictedVector2d = functionTimer('runInference2d', runInference2d, model, inputTensorFlattened)
+  // const predictedVector2d = functionTimer('runInference2d', runInference2d, model, inputTensorFlattened)
+  const predictedVector2d = runInference2d(model, inputTensorFlattened)
 
   // Convert back to 2d matrix of predicted values so they can be used for the charts
   const predictedTensor = chunk(map(predictedVector2d, Math.round), stepsPerChart)
