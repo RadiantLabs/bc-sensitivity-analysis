@@ -14,6 +14,13 @@ export const theme = createTheme({
             boxShadow: 'none',
           },
         },
+        // track: {
+        //   height: 0, // Set track height to 0
+        //   color: 'gray', // Set track color to gray
+        // },
+        // rail: {
+        //   color: 'gray', // Set the rail color to gray
+        // },
       },
     },
   },

@@ -18,7 +18,7 @@ const SensitivityPlots = () => {
         const predictedData = predictedDataSet[xmlPath]
         return (
           <div key={index}>
-            <h3>{label}</h3>
+            <h5 style={{ marginBottom: 0 }}>{label}</h5>
             <SensitivityPlot chartId={xmlPath} predictedData={predictedData} chartData={chartData} />
           </div>
         )

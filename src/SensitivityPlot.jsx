@@ -3,11 +3,12 @@ import PropTypes from 'prop-types'
 import * as Plot from '@observablehq/plot'
 import { format } from 'd3-format'
 import Slider from '@mui/material/Slider'
-import Box from '@mui/material/Box'
 import { useStore } from './useStore'
 import isEmpty from 'lodash/isEmpty'
+import { styled } from '@mui/material/styles'
 
 const chartWidth = 700
+const formatTick = format(',.2s') // SI notation: https://observablehq.com/@observablehq/plot-cheatsheets-scales
 
 const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
   const { sliderValues, setSliderValue, stepType } = useStore((state) => ({
@@ -39,17 +40,8 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
 
     // Initialize chart on mount
     const chart = Plot.plot({
-      y: {
-        // axis: 'right',
-        // label: 'Predicted Annual Energy Use (kWh)',
-        // labelAnchor: 'center',
-        // tickFormat: format(',.0s'),
-        axis: null,
-      },
-      x: {
-        axis: null,
-        tickFormat: format(',.0s'),
-      },
+      y: { axis: null },
+      x: { axis: null },
       marks: [
         Plot.barY(predictedData, {
           x: 'inputValue',
@@ -92,12 +84,12 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
   const steps = chartData[stepType]
   return (
     <div style={{ position: 'relative' }}>
-      <Box sx={{ width: '100%', padding: 2 }}>
-        <div ref={chartRef} style={{ width: '100%' }} />
-        <Slider
+      <div style={{ marginBottom: '50px' }}>
+        <div ref={chartRef} style={{ width: '100%', marginBottom: '-15px' }} />
+        <CustomSlider
           value={sliderValue}
           onChange={handleSliderChange}
-          marks={steps.map((step) => ({ value: step, label: step.toString() }))}
+          marks={steps.map((step) => ({ value: step, label: formatTick(step) }))}
           max={Math.max(...steps)}
           min={Math.min(...steps)}
           step={null}
@@ -105,10 +97,9 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
           aria-label='Model Input Value'
           size='small'
           track={false}
-          style={getSliderStyles()}
           sx={getSliderStyles()}
         />
-      </Box>
+      </div>
     </div>
   )
 }
@@ -134,22 +125,25 @@ export default SensitivityPlot
 // ---------------------------------------------------------------------------------------------
 // Helper functions
 // ---------------------------------------------------------------------------------------------
-function getSliderStyles() {
-  const sliderPadding = 42
-  return {
-    position: 'absolute',
-    top: '87%', // Adjust this if necessary to position below the chart
-    left: 0,
-    right: 0,
-    width: `calc(100% - ${sliderPadding * 2}px)`, // Adjust padding on both sides
-    marginLeft: sliderPadding, // Apply half the padding value to align left side
-    marginRight: sliderPadding, // Apply half the padding value to align right side
+// Create a styled version of the Slider
+const CustomSlider = styled(Slider)({
+  '&.MuiSlider-root': {
+    position: 'relative',
+  },
+  '&.MuiSlider-track': {
+    height: 0,
+  },
+  '&.MuiSlider-rail': {
+    // height: 0,
+    color: 'gray',
+  },
+})
 
-    // https://mui.com/material-ui/customization/how-to-customize/
-    '& .MuiSliderThumb': {
-      '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
-        boxShadow: 'none',
-      },
-    },
+function getSliderStyles() {
+  return {
+    // position: 'absolute',
+    // top: '93%', // Adjust this if necessary to position below the chart
+    // left: '27px',
+    // width: chartWidth - 54,
   }
 }

@@ -1,4 +1,3 @@
-import Inference from './Inference'
 import SensitivityPlots from './SensitivityPlots'
 import { ThemeProvider } from '@mui/material'
 import { theme } from './theme'
@@ -8,7 +7,6 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <SensitivityPlots />
-      <Inference />
     </ThemeProvider>
   )
 }
