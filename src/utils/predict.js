@@ -6,7 +6,7 @@ import chunk from 'lodash/chunk'
 import map from 'lodash/map'
 import { inputVectorIndexLookup } from '../assets/inputVectorIndexLookup.js'
 import { initialInputs } from '../assets/initialInputs.js'
-import { functionTimer } from './functionTimer.js'
+// import { functionTimer } from './functionTimer.js'
 
 /* Return an object like:
   BuildingDetails.BuildingSummary.BuildingConstruction.ConditionedFloorArea: [

@@ -82,6 +82,7 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
   const maxSteps = Math.max(...steps)
   const minSteps = Math.min(...steps)
   const marks = steps.map((step) => ({ value: step, label: formatTick(step) }))
+  // const marks = steps.map((step) => ({ value: step, label: step.toString() }))
   return (
     <div style={{ position: 'relative' }}>
       <div style={{ marginBottom: '50px' }}>

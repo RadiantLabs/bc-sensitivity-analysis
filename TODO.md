@@ -31,6 +31,7 @@ How to update the initialInputs vector every slide?
 
 ### Done
 
+- [x] Write formatter to convert ft2 to superscript
 - [-] Validate that the input array always has the correct number of elements
 - [x] Figure out how to make a prediction 29 times (one for every bar). But also every current slider (active bar) will have the same prediction value
 - [x] Run current slider positions through the prediction.

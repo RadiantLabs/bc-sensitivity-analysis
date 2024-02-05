@@ -11,19 +11,24 @@ import _ from 'lodash'
   ]
 
 */
-export function getChartDataSet(percentiles, xmlPathLabels, topRanked, inputVectorSortOrder) {
+export function getChartDataSet(percentiles, modelInputsMetadata, topRanked) {
   // Only output the chart data that we will be displaying
   const topRankedPercentiles = _.pick(percentiles, topRanked)
 
   return _.map(topRankedPercentiles, (percentile, xmlPath) => {
-    const label = xmlPathLabels[xmlPath]
-    const percentileSteps = _.map(percentiles[xmlPath], Math.round) // TODO: use metadata to decide precision
+    const metaData = _.find(modelInputsMetadata, { xmlPath })
+    const { label, relevant, units, decimals, displayPrecision, categoricalValue } = metaData
+    const percentileSteps = getPercentileSteps(percentiles[xmlPath])
     const evenSteps = getEvenSteps(percentileSteps)
-    const inputVectorIndex = getInputVectorIndex(xmlPath, inputVectorSortOrder)
+    // const inputVectorIndex = getInputVectorIndex(xmlPath, inputVectorSortOrder) // I didn't end up using this (yet)
     return {
       xmlPath,
-      inputVectorIndex,
       label,
+      relevant,
+      units,
+      decimals,
+      displayPrecision,
+      categoricalValue,
       percentileSteps,
       evenSteps,
     }
@@ -45,10 +50,14 @@ function getEvenSteps(percentileSteps) {
   return _.map(stepRange, Math.round) // TODO: use metadata to decide precision
 }
 
-function getInputVectorIndex(xmlPath, inputVectorSortOrder) {
-  const index = inputVectorSortOrder.indexOf(xmlPath)
-  if (index === -1) {
-    console.error('xmlPath not found in inputVectorSortOrder', xmlPath)
-  }
-  return index
+function getPercentileSteps(percentileSteps) {
+  return percentileSteps.map((step) => Math.round(step)) // TODO: use metadata to decide precision
 }
+
+// function getInputVectorIndex(xmlPath, inputVectorSortOrder) {
+//   const index = inputVectorSortOrder.indexOf(xmlPath)
+//   if (index === -1) {
+//     console.error('xmlPath not found in inputVectorSortOrder', xmlPath)
+//   }
+//   return index
+// }
