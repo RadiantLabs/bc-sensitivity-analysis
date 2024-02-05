@@ -21,7 +21,6 @@ How to update the initialInputs vector every slide?
 
 ### Maybe
 
-- [ ] Remove inputVectorIndex from chartData if not needed
 - [ ] Remove HPXML.Building from xmlPath since it's redundant
 - [ ] Create grouped array of categorical inputs (if it's in the top 20)
 - [ ] Build function that takes categorical inputs and the value to turn on and return the whole set with the rest as zeros. (only if categorical is included in the top 20)
@@ -31,6 +30,7 @@ How to update the initialInputs vector every slide?
 
 ### Done
 
+- [x] Remove inputVectorIndex from chartData if not needed
 - [x] Write formatter to convert ft2 to superscript
 - [-] Validate that the input array always has the correct number of elements
 - [x] Figure out how to make a prediction 29 times (one for every bar). But also every current slider (active bar) will have the same prediction value

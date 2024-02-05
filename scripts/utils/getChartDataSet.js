@@ -20,7 +20,6 @@ export function getChartDataSet(percentiles, modelInputsMetadata, topRanked) {
     const { label, relevant, units, decimals, displayPrecision, categoricalValue } = metaData
     const percentileSteps = getPercentileSteps(percentiles[xmlPath])
     const evenSteps = getEvenSteps(percentileSteps)
-    // const inputVectorIndex = getInputVectorIndex(xmlPath, inputVectorSortOrder) // I didn't end up using this (yet)
     return {
       xmlPath,
       label,
@@ -53,11 +52,3 @@ function getEvenSteps(percentileSteps) {
 function getPercentileSteps(percentileSteps) {
   return percentileSteps.map((step) => Math.round(step)) // TODO: use metadata to decide precision
 }
-
-// function getInputVectorIndex(xmlPath, inputVectorSortOrder) {
-//   const index = inputVectorSortOrder.indexOf(xmlPath)
-//   if (index === -1) {
-//     console.error('xmlPath not found in inputVectorSortOrder', xmlPath)
-//   }
-//   return index
-// }
