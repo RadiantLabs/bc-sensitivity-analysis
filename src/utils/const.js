@@ -1,6 +1,6 @@
 import { format } from 'd3-format'
 
-export const chartCount = 3
+export const chartCount = 20
 
 // Chart Formatting
 // export const highlightColor = '#bad80a' // NYT green

@@ -145,4 +145,19 @@ const CustomSlider = styled(Slider)({
     borderRadius: '50%',
     color: barStroke,
   },
+  '& .MuiSlider-thumb': {
+    border: `0.5px solid ${inactiveColor}`,
+    cursor: 'ew-resize', // Cursor is a horizontal line with arrows on each end
+    // Create an invisible pseudo-element to increase the hit area of the thumb to take up most of the bar
+    '&:before': {
+      content: '""', // Necessary to create a pseudo-element
+      position: 'absolute',
+      height: chartHeight,
+      width: '300%',
+      backgroundColor: 'transparent',
+      top: -chartHeight * 0.8,
+      left: '50%', // Center horizontally
+      transform: 'translateX(-50%)', // Center horizontally
+    },
+  },
 })
