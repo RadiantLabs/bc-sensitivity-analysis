@@ -7,6 +7,8 @@ How to update the initialInputs vector every slide?
 
 ### TODO
 
+- [ ] Round predicted values to be integer to useEffect() doesn't change as often
+- [ ] Test rounding of inputs and specify Float16 array
 - [ ] Adjust y axis scale dynamically
 - [ ] Move label definitions to spreadsheet instead of JS file
 - [ ] Add rounding precision to spreadsheet and use for step sizes
@@ -14,6 +16,7 @@ How to update the initialInputs vector every slide?
   - getChartDataSet.js: \_.map(stepRange, Math.round)
 - [ ] Make sure I'm creating the input tensor for prediction correctly. Harder than it seems
 - [ ] Get rid of vite.svg in the prod build
+- [ ] Make sure inputVectorSortOrder isn't redundant with inputVectorIndexLookup. Check to see if inputVectorIndexLookup object lookup is faster than just getting an array index. Probably the same speed and we can simplify buildAssets.js
 
 - [ ] Define slider steps as eventSteps or percentileSteps
 - [ ] Toggle between actionable and mixed actionable
@@ -21,7 +24,6 @@ How to update the initialInputs vector every slide?
 
 ### Maybe
 
-- [ ] Remove HPXML.Building from xmlPath since it's redundant
 - [ ] Create grouped array of categorical inputs (if it's in the top 20)
 - [ ] Build function that takes categorical inputs and the value to turn on and return the whole set with the rest as zeros. (only if categorical is included in the top 20)
 - [ ] Build assets along with production `npm run build`. You can't run in dev mode without these assets and they are checked in, so not sure this is needed.

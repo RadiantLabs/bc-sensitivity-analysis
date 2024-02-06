@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import Papa from 'papaparse'
+import { getInputVectorSortOrder } from './utils/getInputVectorSortOrder.js'
 // import { getTopRankActionable } from './utils/getTopRankActionable.js'
 import { getTopRank } from './utils/getTopRank.js'
 import { getPercentiles } from './utils/getPercentiles.js'
@@ -30,6 +31,7 @@ const topRankedOutPath = path.join(intermediatesPath, 'topRanked.js')
 // const topRankedActionableOutPath = path.join(intermediatesPath, 'topRankedActionable.js')
 const inputCodeToXmlPathLookupPath = path.join(intermediatesPath, 'inputCodeToXmlPathLookup.js')
 const inputPercentilesOutPath = path.join(intermediatesPath, 'inputPercentiles.js')
+const inputVectorSortOrderPath = path.join(intermediatesPath, 'inputVectorSortOrder.js')
 
 // Assets to be bundled
 const initialInputsOutPath = path.join(assetsPath, 'initialInputs.js')
@@ -47,6 +49,7 @@ function buildAssets(modelInputsMetadataSourcePath) {
     skipEmptyLines: true,
     complete: async (results) => {
       const modelInputsMetadata = results.data
+      const inputVectorSortOrder = getInputVectorSortOrder(modelInputsMetadata)
       const inputVectorIndexLookup = getInputVectorIndexLookup(modelInputsMetadata)
       const topRanked = getTopRank(modelInputsMetadata)
       // const topRankedActionable = getTopRankActionable(modelInputsMetadata)
@@ -66,7 +69,7 @@ function buildAssets(modelInputsMetadataSourcePath) {
       const initialInputs = JSON.parse(fs.readFileSync(initialInputsSourcePath, 'utf8'))
 
       // Generate the chart configuration data, including what xml paths are used and the steps for the sliders
-      const chartDataSet = getChartDataSet(inputPercentiles, modelInputsMetadata, topRankedManual)
+      const chartDataSet = getChartDataSet(inputPercentiles, modelInputsMetadata, topRankedManual, inputVectorSortOrder)
       // const chartDataSetActionable = getChartDataSet(inputPercentiles, modelInputsMetadata, topRankedActionableManual)
 
       // Intermediate output files for debugging
@@ -75,7 +78,7 @@ function buildAssets(modelInputsMetadataSourcePath) {
       // writeFile(topRankedActionable, 'topRankedActionable', topRankedActionableOutPath)
       writeFile(inputCodeToXmlPathLookup, 'inputCodeToXmlPathLookup', inputCodeToXmlPathLookupPath)
       writeFile(inputPercentiles, 'inputPercentiles', inputPercentilesOutPath)
-      // writeFile(inputVectorSortOrder, 'inputVectorSortOrder', inputVectorSortOrderPath)
+      writeFile(inputVectorSortOrder, 'inputVectorSortOrder', inputVectorSortOrderPath)
 
       // Final assets to be used in the app
       writeFile(inputVectorIndexLookup, 'inputVectorIndexLookup', path.join(assetsPath, 'inputVectorIndexLookup.js'))

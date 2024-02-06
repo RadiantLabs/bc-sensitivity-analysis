@@ -5,7 +5,7 @@ import Slider from '@mui/material/Slider'
 import { useStore } from './useStore'
 import isEmpty from 'lodash/isEmpty'
 import { styled } from '@mui/material/styles'
-import { formatTick, chartWidth, highlightColor, inactiveColor, barStroke } from './utils/const'
+import { formatTick, chartWidth, highlightColor, inactiveColor, barStroke, chartHeight } from './utils/const'
 
 const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
   const { sliderValues, setSliderValue, stepType } = useStore((state) => ({
@@ -62,7 +62,7 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
             ]
           : []),
       ],
-      height: 100,
+      height: chartHeight,
       width: chartWidth,
       marginTop: 20,
     })

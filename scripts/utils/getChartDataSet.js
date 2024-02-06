@@ -11,19 +11,22 @@ import _ from 'lodash'
   ]
 
 */
-export function getChartDataSet(percentiles, modelInputsMetadata, topRanked) {
+export function getChartDataSet(percentiles, modelInputsMetadata, topRanked, inputVectorSortOrder) {
   // Only output the chart data that we will be displaying
   const topRankedPercentiles = _.pick(percentiles, topRanked)
 
   return _.map(topRankedPercentiles, (percentile, xmlPath) => {
     const metaData = _.find(modelInputsMetadata, { xmlPath })
-    const { label, relevant, units, decimals, displayPrecision, categoricalValue } = metaData
+    const { label, isRelevant, isActionable, units, decimals, displayPrecision, categoricalValue } = metaData
     const percentileSteps = getPercentileSteps(percentiles[xmlPath])
     const evenSteps = getEvenSteps(percentileSteps)
+    const inputVectorIndex = getInputVectorIndex(xmlPath, inputVectorSortOrder)
     return {
       xmlPath,
       label,
-      relevant,
+      inputVectorIndex,
+      isRelevant,
+      isActionable,
       units,
       decimals,
       displayPrecision,
@@ -51,4 +54,12 @@ function getEvenSteps(percentileSteps) {
 
 function getPercentileSteps(percentileSteps) {
   return percentileSteps.map((step) => Math.round(step)) // TODO: use metadata to decide precision
+}
+
+function getInputVectorIndex(xmlPath, inputVectorSortOrder) {
+  const index = inputVectorSortOrder.indexOf(xmlPath)
+  if (index === -1) {
+    console.error('xmlPath not found in inputVectorSortOrder', xmlPath)
+  }
+  return index
 }
