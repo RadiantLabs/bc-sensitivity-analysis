@@ -6,6 +6,7 @@ import { useStore } from './useStore'
 import isEmpty from 'lodash/isEmpty'
 import { styled } from '@mui/material/styles'
 import { formatTick, chartWidth, highlightColor, inactiveColor, barStroke, chartHeight } from './utils/const'
+import { calculateSlope } from './utils/calculateSlope'
 
 const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
   const { sliderValues, setSliderValue, stepType } = useStore((state) => ({
@@ -16,6 +17,8 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
 
   const chartRef = useRef()
   const sliderValue = sliderValues[chartId]
+
+  const slopes = calculateSlope(predictedData)
 
   const handleSliderChange = (event, newSliderVal) => {
     setSliderValue(chartId, newSliderVal)
@@ -40,6 +43,17 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
       y: { axis: null },
       x: { axis: null },
       marks: [
+        // Add a small colored bar to the top of each bar to represent the slope
+        Plot.barY(
+          predictedData.map((d) => ({ ...d, predicted: d.predicted + 100 })), // Pick a value to make the bar taller
+          {
+            x: 'inputValue',
+            y: 'predicted',
+            fill: (d, i) => getColorFromSlope(slopes[i]), // Color based on slope
+            // height: 50, // Make this a small value to represent just the top part
+          }
+        ),
+        // Plot inactive bars
         Plot.barY(predictedData, {
           x: 'inputValue',
           y: 'predicted',
@@ -47,6 +61,7 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
           stroke: barStroke,
           strokeWidth: 0.5,
         }),
+        // Plot active bar
         ...(activeData
           ? [
               Plot.text([activeData], {
@@ -72,7 +87,7 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
     return () => {
       currentRef.removeChild(chart)
     }
-  }, [predictedData, sliderValue]) // The chart will re-render only when these values change
+  }, [predictedData, sliderValue, slopes]) // The chart will re-render only when these values change
 
   if (isEmpty(predictedData)) {
     return <div>Loading...</div>
@@ -161,3 +176,14 @@ const CustomSlider = styled(Slider)({
     },
   },
 })
+
+function getColorFromSlope(slope) {
+  const intensity = Math.min(1, Math.abs(slope) * 4) // Control intensity
+  if (slope > 0) {
+    // Positive slope: shades of red
+    return `rgba(255, ${255 - intensity * 255}, ${255 - intensity * 255}, ${intensity})`
+  } else {
+    // Negative slope: shades of blue
+    return `rgba(${255 - intensity * 255}, ${255 - intensity * 255}, 255, ${intensity})`
+  }
+}
