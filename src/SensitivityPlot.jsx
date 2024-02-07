@@ -10,10 +10,11 @@ import { calculateSlope } from './utils/calculateSlope'
 import { formatSliderTickLabel } from './utils/formatSliderTickLabel'
 
 const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
-  const { sliderValues, setSliderValue, stepType } = useStore((state) => ({
+  const { sliderValues, setSliderValue, stepType, yAxisDomain } = useStore((state) => ({
     sliderValues: state.sliderValues,
     setSliderValue: state.setSliderValue,
     stepType: state.stepType,
+    yAxisDomain: state.yAxisDomain,
   }))
 
   const chartRef = useRef()
@@ -40,7 +41,10 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
 
     // Initialize chart on mount
     const chart = Plot.plot({
-      y: { axis: null },
+      y: {
+        axis: null,
+        domain: yAxisDomain,
+      },
       x: { axis: null },
       marks: [
         // Add a small colored bar to the top of each bar to represent the slope
@@ -134,6 +138,7 @@ SensitivityPlot.propTypes = {
     evenSteps: PropTypes.arrayOf(PropTypes.number),
   }),
   chartId: PropTypes.string.isRequired,
+  yAxisDomain: PropTypes.arrayOf(PropTypes.number),
 }
 
 export default SensitivityPlot

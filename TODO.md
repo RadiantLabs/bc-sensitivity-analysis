@@ -1,9 +1,7 @@
 ### TODO
 
-- [ ] Build production assets and test performance
-- [ ] Round predicted values to be integer to useEffect() doesn't change as often
+- [ ] Lock y axis scale dynamically (or lock it into a fixed scale for all?)
 - [ ] Test rounding of inputs and specify Float16 array
-- [ ] Adjust y axis scale dynamically
 - [ ] Get rid of vite.svg in the prod build
 - [ ] Dboule check input tensor for prediction: Harder than it seems
 - [ ] How do I define steps for something lik e thermostat setpoints?
@@ -22,6 +20,8 @@
 
 ### Done
 
+- [x] Round predicted values to be integer to useEffect() doesn't change as often
+- [x] Build production assets and test performance
 - [x] Use displayPrecision to format slider steps
 - [x] Round steps based on `decimals` value in spreadsheet
 - [x] Move label definitions to spreadsheet instead of JS file

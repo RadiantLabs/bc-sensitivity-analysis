@@ -17,6 +17,7 @@ export const useStore = create(
     model: null, // Loads async remotely from fetchModel
     stepType: 'evenSteps',
     sliderValues: initialSliderValues, // stored in an object with chartId as key
+    yAxisDomain: [0, 6000], // Hardcode for now, later detect max from initial prediction (but not every prediction). See getMaxPredictionValue.js
 
     setChartDataSet: (newChartDataSet) => set({ chartDataSet: take(newChartDataSet, chartCount) }),
     setStepType: (newStepType) => set({ stepType: newStepType }), // Can be evenly distributed or based on percentiles

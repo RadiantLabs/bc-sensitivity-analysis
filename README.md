@@ -31,6 +31,9 @@ Run normal JS build process
 
 ```
 npm run build
+
+// If you don't have serve: `npm install -g serve` to install it globally
+serve -s dist
 ```
 
 ## Datastore
