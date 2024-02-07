@@ -10,29 +10,20 @@ import _ from 'lodash'
       evenSteps: [875, ,,, 3320]
     }
   ]
-
 */
-export function getChartDataSet(percentiles, modelInputsMetadata, topRanked, inputVectorSortOrder) {
-  // Only output the chart data that we will be displaying
-  const topRankedPercentiles = _.pick(percentiles, topRanked)
+export function getChartDataSet(modelInputsMetadata, percentiles, opts) {
+  const { chartCount, useActionable } = opts
 
-  // TODO: why am I mapping over percentiles instead of modelInputsMetadata?
-  return _.map(topRankedPercentiles, (percentile, xmlPath) => {
-    const metaData = _.find(modelInputsMetadata, { xmlPath })
-    const { label, isRelevant, isActionable, units, decimals, displayPrecision, categoricalValue } = metaData
+  // Sort and filter based on attributes in metadata
+  const topRanked = getTopRank(modelInputsMetadata, chartCount, useActionable)
+
+  // Return original data object with additional steps for the sliders
+  return topRanked.map((metaData) => {
+    const { xmlPath } = metaData
     const percentileSteps = getPercentileSteps(percentiles[xmlPath])
-    const evenSteps = getEvenSteps(percentileSteps)
-    const inputVectorIndex = getInputVectorIndex(xmlPath, inputVectorSortOrder)
+    const evenSteps = getEvenSteps(percentileSteps, xmlPath)
     return {
-      xmlPath,
-      label,
-      inputVectorIndex,
-      isRelevant,
-      isActionable,
-      units,
-      decimals,
-      displayPrecision,
-      categoricalValue,
+      ...metaData,
       percentileSteps,
       evenSteps,
     }
@@ -42,26 +33,33 @@ export function getChartDataSet(percentiles, modelInputsMetadata, topRanked, inp
 // -------------------------------------------------------------------------
 // Helper functions
 // -------------------------------------------------------------------------
-function getEvenSteps(percentileSteps) {
+// isRelevant is something that Kelly determined.
+// For example, there are a lot of redundant inputs, like conditioned floor area and conditioned floor
+// area served. Or window azimuth is not relevant because we have east, west, north, south, window area.
+function getTopRank(modelInputsMetadata, chartCount, useActionable) {
+  const newMetadataArray = [...modelInputsMetadata] // sorting may mutate in place, bad form
+  const filtered = newMetadataArray
+    .filter((item) => _.isNumber(item.importanceRank))
+    .filter((item) => _.isEmpty(item.categoricalValue)) // Change this later when I build UI for categorical.
+    .filter((item) => Boolean(item.isRelevant))
+    .filter((item) => (useActionable ? Boolean(item.isActionable) : true))
+    .sort((a, b) => a.importanceRank - b.importanceRank)
+    .slice(0, chartCount) // Return new array from index 0 to chartCount
+  return filtered
+}
+
+function getEvenSteps(percentileSteps, xmlPath) {
   const min = Math.min(...percentileSteps)
   const max = Math.max(...percentileSteps)
   const steps = 20
   const stepSize = (max - min) / (steps - 1)
   const stepRange = _.take(_.range(min, max + stepSize, stepSize), steps) // Edge cases where we might get more than 20
   if (stepRange.length !== steps) {
-    throw new Error('stepRange.length !== steps')
+    throw new Error(`stepRange.length !== steps, xmlPath: ${xmlPath}, percentileSteps: ${percentileSteps}`)
   }
   return _.map(stepRange, Math.round) // TODO: use metadata to decide precision
 }
 
 function getPercentileSteps(percentileSteps) {
   return percentileSteps.map((step) => Math.round(step)) // TODO: use metadata to decide precision
-}
-
-function getInputVectorIndex(xmlPath, inputVectorSortOrder) {
-  const index = inputVectorSortOrder.indexOf(xmlPath)
-  if (index === -1) {
-    console.error('xmlPath not found in inputVectorSortOrder', xmlPath)
-  }
-  return index
 }

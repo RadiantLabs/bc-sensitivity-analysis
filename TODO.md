@@ -1,22 +1,13 @@
-## Notes
-
-How to update the initialInputs vector every slide?
-
-1. Have a "last modified slider value" so the input vector only needs to be updated for a single index. That requires us to keep track of the last modified input vector.
-2. Always update the initial input vector with every slider value (easier but might not be as performant).
-
 ### TODO
 
 - [ ] Round predicted values to be integer to useEffect() doesn't change as often
 - [ ] Test rounding of inputs and specify Float16 array
 - [ ] Adjust y axis scale dynamically
-- [ ] Move label definitions to spreadsheet instead of JS file
 - [ ] Add rounding precision to spreadsheet and use for step sizes
   - getChartDataSet.js: const percentileSteps = \_.map(percentiles[xmlPath], Math.round)
   - getChartDataSet.js: \_.map(stepRange, Math.round)
-- [ ] Make sure I'm creating the input tensor for prediction correctly. Harder than it seems
 - [ ] Get rid of vite.svg in the prod build
-- [ ] Make sure inputVectorSortOrder isn't redundant with inputVectorIndexLookup. Check to see if inputVectorIndexLookup object lookup is faster than just getting an array index. Probably the same speed and we can simplify buildAssets.js
+- [ ] Make sure I'm creating the input tensor for prediction correctly. Harder than it seems
 
 - [ ] Define slider steps as eventSteps or percentileSteps
 - [ ] Toggle between actionable and mixed actionable
@@ -33,6 +24,8 @@ How to update the initialInputs vector every slide?
 
 ### Done
 
+- [x] Move label definitions to spreadsheet instead of JS file
+- [x] Make sure inputVectorSortOrder isn't redundant with inputVectorIndexLookup.
 - [x] Remove inputVectorIndex from chartData if not needed
 - [x] Write formatter to convert ft2 to superscript
 - [-] Validate that the input array always has the correct number of elements

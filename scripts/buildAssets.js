@@ -2,14 +2,10 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import Papa from 'papaparse'
-import { getInputVectorSortOrder } from './utils/getInputVectorSortOrder.js'
-// import { getTopRankActionable } from './utils/getTopRankActionable.js'
-import { getTopRank } from './utils/getTopRank.js'
 import { getPercentiles } from './utils/getPercentiles.js'
 import { getInputCodeToXmlPathLookup } from './utils/getInputCodeToXmlPathLookup.js'
 import { getChartDataSet } from './utils/getChartDataSet.js'
 import { getInputVectorIndexLookup } from './utils/getInputVectorIndexLookup.js'
-import { topRankedManual } from './sources/topRankedManual.js'
 import { getCSV } from './utils/getCSV.js'
 import { toJsonString } from '../src/utils/toJsonString.js'
 
@@ -20,23 +16,20 @@ const intermediatesPath = path.join(__dirname, './intermediates')
 
 // Paths to CSV source files
 const modelInputsMetadataSourcePath = path.join(__dirname, 'sources/model_inputs_metadata.csv')
-const hudsonWeatherSourcePath = path.join(__dirname, 'sources/hudson_ny.csv')
-const santarosaWeatherSourcePath = path.join(__dirname, 'sources/santa_rosa_ca.csv')
 const percentilesSourcePath = path.join(__dirname, 'sources/input_percentiles.csv')
 const initialInputsSourcePath = path.join(__dirname, 'sources/initial_inputs.json')
+const hudsonWeatherSourcePath = path.join(__dirname, 'sources/hudson_ny.csv')
+const santarosaWeatherSourcePath = path.join(__dirname, 'sources/santa_rosa_ca.csv')
 
 // Intermediate output files for debugging
 const modelInputsMetadataPath = path.join(intermediatesPath, 'modelInputsMetadata.js')
-const topRankedOutPath = path.join(intermediatesPath, 'topRanked.js')
-// const topRankedActionableOutPath = path.join(intermediatesPath, 'topRankedActionable.js')
 const inputCodeToXmlPathLookupPath = path.join(intermediatesPath, 'inputCodeToXmlPathLookup.js')
 const inputPercentilesOutPath = path.join(intermediatesPath, 'inputPercentiles.js')
-const inputVectorSortOrderPath = path.join(intermediatesPath, 'inputVectorSortOrder.js')
 
 // Assets to be bundled
 const initialInputsOutPath = path.join(assetsPath, 'initialInputs.js')
 const chartDataSetOutPath = path.join(assetsPath, 'chartDataSet.js')
-// const chartDataSetActionableOutPath = path.join(assetsPath, 'chartDataSetActionable.js')
+const chartDataSetActionableOutPath = path.join(assetsPath, 'chartDataSetActionable.js')
 const hudsonWeatherOutPath = path.join(assetsPath, 'hudsonWeather.js')
 const santarosaWeatherOutPath = path.join(assetsPath, 'santarosaWeather.js')
 
@@ -49,10 +42,10 @@ function buildAssets(modelInputsMetadataSourcePath) {
     skipEmptyLines: true,
     complete: async (results) => {
       const modelInputsMetadata = results.data
-      const inputVectorSortOrder = getInputVectorSortOrder(modelInputsMetadata)
+
+      // Create lookup table between xmlPath and inputVector index. This is 0(1) instead of looking up
+      // the index of a value in an array (which is 0(n)). This lookup is done every slider step interaction.
       const inputVectorIndexLookup = getInputVectorIndexLookup(modelInputsMetadata)
-      const topRanked = getTopRank(modelInputsMetadata)
-      // const topRankedActionable = getTopRankActionable(modelInputsMetadata)
 
       // Input codes (like X0754) are used instead of xml paths in the percentiles calculation spreadsheet
       // We use xml paths for the rest of the calculations so this maps from input codes to xml paths.
@@ -65,26 +58,24 @@ function buildAssets(modelInputsMetadataSourcePath) {
       const hudsonWeather = await getCSV(hudsonWeatherSourcePath)
       const santarosaWeather = await getCSV(santarosaWeatherSourcePath)
 
-      // Get initial input vector for the model
+      // Get initial input vector for the model. This is modified by the slider position during interaction
       const initialInputs = JSON.parse(fs.readFileSync(initialInputsSourcePath, 'utf8'))
 
       // Generate the chart configuration data, including what xml paths are used and the steps for the sliders
-      const chartDataSet = getChartDataSet(inputPercentiles, modelInputsMetadata, topRankedManual, inputVectorSortOrder)
-      // const chartDataSetActionable = getChartDataSet(inputPercentiles, modelInputsMetadata, topRankedActionableManual)
+      // chartCount will be set later in the app. This just sets a maximum that could be used.
+      const chartDataSet = getChartDataSet(modelInputsMetadata, inputPercentiles, { chartCount: 40, useActionable: false })
+      const chartDataSetActionable = getChartDataSet(modelInputsMetadata, inputPercentiles, { chartCount: 40, useActionable: true })
 
       // Intermediate output files for debugging
       writeFile(modelInputsMetadata, 'modelInputsMetadata', modelInputsMetadataPath)
-      writeFile(topRanked, 'topRanked', topRankedOutPath)
-      // writeFile(topRankedActionable, 'topRankedActionable', topRankedActionableOutPath)
       writeFile(inputCodeToXmlPathLookup, 'inputCodeToXmlPathLookup', inputCodeToXmlPathLookupPath)
       writeFile(inputPercentiles, 'inputPercentiles', inputPercentilesOutPath)
-      writeFile(inputVectorSortOrder, 'inputVectorSortOrder', inputVectorSortOrderPath)
 
       // Final assets to be used in the app
       writeFile(inputVectorIndexLookup, 'inputVectorIndexLookup', path.join(assetsPath, 'inputVectorIndexLookup.js'))
       writeFile(initialInputs, 'initialInputs', initialInputsOutPath)
       writeFile(chartDataSet, 'chartDataSet', chartDataSetOutPath)
-      // writeFile(chartDataSetActionable, 'chartDataSetActionable', chartDataSetActionableOutPath)
+      writeFile(chartDataSetActionable, 'chartDataSetActionable', chartDataSetActionableOutPath)
       writeFile(hudsonWeather, 'hudsonWeather', hudsonWeatherOutPath)
       writeFile(santarosaWeather, 'santarosaWeather', santarosaWeatherOutPath)
     },
@@ -92,7 +83,7 @@ function buildAssets(modelInputsMetadataSourcePath) {
 }
 
 // -------------------------------------------------------------------------
-// Main calling functions
+// Main calling function
 // -------------------------------------------------------------------------
 buildAssets(modelInputsMetadataSourcePath)
 
