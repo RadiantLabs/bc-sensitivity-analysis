@@ -5,8 +5,7 @@
 - [ ] Test rounding of inputs and specify Float16 array
 - [ ] Adjust y axis scale dynamically
 - [ ] Get rid of vite.svg in the prod build
-- [ ] Make sure I'm creating the input tensor for prediction correctly. Harder than it seems
-
+- [ ] Dboule check input tensor for prediction: Harder than it seems
 - [ ] How do I define steps for something lik e thermostat setpoints?
 - [ ] Define slider steps as eventSteps or percentileSteps in UI
 - [ ] Toggle between actionable and mixed actionable
@@ -23,6 +22,7 @@
 
 ### Done
 
+- [x] Use displayPrecision to format slider steps
 - [x] Round steps based on `decimals` value in spreadsheet
 - [x] Move label definitions to spreadsheet instead of JS file
 - [x] Make sure inputVectorSortOrder isn't redundant with inputVectorIndexLookup.

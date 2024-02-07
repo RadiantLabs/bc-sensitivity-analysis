@@ -5,8 +5,9 @@ import Slider from '@mui/material/Slider'
 import { useStore } from './useStore'
 import isEmpty from 'lodash/isEmpty'
 import { styled } from '@mui/material/styles'
-import { formatTick, chartWidth, highlightColor, inactiveColor, barStroke, chartHeight } from './utils/const'
+import { chartWidth, highlightColor, inactiveColor, barStroke, chartHeight } from './utils/const'
 import { calculateSlope } from './utils/calculateSlope'
+import { formatSliderTickLabel } from './utils/formatSliderTickLabel'
 
 const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
   const { sliderValues, setSliderValue, stepType } = useStore((state) => ({
@@ -95,8 +96,8 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
   const steps = chartData[stepType]
   const maxSteps = Math.max(...steps)
   const minSteps = Math.min(...steps)
-  const marks = steps.map((step) => ({ value: step, label: formatTick(step) }))
-  // const marks = steps.map((step) => ({ value: step, label: step.toString() }))
+  const { displayPrecision } = chartData
+  const marks = steps.map((step) => ({ value: step, label: formatSliderTickLabel(step, displayPrecision) }))
   return (
     <div style={{ position: 'relative' }}>
       <div style={{ marginBottom: '50px' }}>
@@ -128,6 +129,7 @@ SensitivityPlot.propTypes = {
   chartData: PropTypes.shape({
     xmlPath: PropTypes.string.isRequired,
     label: PropTypes.string,
+    displayPrecision: PropTypes.number,
     percentileSteps: PropTypes.arrayOf(PropTypes.number),
     evenSteps: PropTypes.arrayOf(PropTypes.number),
   }),
