@@ -1,11 +1,6 @@
 import { createTheme } from '@mui/material/styles'
 
 export const theme = createTheme({
-  props: {
-    MuiButtonBase: {
-      disableRipple: true, // No more ripple, on the whole application
-    },
-  },
   components: {
     MuiSlider: {
       styleOverrides: {
@@ -14,13 +9,21 @@ export const theme = createTheme({
             boxShadow: 'none',
           },
         },
-        // track: {
-        //   height: 0, // Set track height to 0
-        //   color: 'gray', // Set track color to gray
-        // },
-        // rail: {
-        //   color: 'gray', // Set the rail color to gray
-        // },
+      },
+    },
+    MuiButton: {
+      defaultProps: {
+        disableRipple: true, // Disabling ripple effect for Button
+      },
+    },
+    MuiIconButton: {
+      defaultProps: {
+        disableRipple: true, // Disabling ripple effect for IconButton
+      },
+    },
+    MuiToggleButton: {
+      defaultProps: {
+        disableRipple: true, // Disabling ripple effect for ToggleButton
       },
     },
   },

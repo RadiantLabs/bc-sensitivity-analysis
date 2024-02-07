@@ -1,4 +1,4 @@
-export const chartCount = 20
+export const chartCount = 16
 
 // Chart Formatting
 // export const highlightColor = '#bad80a' // NYT green
@@ -11,4 +11,4 @@ export const inactiveColor = '#e0e0e0'
 export const barStroke = '#bbb'
 
 export const chartWidth = 700
-export const chartHeight = 150
+export const chartHeight = 100
