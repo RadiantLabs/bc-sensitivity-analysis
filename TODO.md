@@ -21,6 +21,7 @@ How to update the initialInputs vector every slide?
 - [ ] Define slider steps as eventSteps or percentileSteps
 - [ ] Toggle between actionable and mixed actionable
 - [ ] Have a toggle to switch the weather
+- [ ] Create chart to show stdev of the shown xmlPaths
 
 ### Maybe
 

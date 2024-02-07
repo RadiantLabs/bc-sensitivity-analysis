@@ -5,6 +5,7 @@ import _ from 'lodash'
     {
       xmlPath: 'BuildingConstruction.ConditionedFloorArea',
       label: 'Conditioned Floor Area',
+      ...
       percentileSteps: [875, 1000, 1090, 1160, 1226, 1295, 1360, 1428, 1500, 1580, 1671, 1770, 1874, 1992, 2128, 2287, 2500, 2800, 3320],
       evenSteps: [875, ,,, 3320]
     }
@@ -15,6 +16,7 @@ export function getChartDataSet(percentiles, modelInputsMetadata, topRanked, inp
   // Only output the chart data that we will be displaying
   const topRankedPercentiles = _.pick(percentiles, topRanked)
 
+  // TODO: why am I mapping over percentiles instead of modelInputsMetadata?
   return _.map(topRankedPercentiles, (percentile, xmlPath) => {
     const metaData = _.find(modelInputsMetadata, { xmlPath })
     const { label, isRelevant, isActionable, units, decimals, displayPrecision, categoricalValue } = metaData
