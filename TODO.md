@@ -1,15 +1,14 @@
 ### TODO
 
+- [ ] Build production assets and test performance
 - [ ] Round predicted values to be integer to useEffect() doesn't change as often
 - [ ] Test rounding of inputs and specify Float16 array
 - [ ] Adjust y axis scale dynamically
-- [ ] Add rounding precision to spreadsheet and use for step sizes
-  - getChartDataSet.js: const percentileSteps = \_.map(percentiles[xmlPath], Math.round)
-  - getChartDataSet.js: \_.map(stepRange, Math.round)
 - [ ] Get rid of vite.svg in the prod build
 - [ ] Make sure I'm creating the input tensor for prediction correctly. Harder than it seems
 
-- [ ] Define slider steps as eventSteps or percentileSteps
+- [ ] How do I define steps for something lik e thermostat setpoints?
+- [ ] Define slider steps as eventSteps or percentileSteps in UI
 - [ ] Toggle between actionable and mixed actionable
 - [ ] Have a toggle to switch the weather
 - [ ] Create chart to show stdev of the shown xmlPaths
@@ -24,6 +23,7 @@
 
 ### Done
 
+- [x] Round steps based on `decimals` value in spreadsheet
 - [x] Move label definitions to spreadsheet instead of JS file
 - [x] Make sure inputVectorSortOrder isn't redundant with inputVectorIndexLookup.
 - [x] Remove inputVectorIndex from chartData if not needed

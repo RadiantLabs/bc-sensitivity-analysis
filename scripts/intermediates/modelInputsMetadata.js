@@ -4206,10 +4206,10 @@ export const modelInputsMetadata = [
     "label": null,
     "categoricalValue": null,
     "isActionable": false,
-    "isRelevant": true,
+    "isRelevant": false,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 48,
     "stdev": 408817
   },
@@ -4220,10 +4220,10 @@ export const modelInputsMetadata = [
     "label": null,
     "categoricalValue": null,
     "isActionable": false,
-    "isRelevant": true,
+    "isRelevant": false,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 54,
     "stdev": 272307
   },
@@ -4237,7 +4237,7 @@ export const modelInputsMetadata = [
     "isRelevant": true,
     "units": "ft",
     "decimals": 0,
-    "displayPrecision": null,
+    "displayPrecision": 2,
     "importanceRank": 55,
     "stdev": 267757
   },
@@ -4264,7 +4264,7 @@ export const modelInputsMetadata = [
     "isActionable": false,
     "isRelevant": false,
     "units": "ft",
-    "decimals": 0,
+    "decimals": null,
     "displayPrecision": null,
     "importanceRank": 58,
     "stdev": 248039
@@ -4292,7 +4292,7 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "cfm",
-    "decimals": 1,
+    "decimals": 0,
     "displayPrecision": 2,
     "importanceRank": 61,
     "stdev": 226804
@@ -4306,8 +4306,8 @@ export const modelInputsMetadata = [
     "isActionable": false,
     "isRelevant": false,
     "units": "ft2",
-    "decimals": 0,
-    "displayPrecision": 2,
+    "decimals": null,
+    "displayPrecision": null,
     "importanceRank": 139,
     "stdev": 147932
   },
@@ -4321,7 +4321,7 @@ export const modelInputsMetadata = [
     "isRelevant": true,
     "units": "ft2",
     "decimals": 0,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 145,
     "stdev": 144899
   },
@@ -4335,7 +4335,7 @@ export const modelInputsMetadata = [
     "isRelevant": true,
     "units": "ft2",
     "decimals": 0,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 146,
     "stdev": 144899
   },
@@ -4349,7 +4349,7 @@ export const modelInputsMetadata = [
     "isRelevant": true,
     "units": "ft2",
     "decimals": 0,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 149,
     "stdev": 143382
   },
@@ -4363,7 +4363,7 @@ export const modelInputsMetadata = [
     "isRelevant": true,
     "units": "ft2",
     "decimals": 0,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 150,
     "stdev": 143382
   },
@@ -4377,7 +4377,7 @@ export const modelInputsMetadata = [
     "isRelevant": true,
     "units": "gal",
     "decimals": 0,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 153,
     "stdev": 140173
   },
@@ -4388,10 +4388,10 @@ export const modelInputsMetadata = [
     "label": null,
     "categoricalValue": null,
     "isActionable": false,
-    "isRelevant": true,
+    "isRelevant": false,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 158,
     "stdev": 135798
   },
@@ -4404,8 +4404,8 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "°F",
-    "decimals": 1,
-    "displayPrecision": 2,
+    "decimals": 0,
+    "displayPrecision": null,
     "importanceRank": 166,
     "stdev": 123664
   },
@@ -4433,7 +4433,7 @@ export const modelInputsMetadata = [
     "isRelevant": true,
     "units": "ft2",
     "decimals": 0,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 172,
     "stdev": 114563
   },
@@ -4447,7 +4447,7 @@ export const modelInputsMetadata = [
     "isRelevant": true,
     "units": "ft2",
     "decimals": 0,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 182,
     "stdev": 103946
   },
@@ -4460,8 +4460,8 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "°F",
-    "decimals": 1,
-    "displayPrecision": 2,
+    "decimals": 0,
+    "displayPrecision": null,
     "importanceRank": 190,
     "stdev": 96363
   },
@@ -4474,8 +4474,8 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "ft2-°F-h/BTU",
-    "decimals": 1,
-    "displayPrecision": 2,
+    "decimals": 0,
+    "displayPrecision": null,
     "importanceRank": 215,
     "stdev": 73874
   },
@@ -4488,8 +4488,8 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "hours",
-    "decimals": null,
-    "displayPrecision": 2,
+    "decimals": 0,
+    "displayPrecision": null,
     "importanceRank": 216,
     "stdev": 73612
   },
@@ -4502,8 +4502,8 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "hours",
-    "decimals": null,
-    "displayPrecision": 2,
+    "decimals": 0,
+    "displayPrecision": null,
     "importanceRank": 232,
     "stdev": 62995
   },
@@ -4516,8 +4516,8 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "°F",
-    "decimals": null,
-    "displayPrecision": 2,
+    "decimals": 0,
+    "displayPrecision": null,
     "importanceRank": 250,
     "stdev": 34179
   },
@@ -4530,8 +4530,8 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "Btu/Wh",
-    "decimals": 2,
-    "displayPrecision": 2,
+    "decimals": 0,
+    "displayPrecision": null,
     "importanceRank": 253,
     "stdev": 24837
   },
@@ -4544,8 +4544,8 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "ft2-°F-h/BTU",
-    "decimals": 1,
-    "displayPrecision": 2,
+    "decimals": 0,
+    "displayPrecision": null,
     "importanceRank": 254,
     "stdev": 24768
   },
@@ -4558,8 +4558,8 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "ACH",
-    "decimals": 2,
-    "displayPrecision": 2,
+    "decimals": 1,
+    "displayPrecision": null,
     "importanceRank": 255,
     "stdev": 23833
   },
@@ -4572,8 +4572,8 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "ft2-°F-h/BTU",
-    "decimals": 1,
-    "displayPrecision": 2,
+    "decimals": 0,
+    "displayPrecision": null,
     "importanceRank": 256,
     "stdev": 23564
   },
@@ -4586,8 +4586,8 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "Btu/Wh",
-    "decimals": 2,
-    "displayPrecision": 2,
+    "decimals": 1,
+    "displayPrecision": null,
     "importanceRank": 257,
     "stdev": 23564
   },
@@ -4600,8 +4600,8 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "Btu/Wh",
-    "decimals": 2,
-    "displayPrecision": 2,
+    "decimals": 1,
+    "displayPrecision": null,
     "importanceRank": 275,
     "stdev": 19774
   },
@@ -4614,8 +4614,8 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "Btu/Wh",
-    "decimals": 2,
-    "displayPrecision": 2,
+    "decimals": 1,
+    "displayPrecision": null,
     "importanceRank": 279,
     "stdev": 19016
   },
@@ -4628,8 +4628,8 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "Btu/Wh",
-    "decimals": 2,
-    "displayPrecision": 2,
+    "decimals": 1,
+    "displayPrecision": null,
     "importanceRank": 283,
     "stdev": 15317
   },
@@ -4642,8 +4642,8 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": null,
-    "decimals": null,
-    "displayPrecision": 2,
+    "decimals": 0,
+    "displayPrecision": null,
     "importanceRank": 285,
     "stdev": 12954
   },
@@ -4657,7 +4657,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": 1,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 286,
     "stdev": 11439
   },
@@ -4671,7 +4671,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": 2,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 287,
     "stdev": 11439
   },
@@ -4685,7 +4685,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": 2,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 288,
     "stdev": 11439
   },
@@ -4699,7 +4699,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": 2,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 289,
     "stdev": 11439
   },
@@ -4713,7 +4713,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": 2,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 290,
     "stdev": 9925
   },
@@ -4727,7 +4727,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": 0,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 291,
     "stdev": 9666
   },
@@ -4740,8 +4740,8 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "lb/kWh",
-    "decimals": 2,
-    "displayPrecision": 2,
+    "decimals": 1,
+    "displayPrecision": null,
     "importanceRank": 292,
     "stdev": 8342
   },
@@ -4754,8 +4754,8 @@ export const modelInputsMetadata = [
     "isActionable": false,
     "isRelevant": null,
     "units": null,
-    "decimals": 2,
-    "displayPrecision": 2,
+    "decimals": 1,
+    "displayPrecision": null,
     "importanceRank": 293,
     "stdev": 7562
   },
@@ -4768,8 +4768,8 @@ export const modelInputsMetadata = [
     "isActionable": false,
     "isRelevant": null,
     "units": null,
-    "decimals": 2,
-    "displayPrecision": 2,
+    "decimals": 1,
+    "displayPrecision": null,
     "importanceRank": 294,
     "stdev": 5576
   },
@@ -4783,7 +4783,7 @@ export const modelInputsMetadata = [
     "isRelevant": true,
     "units": "%",
     "decimals": 2,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 295,
     "stdev": 5557
   },
@@ -4797,7 +4797,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": 1,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 296,
     "stdev": 5392
   },
@@ -4811,7 +4811,7 @@ export const modelInputsMetadata = [
     "isRelevant": true,
     "units": null,
     "decimals": 1,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 297,
     "stdev": 5392
   },
@@ -4825,7 +4825,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": 1,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 298,
     "stdev": 5392
   },
@@ -4839,7 +4839,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": 1,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 299,
     "stdev": 5392
   },
@@ -4853,7 +4853,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": 1,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 300,
     "stdev": 5392
   },
@@ -4867,7 +4867,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": 1,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 301,
     "stdev": 4084
   },
@@ -4881,7 +4881,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": 1,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 302,
     "stdev": 4084
   },
@@ -4895,7 +4895,7 @@ export const modelInputsMetadata = [
     "isRelevant": true,
     "units": null,
     "decimals": 1,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 303,
     "stdev": 4040
   },
@@ -4909,7 +4909,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": 0,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 304,
     "stdev": 3891
   },
@@ -4923,7 +4923,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": 1,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 305,
     "stdev": 3891
   },
@@ -4937,7 +4937,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": 1,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 306,
     "stdev": 3891
   },
@@ -4951,7 +4951,7 @@ export const modelInputsMetadata = [
     "isRelevant": true,
     "units": null,
     "decimals": 1,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 307,
     "stdev": 2408
   },
@@ -4965,7 +4965,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 308,
     "stdev": 1601
   },
@@ -4979,7 +4979,7 @@ export const modelInputsMetadata = [
     "isRelevant": true,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 309,
     "stdev": 1601
   },
@@ -4993,7 +4993,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 310,
     "stdev": 1601
   },
@@ -5007,7 +5007,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 311,
     "stdev": 1601
   },
@@ -5021,7 +5021,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 312,
     "stdev": 1601
   },
@@ -5035,7 +5035,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 313,
     "stdev": 1601
   },
@@ -5049,7 +5049,7 @@ export const modelInputsMetadata = [
     "isRelevant": true,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 314,
     "stdev": 1601
   },
@@ -5063,7 +5063,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 314,
     "stdev": 1601
   },
@@ -5077,7 +5077,7 @@ export const modelInputsMetadata = [
     "isRelevant": true,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 315,
     "stdev": 1601
   },
@@ -5091,7 +5091,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 315,
     "stdev": 1601
   },
@@ -5105,7 +5105,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 315,
     "stdev": 1601
   },
@@ -5118,8 +5118,8 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "%",
-    "decimals": 1,
-    "displayPrecision": 2,
+    "decimals": 2,
+    "displayPrecision": null,
     "importanceRank": 316,
     "stdev": 1601
   },
@@ -5133,7 +5133,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 317,
     "stdev": 1601
   },
@@ -5147,7 +5147,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 318,
     "stdev": 1601
   },
@@ -5161,7 +5161,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 319,
     "stdev": 1601
   },
@@ -5175,7 +5175,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 320,
     "stdev": 1601
   },
@@ -5189,7 +5189,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 321,
     "stdev": 1601
   },
@@ -5203,7 +5203,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": 2,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 322,
     "stdev": 1601
   },
@@ -5217,7 +5217,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 323,
     "stdev": 1601
   },
@@ -5231,7 +5231,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 324,
     "stdev": 1601
   },
@@ -5245,7 +5245,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 324,
     "stdev": 1601
   },
@@ -5259,7 +5259,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": 2,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 325,
     "stdev": 1601
   },
@@ -5273,7 +5273,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 326,
     "stdev": 1601
   },
@@ -5287,7 +5287,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 327,
     "stdev": 1601
   },
@@ -5301,7 +5301,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 328,
     "stdev": 1601
   },
@@ -5315,7 +5315,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 329,
     "stdev": 1601
   },
@@ -5329,7 +5329,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 330,
     "stdev": 1601
   },
@@ -5343,7 +5343,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 331,
     "stdev": 1601
   },
@@ -5357,7 +5357,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": 2,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 332,
     "stdev": 1601
   },
@@ -5371,7 +5371,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": 2,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 333,
     "stdev": 1601
   },
@@ -5385,7 +5385,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 334,
     "stdev": 1601
   },
@@ -5399,7 +5399,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 335,
     "stdev": 1601
   },
@@ -5413,7 +5413,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": 2,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 336,
     "stdev": 1601
   },
@@ -5427,7 +5427,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 337,
     "stdev": 1601
   },
@@ -5441,7 +5441,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 338,
     "stdev": 1601
   },
@@ -5455,7 +5455,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 338,
     "stdev": 1601
   },
@@ -5469,7 +5469,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 339,
     "stdev": 1601
   },
@@ -5483,7 +5483,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 339,
     "stdev": 1601
   },
@@ -5497,7 +5497,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 340,
     "stdev": 1601
   },
@@ -5511,7 +5511,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 342,
     "stdev": 1601
   },
@@ -5525,7 +5525,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": 2,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 343,
     "stdev": 1601
   },
@@ -5539,7 +5539,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 344,
     "stdev": 1601
   },
@@ -5553,7 +5553,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 345,
     "stdev": 1601
   },
@@ -5567,7 +5567,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 347,
     "stdev": 1601
   },
@@ -5581,7 +5581,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 348,
     "stdev": 1601
   },
@@ -5595,7 +5595,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 349,
     "stdev": 1601
   },
@@ -5609,7 +5609,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 349,
     "stdev": 1601
   },
@@ -5623,7 +5623,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 350,
     "stdev": 1601
   },
@@ -5637,7 +5637,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 351,
     "stdev": 1601
   },
@@ -5651,7 +5651,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 352,
     "stdev": 1601
   },
@@ -5665,7 +5665,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 353,
     "stdev": 1601
   },
@@ -5679,7 +5679,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 354,
     "stdev": 1601
   },
@@ -5693,7 +5693,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 355,
     "stdev": 1601
   },
@@ -5707,7 +5707,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 355,
     "stdev": 1601
   },
@@ -5721,7 +5721,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 355,
     "stdev": 1601
   },
@@ -5735,7 +5735,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 355,
     "stdev": 1601
   },
@@ -5749,7 +5749,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 355,
     "stdev": 1601
   },
@@ -5763,7 +5763,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 356,
     "stdev": 1601
   },
@@ -5777,7 +5777,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 357,
     "stdev": 1601
   },
@@ -5791,7 +5791,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 357,
     "stdev": 1601
   },
@@ -5805,7 +5805,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 357,
     "stdev": 1601
   },
@@ -5819,7 +5819,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 358,
     "stdev": 1601
   },
@@ -5833,7 +5833,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 358,
     "stdev": 1601
   },
@@ -5847,7 +5847,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 358,
     "stdev": 1601
   },
@@ -5861,7 +5861,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 358,
     "stdev": 1601
   },
@@ -5875,7 +5875,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 359,
     "stdev": 1601
   },
@@ -5889,7 +5889,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 360,
     "stdev": 1601
   },
@@ -5903,7 +5903,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 361,
     "stdev": 1601
   },
@@ -5917,7 +5917,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 362,
     "stdev": 1601
   },
@@ -5931,7 +5931,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 363,
     "stdev": 1601
   },
@@ -5945,7 +5945,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 364,
     "stdev": 1601
   },
@@ -5959,7 +5959,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 366,
     "stdev": 1601
   },
@@ -5973,7 +5973,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 368,
     "stdev": 1601
   },
@@ -5987,7 +5987,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 369,
     "stdev": 1601
   },
@@ -6001,7 +6001,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 371,
     "stdev": 1601
   },
@@ -6015,7 +6015,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 372,
     "stdev": 1601
   },
@@ -6029,7 +6029,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 374,
     "stdev": 1601
   },
@@ -6043,7 +6043,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 375,
     "stdev": 1601
   },
@@ -6057,7 +6057,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 376,
     "stdev": 1601
   },
@@ -6071,7 +6071,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 376,
     "stdev": 1601
   },
@@ -6085,7 +6085,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 376,
     "stdev": 1601
   },
@@ -6099,7 +6099,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 377,
     "stdev": 1601
   },
@@ -6113,7 +6113,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 378,
     "stdev": 1601
   },
@@ -6127,7 +6127,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 379,
     "stdev": 1601
   },
@@ -6141,7 +6141,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 380,
     "stdev": 1601
   },
@@ -6155,7 +6155,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 381,
     "stdev": 1601
   },
@@ -6169,7 +6169,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": 2,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 382,
     "stdev": 1601
   },
@@ -6183,7 +6183,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 383,
     "stdev": 1601
   },
@@ -6197,7 +6197,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 384,
     "stdev": 1601
   },
@@ -6211,7 +6211,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 385,
     "stdev": 1601
   },
@@ -6225,7 +6225,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 387,
     "stdev": 1601
   },
@@ -6239,7 +6239,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": 2,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 388,
     "stdev": 1601
   },
@@ -6253,7 +6253,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": 2,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 390,
     "stdev": 938
   },
@@ -6267,7 +6267,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": 2,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 391,
     "stdev": 938
   },
@@ -6281,7 +6281,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": 2,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 392,
     "stdev": 938
   },
@@ -6295,7 +6295,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": 2,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 393,
     "stdev": 938
   },
@@ -6309,7 +6309,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": 2,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 394,
     "stdev": 815
   },
@@ -6323,7 +6323,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 395,
     "stdev": 763
   },
@@ -6337,7 +6337,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 396,
     "stdev": 763
   },
@@ -6351,7 +6351,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 397,
     "stdev": 732
   },
@@ -6365,7 +6365,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 398,
     "stdev": 732
   },
@@ -6379,7 +6379,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 399,
     "stdev": 732
   },
@@ -6393,7 +6393,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 400,
     "stdev": 732
   },
@@ -6407,7 +6407,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 401,
     "stdev": 732
   },
@@ -6421,7 +6421,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 402,
     "stdev": 732
   },
@@ -6435,7 +6435,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 403,
     "stdev": 732
   },
@@ -6449,7 +6449,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 404,
     "stdev": 732
   },
@@ -6463,7 +6463,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 405,
     "stdev": 732
   },
@@ -6477,7 +6477,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 406,
     "stdev": 732
   },
@@ -6491,7 +6491,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 407,
     "stdev": 658
   },
@@ -6505,7 +6505,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 408,
     "stdev": 658
   },
@@ -6519,7 +6519,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 409,
     "stdev": 658
   },
@@ -6533,7 +6533,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 410,
     "stdev": 658
   },
@@ -6547,7 +6547,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 411,
     "stdev": 645
   },
@@ -6561,7 +6561,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 412,
     "stdev": 645
   },
@@ -6575,7 +6575,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 413,
     "stdev": 645
   },
@@ -6589,7 +6589,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 414,
     "stdev": 645
   },
@@ -6603,7 +6603,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -6617,7 +6617,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -6631,7 +6631,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -6645,7 +6645,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -6659,7 +6659,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -6673,7 +6673,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -6687,7 +6687,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -6701,7 +6701,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -6715,7 +6715,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -6729,7 +6729,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -6743,7 +6743,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -6757,7 +6757,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -6771,7 +6771,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -6785,7 +6785,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -6799,7 +6799,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -6813,7 +6813,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -6827,7 +6827,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -6841,7 +6841,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -6855,7 +6855,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -6869,7 +6869,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -6883,7 +6883,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -6897,7 +6897,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -6911,7 +6911,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -6925,7 +6925,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -6939,7 +6939,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -6953,7 +6953,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -6967,7 +6967,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -6981,7 +6981,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -6995,7 +6995,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7009,7 +7009,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7023,7 +7023,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7037,7 +7037,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7051,7 +7051,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7065,7 +7065,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7079,7 +7079,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7093,7 +7093,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7107,7 +7107,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7121,7 +7121,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7135,7 +7135,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7149,7 +7149,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7163,7 +7163,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7177,7 +7177,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7191,7 +7191,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7205,7 +7205,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7219,7 +7219,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7233,7 +7233,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7247,7 +7247,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7261,7 +7261,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7275,7 +7275,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7289,7 +7289,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7303,7 +7303,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7317,7 +7317,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7331,7 +7331,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7345,7 +7345,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7359,7 +7359,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7373,7 +7373,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7387,7 +7387,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7401,7 +7401,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7415,7 +7415,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7429,7 +7429,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7443,7 +7443,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7457,7 +7457,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7471,7 +7471,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7485,7 +7485,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7499,7 +7499,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7513,7 +7513,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7527,7 +7527,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7541,7 +7541,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7555,7 +7555,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7569,7 +7569,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7583,7 +7583,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7597,7 +7597,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7611,7 +7611,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7625,7 +7625,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7639,7 +7639,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7653,7 +7653,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7667,7 +7667,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7681,7 +7681,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7695,7 +7695,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7709,7 +7709,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7723,7 +7723,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7737,7 +7737,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7751,7 +7751,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7765,7 +7765,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7779,7 +7779,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7793,7 +7793,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7807,7 +7807,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7821,7 +7821,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7835,7 +7835,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7849,7 +7849,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7863,7 +7863,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7877,7 +7877,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7891,7 +7891,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7905,7 +7905,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7919,7 +7919,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7933,7 +7933,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7947,7 +7947,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7961,7 +7961,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7975,7 +7975,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -7989,7 +7989,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -8003,7 +8003,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -8017,7 +8017,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -8031,7 +8031,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -8045,7 +8045,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -8059,7 +8059,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -8073,7 +8073,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -8087,7 +8087,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -8101,7 +8101,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -8115,7 +8115,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -8129,7 +8129,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -8143,7 +8143,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -8157,7 +8157,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   },
@@ -8171,7 +8171,7 @@ export const modelInputsMetadata = [
     "isRelevant": null,
     "units": null,
     "decimals": null,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": null,
     "stdev": null
   }
