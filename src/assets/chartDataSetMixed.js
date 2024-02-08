@@ -1,4 +1,4 @@
-export const chartDataSet = [
+export const chartDataSetMixed = [
   {
     inputVectorIndex: 300,
     inputCode: 'X0138',
@@ -12,8 +12,13 @@ export const chartDataSet = [
     displayPrecision: 2,
     importanceRank: 12,
     stdev: 5336155,
-    percentileSteps: [875, 1000, 1090, 1160, 1226, 1295, 1360, 1428, 1500, 1580, 1671, 1770, 1874, 1992, 2128, 2287, 2500, 2800, 3320],
-    evenSteps: [875, 1004, 1132, 1261, 1390, 1518, 1647, 1776, 1904, 2033, 2162, 2291, 2419, 2548, 2677, 2805, 2934, 3063, 3191, 3320],
+    percentileSteps: [
+      875, 1000, 1090, 1160, 1226, 1295, 1360, 1428, 1500, 1580, 1671, 1770, 1874, 1992, 2128, 2287, 2500, 2800, 3320,
+    ],
+    evenSteps: [
+      875, 1004, 1132, 1261, 1390, 1518, 1647, 1776, 1904, 2033, 2162, 2291, 2419, 2548, 2677, 2805, 2934, 3063, 3191,
+      3320,
+    ],
   },
   {
     inputVectorIndex: 423,
@@ -28,8 +33,13 @@ export const chartDataSet = [
     displayPrecision: 2,
     importanceRank: 13,
     stdev: 4525102,
-    percentileSteps: [944, 1016, 1072, 1112, 1152, 1192, 1232, 1280, 1344, 1416, 1520, 1632, 1744, 1872, 1992, 2112, 2240, 2416, 2736],
-    evenSteps: [944, 1038, 1133, 1227, 1321, 1416, 1510, 1604, 1699, 1793, 1887, 1981, 2076, 2170, 2264, 2359, 2453, 2547, 2642, 2736],
+    percentileSteps: [
+      944, 1016, 1072, 1112, 1152, 1192, 1232, 1280, 1344, 1416, 1520, 1632, 1744, 1872, 1992, 2112, 2240, 2416, 2736,
+    ],
+    evenSteps: [
+      944, 1038, 1133, 1227, 1321, 1416, 1510, 1604, 1699, 1793, 1887, 1981, 2076, 2170, 2264, 2359, 2453, 2547, 2642,
+      2736,
+    ],
   },
   {
     inputVectorIndex: 397,
@@ -44,8 +54,12 @@ export const chartDataSet = [
     displayPrecision: 2,
     importanceRank: 15,
     stdev: 3778129,
-    percentileSteps: [577, 699, 796, 885, 960, 1034, 1107, 1163, 1226, 1283, 1342, 1398, 1472, 1552, 1632, 1733, 1873, 2055, 2366],
-    evenSteps: [577, 671, 765, 859, 954, 1048, 1142, 1236, 1330, 1424, 1519, 1613, 1707, 1801, 1895, 1989, 2084, 2178, 2272, 2366],
+    percentileSteps: [
+      577, 699, 796, 885, 960, 1034, 1107, 1163, 1226, 1283, 1342, 1398, 1472, 1552, 1632, 1733, 1873, 2055, 2366,
+    ],
+    evenSteps: [
+      577, 671, 765, 859, 954, 1048, 1142, 1236, 1330, 1424, 1519, 1613, 1707, 1801, 1895, 1989, 2084, 2178, 2272, 2366,
+    ],
   },
   {
     inputVectorIndex: 353,
@@ -60,8 +74,12 @@ export const chartDataSet = [
     displayPrecision: 2,
     importanceRank: 17,
     stdev: 3378743,
-    percentileSteps: [516, 625, 712, 792, 859, 925, 990, 1040, 1097, 1148, 1200, 1250, 1317, 1388, 1460, 1550, 1675, 1838, 2116],
-    evenSteps: [516, 600, 684, 769, 853, 937, 1021, 1105, 1190, 1274, 1358, 1442, 1527, 1611, 1695, 1779, 1863, 1948, 2032, 2116],
+    percentileSteps: [
+      516, 625, 712, 792, 859, 925, 990, 1040, 1097, 1148, 1200, 1250, 1317, 1388, 1460, 1550, 1675, 1838, 2116,
+    ],
+    evenSteps: [
+      516, 600, 684, 769, 853, 937, 1021, 1105, 1190, 1274, 1358, 1442, 1527, 1611, 1695, 1779, 1863, 1948, 2032, 2116,
+    ],
   },
   {
     inputVectorIndex: 408,
@@ -77,7 +95,9 @@ export const chartDataSet = [
     importanceRank: 20,
     stdev: 2981271,
     percentileSteps: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 705, 924, 1072, 1198, 1336, 1482, 1680, 1966],
-    evenSteps: [0, 103, 207, 310, 414, 517, 621, 724, 828, 931, 1035, 1138, 1242, 1345, 1449, 1552, 1656, 1759, 1863, 1966],
+    evenSteps: [
+      0, 103, 207, 310, 414, 517, 621, 724, 828, 931, 1035, 1138, 1242, 1345, 1449, 1552, 1656, 1759, 1863, 1966,
+    ],
   },
   {
     inputVectorIndex: 349,
@@ -93,12 +113,15 @@ export const chartDataSet = [
     importanceRank: 24,
     stdev: 2509553,
     percentileSteps: [0, 0, 0, 0, 0, 0, 0, 0, 0, 196, 542, 750, 884, 1000, 1100, 1194, 1296, 1430, 1655],
-    evenSteps: [0, 87, 174, 261, 348, 436, 523, 610, 697, 784, 871, 958, 1045, 1132, 1219, 1307, 1394, 1481, 1568, 1655],
+    evenSteps: [
+      0, 87, 174, 261, 348, 436, 523, 610, 697, 784, 871, 958, 1045, 1132, 1219, 1307, 1394, 1481, 1568, 1655,
+    ],
   },
   {
     inputVectorIndex: 322,
     inputCode: 'X0280',
-    xmlPath: 'HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallBasementConditionedExposed1].Area',
+    xmlPath:
+      'HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallBasementConditionedExposed1].Area',
     label: 'Exposed Basement Wall Area',
     categoricalValue: null,
     isActionable: false,
@@ -114,7 +137,8 @@ export const chartDataSet = [
   {
     inputVectorIndex: 336,
     inputCode: 'X0847',
-    xmlPath: 'HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallCrawlspaceVentedExposed1].Area',
+    xmlPath:
+      'HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallCrawlspaceVentedExposed1].Area',
     label: 'Exposed Vented Crawlspace Wall Area',
     categoricalValue: null,
     isActionable: false,
@@ -338,7 +362,8 @@ export const chartDataSet = [
   {
     inputVectorIndex: 329,
     inputCode: 'X0658',
-    xmlPath: 'HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallBasementConditionedToCrawlVented1].Area',
+    xmlPath:
+      'HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallBasementConditionedToCrawlVented1].Area',
     label: 'Conditioned Basement Foundation Wall Area',
     categoricalValue: null,
     isActionable: false,
@@ -370,7 +395,8 @@ export const chartDataSet = [
   {
     inputVectorIndex: 354,
     inputCode: 'X1687',
-    xmlPath: 'HPXML.Building.BuildingDetails.Enclosure.FrameFloors.FrameFloor[FloorBelowAttic1].Insulation.AssemblyEffectiveRValue',
+    xmlPath:
+      'HPXML.Building.BuildingDetails.Enclosure.FrameFloors.FrameFloor[FloorBelowAttic1].Insulation.AssemblyEffectiveRValue',
     label: 'Attic Insulation R Value',
     categoricalValue: null,
     isActionable: true,
@@ -434,7 +460,8 @@ export const chartDataSet = [
   {
     inputVectorIndex: 507,
     inputCode: 'X5241',
-    xmlPath: 'HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[ASHP1].AnnualCoolingEfficiency.Value',
+    xmlPath:
+      'HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[ASHP1].AnnualCoolingEfficiency.Value',
     label: 'Air Source Heat Pump Cooling Efficiency',
     categoricalValue: null,
     isActionable: true,
@@ -466,7 +493,8 @@ export const chartDataSet = [
   {
     inputVectorIndex: 311,
     inputCode: 'X0177',
-    xmlPath: 'HPXML.Building.BuildingDetails.Enclosure.AirInfiltration.AirInfiltrationMeasurement.BuildingAirLeakage.AirLeakage',
+    xmlPath:
+      'HPXML.Building.BuildingDetails.Enclosure.AirInfiltration.AirInfiltrationMeasurement.BuildingAirLeakage.AirLeakage',
     label: 'Air Leakage',
     categoricalValue: null,
     isActionable: true,
@@ -477,12 +505,15 @@ export const chartDataSet = [
     importanceRank: 255,
     stdev: 23833,
     percentileSteps: [5, 7, 7, 7, 7, 10, 10, 10, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15],
-    evenSteps: [5, 5.5, 6.1, 6.6, 7.1, 7.6, 8.2, 8.7, 9.2, 9.7, 10.3, 10.8, 11.3, 11.8, 12.4, 12.9, 13.4, 13.9, 14.5, 15],
+    evenSteps: [
+      5, 5.5, 6.1, 6.6, 7.1, 7.6, 8.2, 8.7, 9.2, 9.7, 10.3, 10.8, 11.3, 11.8, 12.4, 12.9, 13.4, 13.9, 14.5, 15,
+    ],
   },
   {
     inputVectorIndex: 379,
     inputCode: 'X2677',
-    xmlPath: 'HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistStory2Exposed].Insulation.AssemblyEffectiveRValue',
+    xmlPath:
+      'HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistStory2Exposed].Insulation.AssemblyEffectiveRValue',
     label: 'Upper Story Exposed Rim Joist R Value',
     categoricalValue: null,
     isActionable: true,
@@ -498,7 +529,8 @@ export const chartDataSet = [
   {
     inputVectorIndex: 520,
     inputCode: 'X5727',
-    xmlPath: 'HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[MiniSplitHP1].AnnualCoolingEfficiency.Value',
+    xmlPath:
+      'HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[MiniSplitHP1].AnnualCoolingEfficiency.Value',
     label: 'Mini Split Heat Pump Cooling Efficiency',
     categoricalValue: null,
     isActionable: true,
@@ -514,7 +546,8 @@ export const chartDataSet = [
   {
     inputVectorIndex: 509,
     inputCode: 'X5277',
-    xmlPath: 'HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[ASHP1].AnnualHeatingEfficiency.Value',
+    xmlPath:
+      'HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[ASHP1].AnnualHeatingEfficiency.Value',
     label: 'Air Source Heat Pump Heating Efficiency',
     categoricalValue: null,
     isActionable: true,
@@ -530,7 +563,8 @@ export const chartDataSet = [
   {
     inputVectorIndex: 494,
     inputCode: 'X4605',
-    xmlPath: 'HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].CoolingSystem[CentralAirConditioner1].AnnualCoolingEfficiency.Value',
+    xmlPath:
+      'HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].CoolingSystem[CentralAirConditioner1].AnnualCoolingEfficiency.Value',
     label: 'Central Air Condition Efficiency',
     categoricalValue: null,
     isActionable: true,
@@ -546,7 +580,8 @@ export const chartDataSet = [
   {
     inputVectorIndex: 522,
     inputCode: 'X5763',
-    xmlPath: 'HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[MiniSplitHP1].AnnualHeatingEfficiency.Value',
+    xmlPath:
+      'HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[MiniSplitHP1].AnnualHeatingEfficiency.Value',
     label: 'Mini Split Heat Pump Heating Efficiency',
     categoricalValue: null,
     isActionable: true,
@@ -604,13 +639,19 @@ export const chartDataSet = [
     displayPrecision: null,
     importanceRank: 295,
     stdev: 5557,
-    percentileSteps: [0.59, 0.59, 0.59, 0.59, 0.59, 0.59, 0.59, 0.59, 3, 3, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 4.07, 4.07],
-    evenSteps: [0.59, 0.77, 0.96, 1.14, 1.32, 1.51, 1.69, 1.87, 2.06, 2.24, 2.42, 2.6, 2.79, 2.97, 3.15, 3.34, 3.52, 3.7, 3.89, 4.07],
+    percentileSteps: [
+      0.59, 0.59, 0.59, 0.59, 0.59, 0.59, 0.59, 0.59, 3, 3, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 4.07, 4.07,
+    ],
+    evenSteps: [
+      0.59, 0.77, 0.96, 1.14, 1.32, 1.51, 1.69, 1.87, 2.06, 2.24, 2.42, 2.6, 2.79, 2.97, 3.15, 3.34, 3.52, 3.7, 3.89,
+      4.07,
+    ],
   },
   {
     inputVectorIndex: 380,
     inputCode: 'X2678',
-    xmlPath: 'HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistStory3Exposed].Insulation.AssemblyEffectiveRValue',
+    xmlPath:
+      'HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistStory3Exposed].Insulation.AssemblyEffectiveRValue',
     label: 'Rim Joist 3rd Story R Value',
     categoricalValue: null,
     isActionable: true,
@@ -626,7 +667,8 @@ export const chartDataSet = [
   {
     inputVectorIndex: 351,
     inputCode: 'X1507',
-    xmlPath: 'HPXML.Building.BuildingDetails.Enclosure.FrameFloors.FrameFloor[FloorAboveVentedCrawl1].Insulation.AssemblyEffectiveRValue',
+    xmlPath:
+      'HPXML.Building.BuildingDetails.Enclosure.FrameFloors.FrameFloor[FloorAboveVentedCrawl1].Insulation.AssemblyEffectiveRValue',
     label: 'Floor Above Vented Crawl R Value',
     categoricalValue: null,
     isActionable: true,

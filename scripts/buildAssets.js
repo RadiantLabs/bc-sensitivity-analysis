@@ -28,7 +28,7 @@ const inputPercentilesOutPath = path.join(intermediatesPath, 'inputPercentiles.j
 
 // Assets to be bundled
 const initialInputsOutPath = path.join(assetsPath, 'initialInputs.js')
-const chartDataSetOutPath = path.join(assetsPath, 'chartDataSet.js')
+const chartDataSetMixedOutPath = path.join(assetsPath, 'chartDataSetMixed.js')
 const chartDataSetActionableOutPath = path.join(assetsPath, 'chartDataSetActionable.js')
 const hudsonWeatherOutPath = path.join(assetsPath, 'hudsonWeather.js')
 const santarosaWeatherOutPath = path.join(assetsPath, 'santarosaWeather.js')
@@ -63,8 +63,14 @@ function buildAssets(modelInputsMetadataSourcePath) {
 
       // Generate the chart configuration data, including what xml paths are used and the steps for the sliders
       // chartCount will be set later in the app. This just sets a maximum that could be used.
-      const chartDataSet = getChartDataSet(modelInputsMetadata, inputPercentiles, { chartCount: 40, useActionable: false })
-      const chartDataSetActionable = getChartDataSet(modelInputsMetadata, inputPercentiles, { chartCount: 40, useActionable: true })
+      const chartDataSetMixed = getChartDataSet(modelInputsMetadata, inputPercentiles, {
+        chartCount: 40,
+        useActionable: false,
+      })
+      const chartDataSetActionable = getChartDataSet(modelInputsMetadata, inputPercentiles, {
+        chartCount: 40,
+        useActionable: true,
+      })
 
       // Intermediate output files for debugging
       writeFile(modelInputsMetadata, 'modelInputsMetadata', modelInputsMetadataPath)
@@ -74,7 +80,7 @@ function buildAssets(modelInputsMetadataSourcePath) {
       // Final assets to be used in the app
       writeFile(inputVectorIndexLookup, 'inputVectorIndexLookup', path.join(assetsPath, 'inputVectorIndexLookup.js'))
       writeFile(initialInputs, 'initialInputs', initialInputsOutPath)
-      writeFile(chartDataSet, 'chartDataSet', chartDataSetOutPath)
+      writeFile(chartDataSetMixed, 'chartDataSetMixed', chartDataSetMixedOutPath)
       writeFile(chartDataSetActionable, 'chartDataSetActionable', chartDataSetActionableOutPath)
       writeFile(hudsonWeather, 'hudsonWeather', hudsonWeatherOutPath)
       writeFile(santarosaWeather, 'santarosaWeather', santarosaWeatherOutPath)

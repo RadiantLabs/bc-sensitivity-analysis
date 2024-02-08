@@ -3,19 +3,19 @@ import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
 import take from 'lodash/take'
 import { loadLayersModel } from '@tensorflow/tfjs'
-import { chartDataSet } from './assets/chartDataSet.js'
+import { chartDataSetMixed } from './assets/chartDataSetMixed.js'
 import { chartDataSetActionable } from './assets/chartDataSetActionable.js'
 import { getInitialSliderValues } from './utils/getInitialSliderValues'
 import { predict } from './utils/predict.js'
 import { chartCount } from './utils/const.js'
 const modelPath = 'https://permanent-public.s3.us-west-2.amazonaws.com/bill-calibration/model3/model.json'
 
-const initialSliderValues = getInitialSliderValues(chartDataSet, 'evenSteps') // returns middle step
+const initialSliderValues = getInitialSliderValues(chartDataSetMixed, 'evenSteps') // returns middle step
 
 export const useStore = create(
   devtools((set) => ({
     chartDataSetId: 'mixed', // mixed, actionable
-    chartDataSet: take(chartDataSet, chartCount), // Initialized to mixed
+    chartDataSet: take(chartDataSetMixed, chartCount), // Initialized to mixed
     model: null, // Loads async remotely from fetchModel
     stepType: 'evenSteps',
     sliderValues: initialSliderValues, // stored in an object with chartId as key
@@ -63,6 +63,6 @@ fetchModel()
 
 function getChartDataSet(newChartDataSetId) {
   return newChartDataSetId === 'mixed'
-    ? take(chartDataSet, chartCount) // Return a subset of non-actionable and actionable charts (mixed)
+    ? take(chartDataSetMixed, chartCount) // Return a subset of non-actionable and actionable charts (mixed)
     : take(chartDataSetActionable, chartCount) // Return only actionable chartDataSet
 }

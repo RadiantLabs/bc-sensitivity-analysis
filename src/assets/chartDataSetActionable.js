@@ -66,7 +66,8 @@ export const chartDataSetActionable = [
   {
     inputVectorIndex: 354,
     inputCode: 'X1687',
-    xmlPath: 'HPXML.Building.BuildingDetails.Enclosure.FrameFloors.FrameFloor[FloorBelowAttic1].Insulation.AssemblyEffectiveRValue',
+    xmlPath:
+      'HPXML.Building.BuildingDetails.Enclosure.FrameFloors.FrameFloor[FloorBelowAttic1].Insulation.AssemblyEffectiveRValue',
     label: 'Attic Insulation R Value',
     categoricalValue: null,
     isActionable: true,
@@ -130,7 +131,8 @@ export const chartDataSetActionable = [
   {
     inputVectorIndex: 507,
     inputCode: 'X5241',
-    xmlPath: 'HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[ASHP1].AnnualCoolingEfficiency.Value',
+    xmlPath:
+      'HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[ASHP1].AnnualCoolingEfficiency.Value',
     label: 'Air Source Heat Pump Cooling Efficiency',
     categoricalValue: null,
     isActionable: true,
@@ -162,7 +164,8 @@ export const chartDataSetActionable = [
   {
     inputVectorIndex: 311,
     inputCode: 'X0177',
-    xmlPath: 'HPXML.Building.BuildingDetails.Enclosure.AirInfiltration.AirInfiltrationMeasurement.BuildingAirLeakage.AirLeakage',
+    xmlPath:
+      'HPXML.Building.BuildingDetails.Enclosure.AirInfiltration.AirInfiltrationMeasurement.BuildingAirLeakage.AirLeakage',
     label: 'Air Leakage',
     categoricalValue: null,
     isActionable: true,
@@ -173,12 +176,15 @@ export const chartDataSetActionable = [
     importanceRank: 255,
     stdev: 23833,
     percentileSteps: [5, 7, 7, 7, 7, 10, 10, 10, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15],
-    evenSteps: [5, 5.5, 6.1, 6.6, 7.1, 7.6, 8.2, 8.7, 9.2, 9.7, 10.3, 10.8, 11.3, 11.8, 12.4, 12.9, 13.4, 13.9, 14.5, 15],
+    evenSteps: [
+      5, 5.5, 6.1, 6.6, 7.1, 7.6, 8.2, 8.7, 9.2, 9.7, 10.3, 10.8, 11.3, 11.8, 12.4, 12.9, 13.4, 13.9, 14.5, 15,
+    ],
   },
   {
     inputVectorIndex: 379,
     inputCode: 'X2677',
-    xmlPath: 'HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistStory2Exposed].Insulation.AssemblyEffectiveRValue',
+    xmlPath:
+      'HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistStory2Exposed].Insulation.AssemblyEffectiveRValue',
     label: 'Upper Story Exposed Rim Joist R Value',
     categoricalValue: null,
     isActionable: true,
@@ -194,7 +200,8 @@ export const chartDataSetActionable = [
   {
     inputVectorIndex: 520,
     inputCode: 'X5727',
-    xmlPath: 'HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[MiniSplitHP1].AnnualCoolingEfficiency.Value',
+    xmlPath:
+      'HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[MiniSplitHP1].AnnualCoolingEfficiency.Value',
     label: 'Mini Split Heat Pump Cooling Efficiency',
     categoricalValue: null,
     isActionable: true,
@@ -210,7 +217,8 @@ export const chartDataSetActionable = [
   {
     inputVectorIndex: 509,
     inputCode: 'X5277',
-    xmlPath: 'HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[ASHP1].AnnualHeatingEfficiency.Value',
+    xmlPath:
+      'HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[ASHP1].AnnualHeatingEfficiency.Value',
     label: 'Air Source Heat Pump Heating Efficiency',
     categoricalValue: null,
     isActionable: true,
@@ -226,7 +234,8 @@ export const chartDataSetActionable = [
   {
     inputVectorIndex: 494,
     inputCode: 'X4605',
-    xmlPath: 'HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].CoolingSystem[CentralAirConditioner1].AnnualCoolingEfficiency.Value',
+    xmlPath:
+      'HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].CoolingSystem[CentralAirConditioner1].AnnualCoolingEfficiency.Value',
     label: 'Central Air Condition Efficiency',
     categoricalValue: null,
     isActionable: true,
@@ -242,7 +251,8 @@ export const chartDataSetActionable = [
   {
     inputVectorIndex: 522,
     inputCode: 'X5763',
-    xmlPath: 'HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[MiniSplitHP1].AnnualHeatingEfficiency.Value',
+    xmlPath:
+      'HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[MiniSplitHP1].AnnualHeatingEfficiency.Value',
     label: 'Mini Split Heat Pump Heating Efficiency',
     categoricalValue: null,
     isActionable: true,
@@ -300,13 +310,19 @@ export const chartDataSetActionable = [
     displayPrecision: null,
     importanceRank: 295,
     stdev: 5557,
-    percentileSteps: [0.59, 0.59, 0.59, 0.59, 0.59, 0.59, 0.59, 0.59, 3, 3, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 4.07, 4.07],
-    evenSteps: [0.59, 0.77, 0.96, 1.14, 1.32, 1.51, 1.69, 1.87, 2.06, 2.24, 2.42, 2.6, 2.79, 2.97, 3.15, 3.34, 3.52, 3.7, 3.89, 4.07],
+    percentileSteps: [
+      0.59, 0.59, 0.59, 0.59, 0.59, 0.59, 0.59, 0.59, 3, 3, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 4.07, 4.07,
+    ],
+    evenSteps: [
+      0.59, 0.77, 0.96, 1.14, 1.32, 1.51, 1.69, 1.87, 2.06, 2.24, 2.42, 2.6, 2.79, 2.97, 3.15, 3.34, 3.52, 3.7, 3.89,
+      4.07,
+    ],
   },
   {
     inputVectorIndex: 380,
     inputCode: 'X2678',
-    xmlPath: 'HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistStory3Exposed].Insulation.AssemblyEffectiveRValue',
+    xmlPath:
+      'HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistStory3Exposed].Insulation.AssemblyEffectiveRValue',
     label: 'Rim Joist 3rd Story R Value',
     categoricalValue: null,
     isActionable: true,
@@ -322,7 +338,8 @@ export const chartDataSetActionable = [
   {
     inputVectorIndex: 351,
     inputCode: 'X1507',
-    xmlPath: 'HPXML.Building.BuildingDetails.Enclosure.FrameFloors.FrameFloor[FloorAboveVentedCrawl1].Insulation.AssemblyEffectiveRValue',
+    xmlPath:
+      'HPXML.Building.BuildingDetails.Enclosure.FrameFloors.FrameFloor[FloorAboveVentedCrawl1].Insulation.AssemblyEffectiveRValue',
     label: 'Floor Above Vented Crawl R Value',
     categoricalValue: null,
     isActionable: true,
@@ -354,7 +371,8 @@ export const chartDataSetActionable = [
   {
     inputVectorIndex: 524,
     inputCode: 'X5799',
-    xmlPath: 'HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[MiniSplitHP1].BackupAnnualHeatingEfficiency.Value',
+    xmlPath:
+      'HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[MiniSplitHP1].BackupAnnualHeatingEfficiency.Value',
     label: null,
     categoricalValue: null,
     isActionable: true,
@@ -365,6 +383,8 @@ export const chartDataSetActionable = [
     importanceRank: 316,
     stdev: 1601,
     percentileSteps: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1],
-    evenSteps: [0, 0.05, 0.11, 0.16, 0.21, 0.26, 0.32, 0.37, 0.42, 0.47, 0.53, 0.58, 0.63, 0.68, 0.74, 0.79, 0.84, 0.89, 0.95, 1],
+    evenSteps: [
+      0, 0.05, 0.11, 0.16, 0.21, 0.26, 0.32, 0.37, 0.42, 0.47, 0.53, 0.58, 0.63, 0.68, 0.74, 0.79, 0.84, 0.89, 0.95, 1,
+    ],
   },
 ]
