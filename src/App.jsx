@@ -6,13 +6,24 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import ToggleButton from '@mui/material/ToggleButton'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
+import { useStore } from './useStore'
 import { theme } from './theme'
 import './App.css'
 
 const App = () => {
-  const [mode, setActionable] = useState('mixed')
-  const [weatherFile, setWeatherFile] = useState('file1')
-  const [layout, setLayout] = useState('layout1')
+  const [mode, setActionable] = useState('mixed') // TODO: convert to Zustand
+  const [weatherFile, setWeatherFile] = useState('file1') // TODO: convert to Zustand
+
+  const { chartLayout, setChartLayout } = useStore((state) => ({
+    chartLayout: state.chartLayout,
+    setChartLayout: state.setChartLayout,
+  }))
+
+  const handleChartLayoutChange = (event, newChartLayout) => {
+    if (newChartLayout !== null) {
+      setChartLayout(newChartLayout)
+    }
+  }
 
   const handleActionableChange = (event, newActionable) => {
     if (newActionable !== null) {
@@ -22,12 +33,6 @@ const App = () => {
   const handleWeatherChange = (event, newWeather) => {
     if (newWeather !== null) {
       setWeatherFile(newWeather)
-    }
-  }
-
-  const handleLayoutChange = (event, newLayout) => {
-    if (newLayout !== null) {
-      setLayout(newLayout)
     }
   }
 
@@ -59,7 +64,7 @@ const App = () => {
 
           <Box mb={2} sx={{ display: 'flex', flexDirection: 'column' }}>
             <Typography variant='caption' align='left'>
-              Upgradability: Show only building attributes that you can typically change
+              <strong>Upgradability:</strong> Show only building attributes that you can typically change
             </Typography>
             <ToggleButtonGroup
               fullWidth
@@ -80,7 +85,7 @@ const App = () => {
 
           <Box mb={2} sx={{ display: 'flex', flexDirection: 'column' }}>
             <Typography variant='caption' align='left'>
-              Weather File
+              <strong>Weather</strong>
             </Typography>
             <ToggleButtonGroup
               fullWidth
@@ -101,23 +106,23 @@ const App = () => {
 
           <Box mb={2} sx={{ display: 'flex', flexDirection: 'column' }}>
             <Typography variant='caption' align='left'>
-              Column Layout
+              <strong>Column Layout</strong>
             </Typography>
             <ToggleButtonGroup
               fullWidth
               size='small'
-              value={layout}
+              value={chartLayout}
               exclusive
-              onChange={handleLayoutChange}
+              onChange={handleChartLayoutChange}
               style={{ width: '100%' }}
             >
-              <ToggleButton value='layout1' sx={ToggleButtonStyles}>
+              <ToggleButton value='single' sx={ToggleButtonStyles}>
                 1
               </ToggleButton>
-              <ToggleButton value='layout2' sx={ToggleButtonStyles}>
+              <ToggleButton value='double' sx={ToggleButtonStyles}>
                 2
               </ToggleButton>
-              <ToggleButton value='layout3' sx={ToggleButtonStyles}>
+              <ToggleButton value='triple' sx={ToggleButtonStyles}>
                 3
               </ToggleButton>
             </ToggleButtonGroup>

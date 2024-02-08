@@ -18,6 +18,7 @@ export const useStore = create(
     stepType: 'evenSteps',
     sliderValues: initialSliderValues, // stored in an object with chartId as key
     yAxisDomain: [0, 6000], // Hardcode for now, later detect max from initial prediction (but not every prediction). See getMaxPredictionValue.js
+    chartLayout: 'single', // single, double, triple
 
     setChartDataSet: (newChartDataSet) => set({ chartDataSet: take(newChartDataSet, chartCount) }),
     setStepType: (newStepType) => set({ stepType: newStepType }), // Can be evenly distributed or based on percentiles
@@ -25,10 +26,11 @@ export const useStore = create(
       set((state) => ({
         sliderValues: { ...state.sliderValues, [chartId]: newSliderValue },
       })),
+    setChartLayout: (layout) => set({ chartLayout: layout }),
   }))
 )
 
-// window.useStore = useStore  // Debugging
+window.useStore = useStore // Debugging
 
 // Custom React hook that derives predicted results from state. It should only update when
 // chartDataSet, model, stepType change.

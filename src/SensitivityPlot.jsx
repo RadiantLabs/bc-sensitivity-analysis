@@ -91,7 +91,7 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
     return () => {
       currentRef.removeChild(chart)
     }
-  }, [predictedData, sliderValue, slopes]) // The chart will re-render only when these values change
+  }, [predictedData, sliderValue, slopes, yAxisDomain]) // The chart will re-render only when these values change
 
   if (isEmpty(predictedData)) {
     return <div>Loading...</div>
