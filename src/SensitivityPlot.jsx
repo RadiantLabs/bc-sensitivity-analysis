@@ -1,11 +1,10 @@
 import { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import * as Plot from '@observablehq/plot'
-import Slider from '@mui/material/Slider'
+import { CustomSlider } from './CustomSlider'
 import { useStore } from './useStore'
 import isEmpty from 'lodash/isEmpty'
-import { styled } from '@mui/material/styles'
-import { highlightColor, inactiveColor, barStroke, chartConfig } from './utils/const'
+import { inactiveColor, barStroke, chartConfig } from './utils/const'
 import { calculateSlope } from './utils/calculateSlope'
 import { formatSliderTickLabel } from './utils/formatSliderTickLabel'
 import { getColorFromSlope } from './utils/getColorFromSlope'
@@ -23,8 +22,6 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
   const sliderValue = sliderValues[chartId]
   const slopes = calculateSlope(predictedData)
   const handleSliderChange = (event, newSliderVal) => setSliderValue(chartId, newSliderVal)
-  const { chartHeight } = chartConfig[chartLayout]
-  const CustomSlider = createCustomSlider(chartHeight)
 
   useEffect(() => {
     const currentRef = chartRef.current
@@ -109,7 +106,6 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
     value: step,
     label: formatSliderTickLabel(step, displayPrecision, showSliderLabels),
   }))
-  // const marks = steps.map((step) => ({ value: step, label: null }))
   return (
     <div style={{ position: 'relative' }}>
       <div style={{ marginBottom: '50px' }}>
@@ -150,41 +146,3 @@ SensitivityPlot.propTypes = {
 }
 
 export default SensitivityPlot
-
-// ---------------------------------------------------------------------------------------------
-// Helper functions
-// ---------------------------------------------------------------------------------------------
-// Create a styled version of the Slider
-const createCustomSlider = (chartHeight) =>
-  styled(Slider)({
-    '&.MuiSlider-root': {
-      position: 'relative',
-      width: '92%',
-      color: highlightColor,
-      height: 0,
-      marginTop: '2px',
-    },
-    '& .MuiSlider-markLabel': {
-      top: '20px',
-    },
-    '& .MuiSlider-mark': {
-      width: '3px',
-      height: '3px',
-      borderRadius: '50%',
-      color: barStroke,
-    },
-    '& .MuiSlider-thumb': {
-      border: `0.5px solid ${inactiveColor}`,
-      cursor: 'ew-resize',
-      '&:before': {
-        content: '""',
-        position: 'absolute',
-        height: chartHeight, // Use the chartHeight prop here
-        width: '300%',
-        backgroundColor: 'transparent',
-        top: -chartHeight * 0.8, // And here
-        left: '50%',
-        transform: 'translateX(-50%)',
-      },
-    },
-  })

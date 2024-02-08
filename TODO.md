@@ -1,5 +1,6 @@
 ### TODO
 
+- [ ] Refine how chartHeight is used for different layouts (modify containing div)
 - [ ] Update input tensor when switching between mixed and actionable
 - [ ] Toggle even and percentile steps
 - [ ] Get rid of vite.svg in the prod build
