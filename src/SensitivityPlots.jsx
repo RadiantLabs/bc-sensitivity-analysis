@@ -27,7 +27,7 @@ const SensitivityPlots = () => {
             <Grid container item xs={gridSize} key={index}>
               <div>
                 <h5 style={{ marginBottom: 0 }}>
-                  {label} ({formatUnits(units)})
+                  {label} <small>({formatUnits(units)})</small>
                 </h5>
                 <SensitivityPlot chartId={xmlPath} predictedData={predictedData} chartData={chartData} />
               </div>

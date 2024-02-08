@@ -1,10 +1,8 @@
 export function formatUnits(units) {
-  switch (true) {
-    case units === 'ft^2' || units === 'ft2':
-      return 'ft²'
-    case units === 'ft^3' || units === 'ft3':
-      return 'ft³'
-    default:
-      return units
+  if (!units) {
+    return ''
   }
+  return units
+    .replace(/ft2/g, 'ft²') // square feet
+    .replace(/ft3/g, 'ft³') // cubic feet
 }
