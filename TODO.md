@@ -1,7 +1,7 @@
 ### TODO
 
-- [ ] Lock y axis scale dynamically (or lock it into a fixed scale for all?)
-- [ ] Test rounding of inputs and specify Float16 array
+- [ ] change chartDataSet to chartDataSetMixed
+- [ ] Test rounding of inputs and specify Float16 array (requires changes to original model)
 - [ ] Get rid of vite.svg in the prod build
 - [ ] Dboule check input tensor for prediction: Harder than it seems
 - [ ] How do I define steps for something lik e thermostat setpoints?
@@ -20,6 +20,7 @@
 
 ### Done
 
+- [x] Lock y axis scale dynamically (or lock it into a fixed scale for all?)
 - [x] Round predicted values to be integer to useEffect() doesn't change as often
 - [x] Build production assets and test performance
 - [x] Use displayPrecision to format slider steps

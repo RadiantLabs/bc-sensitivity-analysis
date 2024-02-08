@@ -4,6 +4,7 @@ import { devtools } from 'zustand/middleware'
 import take from 'lodash/take'
 import { loadLayersModel } from '@tensorflow/tfjs'
 import { chartDataSet } from './assets/chartDataSet.js'
+import { chartDataSetActionable } from './assets/chartDataSetActionable.js'
 import { getInitialSliderValues } from './utils/getInitialSliderValues'
 import { predict } from './utils/predict.js'
 import { chartCount } from './utils/const.js'
@@ -13,14 +14,19 @@ const initialSliderValues = getInitialSliderValues(chartDataSet, 'evenSteps') //
 
 export const useStore = create(
   devtools((set) => ({
-    chartDataSet: take(chartDataSet, chartCount),
+    chartDataSetId: 'mixed', // mixed, actionable
+    chartDataSet: take(chartDataSet, chartCount), // Initialized to mixed
     model: null, // Loads async remotely from fetchModel
     stepType: 'evenSteps',
     sliderValues: initialSliderValues, // stored in an object with chartId as key
     yAxisDomain: [0, 6000], // Hardcode for now, later detect max from initial prediction (but not every prediction). See getMaxPredictionValue.js
     chartLayout: 'single', // single, double, triple
 
-    setChartDataSet: (newChartDataSet) => set({ chartDataSet: take(newChartDataSet, chartCount) }),
+    setChartDataSetId: (newChartDataSetId) =>
+      set({
+        chartDataSetId: newChartDataSetId,
+        chartDataSet: getChartDataSet(newChartDataSetId),
+      }),
     setStepType: (newStepType) => set({ stepType: newStepType }), // Can be evenly distributed or based on percentiles
     setSliderValue: (chartId, newSliderValue) =>
       set((state) => ({
@@ -32,8 +38,7 @@ export const useStore = create(
 
 window.useStore = useStore // Debugging
 
-// Custom React hook that derives predicted results from state. It should only update when
-// chartDataSet, model, stepType change.
+// Custom React hook that derives predicted results from state. It should only update when dependencies change
 // Therefore, any components that depend on this should re-render only when these values change.
 export const usePredictedDataSet = () => {
   const { chartDataSet, model, stepType, sliderValues } = useStore()
@@ -55,3 +60,9 @@ const fetchModel = async () => {
   }
 }
 fetchModel()
+
+function getChartDataSet(newChartDataSetId) {
+  return newChartDataSetId === 'mixed'
+    ? take(chartDataSet, chartCount) // Return a subset of non-actionable and actionable charts (mixed)
+    : take(chartDataSetActionable, chartCount) // Return only actionable chartDataSet
+}

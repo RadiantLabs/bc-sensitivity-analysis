@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import SensitivityPlots from './SensitivityPlots'
 import { ThemeProvider } from '@mui/material'
 import Grid from '@mui/material/Grid'
@@ -11,13 +11,20 @@ import { theme } from './theme'
 import './App.css'
 
 const App = () => {
-  const [mode, setActionable] = useState('mixed') // TODO: convert to Zustand
   const [weatherFile, setWeatherFile] = useState('file1') // TODO: convert to Zustand
 
-  const { chartLayout, setChartLayout } = useStore((state) => ({
+  const { chartLayout, setChartLayout, chartDataSetId, setChartDataSetId } = useStore((state) => ({
+    chartDataSetId: state.chartDataSetId,
+    setChartDataSetId: state.setChartDataSetId,
     chartLayout: state.chartLayout,
     setChartLayout: state.setChartLayout,
   }))
+
+  const handleChartDataSetIdChange = (event, newChartDataSetId) => {
+    if (newChartDataSetId !== null) {
+      setChartDataSetId(newChartDataSetId)
+    }
+  }
 
   const handleChartLayoutChange = (event, newChartLayout) => {
     if (newChartLayout !== null) {
@@ -25,11 +32,6 @@ const App = () => {
     }
   }
 
-  const handleActionableChange = (event, newActionable) => {
-    if (newActionable !== null) {
-      setActionable(newActionable)
-    }
-  }
   const handleWeatherChange = (event, newWeather) => {
     if (newWeather !== null) {
       setWeatherFile(newWeather)
@@ -69,9 +71,9 @@ const App = () => {
             <ToggleButtonGroup
               fullWidth
               size='small'
-              value={mode}
+              value={chartDataSetId}
               exclusive
-              onChange={handleActionableChange}
+              onChange={handleChartDataSetIdChange}
               style={{ width: '100%' }}
             >
               <ToggleButton value='mixed' sx={ToggleButtonStyles}>

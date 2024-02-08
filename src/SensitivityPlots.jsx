@@ -5,9 +5,9 @@ import { useStore, usePredictedDataSet } from './useStore'
 import { formatUnits } from './utils/formatUnits'
 
 const SensitivityPlots = () => {
-  const { chartDataSet, chartLayout } = useStore((state) => ({
-    chartDataSet: state.chartDataSet,
+  const { chartLayout, chartDataSet } = useStore((state) => ({
     chartLayout: state.chartLayout,
+    chartDataSet: state.chartDataSet,
   }))
   const predictedDataSet = usePredictedDataSet()
 
