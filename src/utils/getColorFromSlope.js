@@ -1,28 +1,17 @@
 export function getColorFromSlope(slope) {
   const intensity = Math.min(1, Math.abs(slope) * 2) // Control intensity
+  const reductionFactor = 255 * (1 - intensity)
   if (slope > 0) {
-    // Positive slope: shades of red
-    return `rgba(255, ${255 - intensity * 255}, ${255 - intensity * 255}, ${intensity})`
+    // Positive slope: transition from grey to dark red
+    const red = 255
+    const green = reductionFactor
+    const blue = reductionFactor
+    return `rgba(${red}, ${green}, ${blue}, 1)`
   } else {
-    // Negative slope: shades of blue
-    return `rgba(${255 - intensity * 255}, ${255 - intensity * 255}, 255, ${intensity})`
+    // Negative slope: transition from grey to dark blue
+    const blue = 255
+    const red = reductionFactor
+    const green = reductionFactor
+    return `rgba(${red}, ${green}, ${blue}, 1)`
   }
 }
-
-// export function getColorFromSlope(slope) {
-//   const intensity = Math.min(1, Math.abs(slope) * 2) // Control intensity
-
-//   let red, green, blue
-
-//   if (slope > 0) {
-//     // Positive slope: transition from grey to dark red
-//     red = 255
-//     green = blue = 255 * (1 - intensity)
-//   } else {
-//     // Negative slope: transition from grey to dark blue
-//     blue = 255
-//     red = green = 255 * (1 - intensity)
-//   }
-
-//   return `rgba(${red}, ${green}, ${blue}, 1)`
-// }
