@@ -1,17 +1,16 @@
 ### TODO
 
-- [ ] change chartDataSet to chartDataSetMixed
-- [ ] Test rounding of inputs and specify Float16 array (requires changes to original model)
+- [ ] Update input tensor when switching between mixed and actionable
+- [ ] Toggle even and percentile steps
 - [ ] Get rid of vite.svg in the prod build
-- [ ] Dboule check input tensor for prediction: Harder than it seems
+- [ ] Double check input tensor for prediction: Harder than it seems
 - [ ] How do I define steps for something lik e thermostat setpoints?
-- [ ] Define slider steps as eventSteps or percentileSteps in UI
-- [ ] Toggle between actionable and mixed actionable
-- [ ] Have a toggle to switch the weather
+- [ ] Toggle weather
 - [ ] Create chart to show stdev of the shown xmlPaths
 
 ### Maybe
 
+- [ ] Test rounding of inputs and specify Float16 array (requires changes to original model)
 - [ ] Create grouped array of categorical inputs (if it's in the top 20)
 - [ ] Build function that takes categorical inputs and the value to turn on and return the whole set with the rest as zeros. (only if categorical is included in the top 20)
 - [ ] Build assets along with production `npm run build`. You can't run in dev mode without these assets and they are checked in, so not sure this is needed.
@@ -20,6 +19,8 @@
 
 ### Done
 
+- [x] Toggle between actionable and mixed actionable
+- [x] change chartDataSet to chartDataSetMixed
 - [x] Lock y axis scale dynamically (or lock it into a fixed scale for all?)
 - [x] Round predicted values to be integer to useEffect() doesn't change as often
 - [x] Build production assets and test performance

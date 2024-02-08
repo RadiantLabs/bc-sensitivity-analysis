@@ -5,25 +5,26 @@ import Slider from '@mui/material/Slider'
 import { useStore } from './useStore'
 import isEmpty from 'lodash/isEmpty'
 import { styled } from '@mui/material/styles'
-import { chartWidth, highlightColor, inactiveColor, barStroke, chartHeight } from './utils/const'
+import { highlightColor, inactiveColor, barStroke, chartConfig } from './utils/const'
 import { calculateSlope } from './utils/calculateSlope'
 import { formatSliderTickLabel } from './utils/formatSliderTickLabel'
+import { getColorFromSlope } from './utils/getColorFromSlope'
 
 const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
-  const { sliderValues, setSliderValue, stepType, yAxisDomain } = useStore((state) => ({
+  const { sliderValues, setSliderValue, stepType, yAxisDomain, chartLayout } = useStore((state) => ({
     sliderValues: state.sliderValues,
     setSliderValue: state.setSliderValue,
     stepType: state.stepType,
     yAxisDomain: state.yAxisDomain,
+    chartLayout: state.chartLayout,
   }))
 
   const chartRef = useRef()
   const sliderValue = sliderValues[chartId]
   const slopes = calculateSlope(predictedData)
-
-  const handleSliderChange = (event, newSliderVal) => {
-    setSliderValue(chartId, newSliderVal)
-  }
+  const handleSliderChange = (event, newSliderVal) => setSliderValue(chartId, newSliderVal)
+  const { chartHeight } = chartConfig[chartLayout]
+  const CustomSlider = createCustomSlider(chartHeight)
 
   useEffect(() => {
     const currentRef = chartRef.current
@@ -39,6 +40,8 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
     // Find the bar that the slider is under so we can highlight it
     const activeData = predictedData.find((d) => d.inputValue === sliderValue)
 
+    const { chartWidth, chartHeight, barSlopeIndicatorHeight } = chartConfig[chartLayout]
+
     // Initialize chart on mount
     const chart = Plot.plot({
       y: {
@@ -49,19 +52,19 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
       marks: [
         // Add a small colored bar to the top of each bar to represent the slope
         Plot.barY(
-          predictedData.map((d) => ({ ...d, predicted: d.predicted + 100 })), // Pick a value to make the bar taller
+          predictedData.map((d) => ({ ...d, predicted: d.predicted + barSlopeIndicatorHeight })), // Pick a value to make the bar taller
           {
             x: 'inputValue',
             y: 'predicted',
             fill: (d, i) => getColorFromSlope(slopes[i]), // Color based on slope
-            // height: 50, // Make this a small value to represent just the top part
           }
         ),
         // Plot inactive bars
         Plot.barY(predictedData, {
           x: 'inputValue',
           y: 'predicted',
-          fill: (d) => (d.inputValue === sliderValue ? highlightColor : inactiveColor),
+          // fill: (d) => (d.inputValue === sliderValue ? highlightColor : inactiveColor),
+          fill: (d, i) => (d.inputValue === sliderValue ? getColorFromSlope(slopes[i]) : inactiveColor),
           stroke: barStroke,
           strokeWidth: 0.5,
         }),
@@ -91,7 +94,7 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
     return () => {
       currentRef.removeChild(chart)
     }
-  }, [predictedData, sliderValue, slopes, yAxisDomain]) // The chart will re-render only when these values change
+  }, [predictedData, sliderValue, slopes, yAxisDomain, chartLayout]) // The chart will re-render only when these values change
 
   if (isEmpty(predictedData)) {
     return <div>Loading...</div>
@@ -101,7 +104,12 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
   const maxSteps = Math.max(...steps)
   const minSteps = Math.min(...steps)
   const { displayPrecision } = chartData
-  const marks = steps.map((step) => ({ value: step, label: formatSliderTickLabel(step, displayPrecision) }))
+  const showSliderLabels = chartLayout === 'single' // Only show labels on the single chart
+  const marks = steps.map((step) => ({
+    value: step,
+    label: formatSliderTickLabel(step, displayPrecision, showSliderLabels),
+  }))
+  // const marks = steps.map((step) => ({ value: step, label: null }))
   return (
     <div style={{ position: 'relative' }}>
       <div style={{ marginBottom: '50px' }}>
@@ -147,49 +155,36 @@ export default SensitivityPlot
 // Helper functions
 // ---------------------------------------------------------------------------------------------
 // Create a styled version of the Slider
-const CustomSlider = styled(Slider)({
-  // Notice the & and . for MuiSlider-root has no space between them
-  '&.MuiSlider-root': {
-    position: 'relative',
-    width: '92%',
-    color: highlightColor,
-    height: 0,
-    marginTop: '2px',
-  },
-  // Notice the & and . for MuiSlider-markLabel have a space between them
-  '& .MuiSlider-markLabel': {
-    top: '20px',
-  },
-  '& .MuiSlider-mark': {
-    width: '3px',
-    height: '3px',
-    borderRadius: '50%',
-    color: barStroke,
-  },
-  '& .MuiSlider-thumb': {
-    border: `0.5px solid ${inactiveColor}`,
-    cursor: 'ew-resize', // Cursor is a horizontal line with arrows on each end
-    // Create an invisible pseudo-element to increase the hit area of the thumb to take up most of the bar
-    '&:before': {
-      content: '""', // Necessary to create a pseudo-element
-      position: 'absolute',
-      height: chartHeight,
-      width: '300%',
-      backgroundColor: 'transparent',
-      top: -chartHeight * 0.8,
-      left: '50%', // Center horizontally
-      transform: 'translateX(-50%)', // Center horizontally
+const createCustomSlider = (chartHeight) =>
+  styled(Slider)({
+    '&.MuiSlider-root': {
+      position: 'relative',
+      width: '92%',
+      color: highlightColor,
+      height: 0,
+      marginTop: '2px',
     },
-  },
-})
-
-function getColorFromSlope(slope) {
-  const intensity = Math.min(1, Math.abs(slope) * 4) // Control intensity
-  if (slope > 0) {
-    // Positive slope: shades of red
-    return `rgba(255, ${255 - intensity * 255}, ${255 - intensity * 255}, ${intensity})`
-  } else {
-    // Negative slope: shades of blue
-    return `rgba(${255 - intensity * 255}, ${255 - intensity * 255}, 255, ${intensity})`
-  }
-}
+    '& .MuiSlider-markLabel': {
+      top: '20px',
+    },
+    '& .MuiSlider-mark': {
+      width: '3px',
+      height: '3px',
+      borderRadius: '50%',
+      color: barStroke,
+    },
+    '& .MuiSlider-thumb': {
+      border: `0.5px solid ${inactiveColor}`,
+      cursor: 'ew-resize',
+      '&:before': {
+        content: '""',
+        position: 'absolute',
+        height: chartHeight, // Use the chartHeight prop here
+        width: '300%',
+        backgroundColor: 'transparent',
+        top: -chartHeight * 0.8, // And here
+        left: '50%',
+        transform: 'translateX(-50%)',
+      },
+    },
+  })

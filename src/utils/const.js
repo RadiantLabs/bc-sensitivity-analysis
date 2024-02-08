@@ -5,10 +5,26 @@ export const chartCount = 16
 // export const highlightColor = '#ff7f0e' // d3 orange
 // export const highlightColor = '#E93B2C' // Radiant red/orange
 // export const highlightColor = '#EF6C22' // Radiant orange
-export const highlightColor = '#F7831E' // Radiant light orange
+// export const highlightColor = '#F7831E' // Radiant light orange
+export const highlightColor = '#817b75' // Dark gray
 
 export const inactiveColor = '#e0e0e0'
 export const barStroke = '#bbb'
 
-export const chartWidth = 700
-export const chartHeight = 100
+export const chartConfig = {
+  single: {
+    chartWidth: 700,
+    chartHeight: 100,
+    barSlopeIndicatorHeight: 150,
+  },
+  double: {
+    chartWidth: 700,
+    chartHeight: 100,
+    barSlopeIndicatorHeight: 150,
+  },
+  triple: {
+    chartWidth: 700,
+    chartHeight: 200,
+    barSlopeIndicatorHeight: 250,
+  },
+}
