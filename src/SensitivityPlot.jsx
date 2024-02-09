@@ -21,7 +21,9 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
   const chartRef = useRef()
   const sliderValue = sliderValues[chartId]
   const slopes = calculateSlope(predictedData)
-  const handleSliderChange = (event, newSliderVal) => setSliderValue(chartId, newSliderVal)
+  const handleSliderChange = (event, newSliderVal) => {
+    setSliderValue(chartId, newSliderVal)
+  }
 
   useEffect(() => {
     const currentRef = chartRef.current

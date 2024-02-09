@@ -15,9 +15,10 @@ const initialChartDataSetType = 'mixed'
 const initialChartDataSet = getChartDataSet(initialChartDataSetType)
 const initialStepType = 'evenSteps'
 const initialSliderValues = getInitialSliderValues(initialChartDataSet, initialStepType) // returns middle step
+console.log('initialSliderValues :>> ', initialSliderValues)
 
 export const useStore = create(
-  devtools((set) => ({
+  devtools((set, get) => ({
     chartDataSetType: initialChartDataSetType, // mixed | actionable
     chartDataSet: initialChartDataSet,
     model: null, // Loads async remotely from fetchModel
@@ -30,12 +31,15 @@ export const useStore = create(
       set({
         chartDataSetType: newChartDataSetType,
         chartDataSet: getChartDataSet(newChartDataSetType),
+        sliderValues: getInitialSliderValues(getChartDataSet(newChartDataSetType), get().stepType), // Reset slider positions on chart change
       }),
-    setStepType: (newStepType) => set({ stepType: newStepType }), // Can be evenly distributed or based on percentiles
+
     setSliderValue: (chartId, newSliderValue) =>
       set((state) => ({
         sliderValues: { ...state.sliderValues, [chartId]: newSliderValue },
       })),
+
+    setStepType: (newStepType) => set({ stepType: newStepType }), // Can be evenly distributed or based on percentiles
     setChartLayout: (layout) => set({ chartLayout: layout }),
   }))
 )
