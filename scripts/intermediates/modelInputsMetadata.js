@@ -4237,7 +4237,7 @@ export const modelInputsMetadata = [
     "isRelevant": true,
     "units": "ft",
     "decimals": 0,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 55,
     "stdev": 267757
   },
@@ -4251,7 +4251,7 @@ export const modelInputsMetadata = [
     "isRelevant": true,
     "units": "ft",
     "decimals": 0,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 57,
     "stdev": 248039
   },
@@ -4264,7 +4264,7 @@ export const modelInputsMetadata = [
     "isActionable": false,
     "isRelevant": false,
     "units": "ft",
-    "decimals": null,
+    "decimals": 0,
     "displayPrecision": null,
     "importanceRank": 58,
     "stdev": 248039
@@ -4279,7 +4279,7 @@ export const modelInputsMetadata = [
     "isRelevant": true,
     "units": "ft2",
     "decimals": 0,
-    "displayPrecision": 2,
+    "displayPrecision": null,
     "importanceRank": 59,
     "stdev": 234388
   },
@@ -4292,8 +4292,8 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "cfm",
-    "decimals": 0,
-    "displayPrecision": 2,
+    "decimals": 1,
+    "displayPrecision": null,
     "importanceRank": 61,
     "stdev": 226804
   },
@@ -4306,7 +4306,7 @@ export const modelInputsMetadata = [
     "isActionable": false,
     "isRelevant": false,
     "units": "ft2",
-    "decimals": null,
+    "decimals": 0,
     "displayPrecision": null,
     "importanceRank": 139,
     "stdev": 147932
@@ -4388,7 +4388,7 @@ export const modelInputsMetadata = [
     "label": null,
     "categoricalValue": null,
     "isActionable": false,
-    "isRelevant": false,
+    "isRelevant": true,
     "units": null,
     "decimals": null,
     "displayPrecision": null,
@@ -4404,7 +4404,7 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "°F",
-    "decimals": 0,
+    "decimals": 1,
     "displayPrecision": null,
     "importanceRank": 166,
     "stdev": 123664
@@ -4460,7 +4460,7 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "°F",
-    "decimals": 0,
+    "decimals": 1,
     "displayPrecision": null,
     "importanceRank": 190,
     "stdev": 96363
@@ -4474,7 +4474,7 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "ft2-°F-h/BTU",
-    "decimals": 0,
+    "decimals": 1,
     "displayPrecision": null,
     "importanceRank": 215,
     "stdev": 73874
@@ -4488,7 +4488,7 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "hours",
-    "decimals": 0,
+    "decimals": 2,
     "displayPrecision": null,
     "importanceRank": 216,
     "stdev": 73612
@@ -4502,7 +4502,7 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "hours",
-    "decimals": 0,
+    "decimals": 2,
     "displayPrecision": null,
     "importanceRank": 232,
     "stdev": 62995
@@ -4516,7 +4516,7 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "°F",
-    "decimals": 0,
+    "decimals": 2,
     "displayPrecision": null,
     "importanceRank": 250,
     "stdev": 34179
@@ -4530,7 +4530,7 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "Btu/Wh",
-    "decimals": 0,
+    "decimals": 2,
     "displayPrecision": null,
     "importanceRank": 253,
     "stdev": 24837
@@ -4544,7 +4544,7 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "ft2-°F-h/BTU",
-    "decimals": 0,
+    "decimals": 1,
     "displayPrecision": null,
     "importanceRank": 254,
     "stdev": 24768
@@ -4558,7 +4558,7 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "ACH",
-    "decimals": 1,
+    "decimals": 2,
     "displayPrecision": null,
     "importanceRank": 255,
     "stdev": 23833
@@ -4572,7 +4572,7 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "ft2-°F-h/BTU",
-    "decimals": 0,
+    "decimals": 1,
     "displayPrecision": null,
     "importanceRank": 256,
     "stdev": 23564
@@ -4586,7 +4586,7 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "Btu/Wh",
-    "decimals": 1,
+    "decimals": 2,
     "displayPrecision": null,
     "importanceRank": 257,
     "stdev": 23564
@@ -4600,7 +4600,7 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "Btu/Wh",
-    "decimals": 1,
+    "decimals": 2,
     "displayPrecision": null,
     "importanceRank": 275,
     "stdev": 19774
@@ -4614,7 +4614,7 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "Btu/Wh",
-    "decimals": 1,
+    "decimals": 2,
     "displayPrecision": null,
     "importanceRank": 279,
     "stdev": 19016
@@ -4628,7 +4628,7 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "Btu/Wh",
-    "decimals": 1,
+    "decimals": 2,
     "displayPrecision": null,
     "importanceRank": 283,
     "stdev": 15317
@@ -4642,7 +4642,7 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": null,
-    "decimals": 0,
+    "decimals": 2,
     "displayPrecision": null,
     "importanceRank": 285,
     "stdev": 12954
@@ -4740,7 +4740,7 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "lb/kWh",
-    "decimals": 1,
+    "decimals": 2,
     "displayPrecision": null,
     "importanceRank": 292,
     "stdev": 8342
@@ -4754,7 +4754,7 @@ export const modelInputsMetadata = [
     "isActionable": false,
     "isRelevant": null,
     "units": null,
-    "decimals": 1,
+    "decimals": 2,
     "displayPrecision": null,
     "importanceRank": 293,
     "stdev": 7562
@@ -4768,7 +4768,7 @@ export const modelInputsMetadata = [
     "isActionable": false,
     "isRelevant": null,
     "units": null,
-    "decimals": 1,
+    "decimals": 2,
     "displayPrecision": null,
     "importanceRank": 294,
     "stdev": 5576
@@ -5118,7 +5118,7 @@ export const modelInputsMetadata = [
     "isActionable": true,
     "isRelevant": true,
     "units": "%",
-    "decimals": 2,
+    "decimals": 1,
     "displayPrecision": null,
     "importanceRank": 316,
     "stdev": 1601

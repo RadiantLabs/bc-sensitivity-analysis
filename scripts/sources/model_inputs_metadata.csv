@@ -301,45 +301,45 @@
 345,X1237,HPXML.Building.BuildingDetails.Enclosure.FrameFloors.FrameFloor[FloorAboveConditionedBasement1].Area,Basement Ceiling Area,,FALSE,FALSE,ft2,0,2,42,760709
 463,X4209,HPXML.Building.BuildingDetails.Enclosure.Windows.Window[WindowWest1].Azimuth,,,FALSE,FALSE,,,,48,408817
 459,X4197,HPXML.Building.BuildingDetails.Enclosure.Windows.Window[WindowSouth1].Azimuth,,,FALSE,FALSE,,,,54,272307
-409,X3441,HPXML.Building.BuildingDetails.Enclosure.Slabs.Slab[SlabOnGrade1].ExposedPerimeter,Slab Perimeter,,FALSE,TRUE,ft,0,2,55,267757
-361,X2149,HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistCrawlspaceVentedExposed1].Area,Crawlspace Exposed Perimeter,,FALSE,TRUE,ft,0,2,57,248039
-419,X3579,HPXML.Building.BuildingDetails.Enclosure.Slabs.Slab[SlabUnderCrawlspaceVented1].ExposedPerimeter,Slab Under Crawl Exposed Perimeter,,FALSE,FALSE,ft,,,58,248039
-367,X2522,HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistStory2Exposed].Area,Upper Story Exposed Rim Joist Area,,FALSE,TRUE,ft2,0,2,59,234388
-291,X0058,HPXML.Building.BuildingDetails.Appliances.ClothesDryer.extension.VentedFlowRate,Clothes Dryer Vented Flow Rate,,TRUE,TRUE,cfm,0,2,61,226804
-368,X2523,HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistStory3Exposed].Area,Exposed Rim Joist 3rd Floor Area,,FALSE,FALSE,ft2,,,139,147932
+409,X3441,HPXML.Building.BuildingDetails.Enclosure.Slabs.Slab[SlabOnGrade1].ExposedPerimeter,Slab Perimeter,,FALSE,TRUE,ft,0,,55,267757
+361,X2149,HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistCrawlspaceVentedExposed1].Area,Crawlspace Exposed Perimeter,,FALSE,TRUE,ft,0,,57,248039
+419,X3579,HPXML.Building.BuildingDetails.Enclosure.Slabs.Slab[SlabUnderCrawlspaceVented1].ExposedPerimeter,Slab Under Crawl Exposed Perimeter,,FALSE,FALSE,ft,0,,58,248039
+367,X2522,HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistStory2Exposed].Area,Upper Story Exposed Rim Joist Area,,FALSE,TRUE,ft2,0,,59,234388
+291,X0058,HPXML.Building.BuildingDetails.Appliances.ClothesDryer.extension.VentedFlowRate,Clothes Dryer Vented Flow Rate,,TRUE,TRUE,cfm,1,,61,226804
+368,X2523,HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistStory3Exposed].Area,Exposed Rim Joist 3rd Floor Area,,FALSE,FALSE,ft2,0,,139,147932
 458,X4194,HPXML.Building.BuildingDetails.Enclosure.Windows.Window[WindowSouth1].Area,South Window Area,,FALSE,TRUE,ft2,0,,145,144899
 447,X4158,HPXML.Building.BuildingDetails.Enclosure.Windows.Window[WindowNorth1].Area,North Window Area,,FALSE,TRUE,ft2,0,,146,144899
 435,X4122,HPXML.Building.BuildingDetails.Enclosure.Windows.Window[WindowEast1].Area,East Window Area,,FALSE,TRUE,ft2,0,,149,143382
 462,X4206,HPXML.Building.BuildingDetails.Enclosure.Windows.Window[WindowWest1].Area,West Window Area,,FALSE,TRUE,ft2,0,,150,143382
 581,X7674,HPXML.Building.BuildingDetails.Systems.WaterHeating.WaterHeatingSystem[WaterHeater1].TankVolume,Water Heater Tank Volume,,TRUE,TRUE,gal,0,,153,140173
-436,X4125,HPXML.Building.BuildingDetails.Enclosure.Windows.Window[WindowEast1].Azimuth,,,FALSE,FALSE,,,,158,135798
-315,X0192,HPXML.Building.BuildingDetails.Systems.HVAC.HVACControl.SetupTempCoolingSeason,Thermostat Temp (Cooling Season),,TRUE,TRUE,°F,0,,166,123664
+436,X4125,HPXML.Building.BuildingDetails.Enclosure.Windows.Window[WindowEast1].Azimuth,,,FALSE,TRUE,,,,158,135798
+315,X0192,HPXML.Building.BuildingDetails.Systems.HVAC.HVACControl.SetupTempCoolingSeason,Thermostat Temp (Cooling Season),,TRUE,TRUE,°F,1,,166,123664
 401,X3300,HPXML.Building.BuildingDetails.Enclosure.Slabs.Slab[SlabOfBasementConditioned1].ExposedPerimeter,Basement Exposed Perimeter,,FALSE,TRUE,ft,0,,171,114563
 355,X1777,HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistBasementConditionedExposed1].Area,Conditioned Basement Exposed Rim Joist Area,,FALSE,TRUE,ft2,0,,172,114563
 329,X0658,HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallBasementConditionedToCrawlVented1].Area,Conditioned Basement Foundation Wall Area,,FALSE,TRUE,ft2,0,,182,103946
-314,X0189,HPXML.Building.BuildingDetails.Systems.HVAC.HVACControl.SetbackTempHeatingSeason,Thermostat Temp (Heating Season),,TRUE,TRUE,°F,0,,190,96363
-354,X1687,HPXML.Building.BuildingDetails.Enclosure.FrameFloors.FrameFloor[FloorBelowAttic1].Insulation.AssemblyEffectiveRValue,Attic Insulation R Value,,TRUE,TRUE,ft2-°F-h/BTU,0,,215,73874
-316,X0193,HPXML.Building.BuildingDetails.Systems.HVAC.HVACControl.TotalSetbackHoursperWeekHeating,Thermostat Setback Hours Per Week (Heating),,TRUE,TRUE,hours,0,,216,73612
-317,X0194,HPXML.Building.BuildingDetails.Systems.HVAC.HVACControl.TotalSetupHoursperWeekCooling,Thermostat Setback Hours Per Week (Cooling),,TRUE,TRUE,hours,0,,232,62995
-318,X0195,HPXML.Building.BuildingDetails.Systems.HVAC.HVACControl.extension.SetbackStartHourHeating,Thermostat Setback Start Hour (Heating),,TRUE,TRUE,°F,0,,250,34179
-507,X5241,HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[ASHP1].AnnualCoolingEfficiency.Value,Air Source Heat Pump Cooling Efficiency,,TRUE,TRUE,Btu/Wh,0,,253,24837
-425,X3807,HPXML.Building.BuildingDetails.Enclosure.Walls.Wall[WallExposed1].Insulation.AssemblyEffectiveRValue,Exposed Wall R Value,,TRUE,TRUE,ft2-°F-h/BTU,0,,254,24768
-311,X0177,HPXML.Building.BuildingDetails.Enclosure.AirInfiltration.AirInfiltrationMeasurement.BuildingAirLeakage.AirLeakage,Air Leakage,,TRUE,TRUE,ACH,1,,255,23833
-379,X2677,HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistStory2Exposed].Insulation.AssemblyEffectiveRValue,Upper Story Exposed Rim Joist R Value,,TRUE,TRUE,ft2-°F-h/BTU,0,,256,23564
-520,X5727,HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[MiniSplitHP1].AnnualCoolingEfficiency.Value,Mini Split Heat Pump Cooling Efficiency,,TRUE,TRUE,Btu/Wh,1,,257,23564
-509,X5277,HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[ASHP1].AnnualHeatingEfficiency.Value,Air Source Heat Pump Heating Efficiency,,TRUE,TRUE,Btu/Wh,1,,275,19774
-494,X4605,HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].CoolingSystem[CentralAirConditioner1].AnnualCoolingEfficiency.Value,Central Air Condition Efficiency,,TRUE,TRUE,Btu/Wh,1,,279,19016
-522,X5763,HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[MiniSplitHP1].AnnualHeatingEfficiency.Value,Mini Split Heat Pump Heating Efficiency,,TRUE,TRUE,Btu/Wh,1,,283,15317
-319,X0196,HPXML.Building.BuildingDetails.Systems.HVAC.HVACControl.extension.SetupStartHourCooling,Thermostat Start Hour Cooling,,TRUE,TRUE,,0,,285,12954
+314,X0189,HPXML.Building.BuildingDetails.Systems.HVAC.HVACControl.SetbackTempHeatingSeason,Thermostat Temp (Heating Season),,TRUE,TRUE,°F,1,,190,96363
+354,X1687,HPXML.Building.BuildingDetails.Enclosure.FrameFloors.FrameFloor[FloorBelowAttic1].Insulation.AssemblyEffectiveRValue,Attic Insulation R Value,,TRUE,TRUE,ft2-°F-h/BTU,1,,215,73874
+316,X0193,HPXML.Building.BuildingDetails.Systems.HVAC.HVACControl.TotalSetbackHoursperWeekHeating,Thermostat Setback Hours Per Week (Heating),,TRUE,TRUE,hours,2,,216,73612
+317,X0194,HPXML.Building.BuildingDetails.Systems.HVAC.HVACControl.TotalSetupHoursperWeekCooling,Thermostat Setback Hours Per Week (Cooling),,TRUE,TRUE,hours,2,,232,62995
+318,X0195,HPXML.Building.BuildingDetails.Systems.HVAC.HVACControl.extension.SetbackStartHourHeating,Thermostat Setback Start Hour (Heating),,TRUE,TRUE,°F,2,,250,34179
+507,X5241,HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[ASHP1].AnnualCoolingEfficiency.Value,Air Source Heat Pump Cooling Efficiency,,TRUE,TRUE,Btu/Wh,2,,253,24837
+425,X3807,HPXML.Building.BuildingDetails.Enclosure.Walls.Wall[WallExposed1].Insulation.AssemblyEffectiveRValue,Exposed Wall R Value,,TRUE,TRUE,ft2-°F-h/BTU,1,,254,24768
+311,X0177,HPXML.Building.BuildingDetails.Enclosure.AirInfiltration.AirInfiltrationMeasurement.BuildingAirLeakage.AirLeakage,Air Leakage,,TRUE,TRUE,ACH,2,,255,23833
+379,X2677,HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistStory2Exposed].Insulation.AssemblyEffectiveRValue,Upper Story Exposed Rim Joist R Value,,TRUE,TRUE,ft2-°F-h/BTU,1,,256,23564
+520,X5727,HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[MiniSplitHP1].AnnualCoolingEfficiency.Value,Mini Split Heat Pump Cooling Efficiency,,TRUE,TRUE,Btu/Wh,2,,257,23564
+509,X5277,HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[ASHP1].AnnualHeatingEfficiency.Value,Air Source Heat Pump Heating Efficiency,,TRUE,TRUE,Btu/Wh,2,,275,19774
+494,X4605,HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].CoolingSystem[CentralAirConditioner1].AnnualCoolingEfficiency.Value,Central Air Condition Efficiency,,TRUE,TRUE,Btu/Wh,2,,279,19016
+522,X5763,HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[MiniSplitHP1].AnnualHeatingEfficiency.Value,Mini Split Heat Pump Heating Efficiency,,TRUE,TRUE,Btu/Wh,2,,283,15317
+319,X0196,HPXML.Building.BuildingDetails.Systems.HVAC.HVACControl.extension.SetupStartHourCooling,Thermostat Start Hour Cooling,,TRUE,TRUE,,2,,285,12954
 325,X0373,HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallBasementConditionedExposed1].Height,,,FALSE,,,1,,286,11439
 342,X1033,HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallCrawlspaceVentedExposed1].Thickness,,,FALSE,,,2,,287,11439
 335,X0844,HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallBasementConditionedToCrawlVented1].Thickness,,,FALSE,,,2,,288,11439
 328,X0466,HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallBasementConditionedExposed1].Thickness,,,FALSE,,,2,,289,11439
 323,X0283,HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallBasementConditionedExposed1].DepthBelowGrade,,,FALSE,,,2,,290,9925
 307,X0155,HPXML.Building.BuildingDetails.BuildingSummary.BuildingOccupancy.NumberofResidents,,,FALSE,,,0,,291,9666
-288,X0000,HPXML.Building.BuildingDetails.Appliances.ClothesDryer.CombinedEnergyFactor,Clothes Dryer Energy Factor,,TRUE,TRUE,lb/kWh,1,,292,8342
-302,X0140,HPXML.Building.BuildingDetails.BuildingSummary.BuildingConstruction.NumberofBedrooms,,,FALSE,,,1,,293,7562
-301,X0139,HPXML.Building.BuildingDetails.BuildingSummary.BuildingConstruction.NumberofBathrooms,,,FALSE,,,1,,294,5576
+288,X0000,HPXML.Building.BuildingDetails.Appliances.ClothesDryer.CombinedEnergyFactor,Clothes Dryer Energy Factor,,TRUE,TRUE,lb/kWh,2,,292,8342
+302,X0140,HPXML.Building.BuildingDetails.BuildingSummary.BuildingConstruction.NumberofBedrooms,,,FALSE,,,2,,293,7562
+301,X0139,HPXML.Building.BuildingDetails.BuildingSummary.BuildingConstruction.NumberofBathrooms,,,FALSE,,,2,,294,5576
 576,X7509,HPXML.Building.BuildingDetails.Systems.WaterHeating.WaterHeatingSystem[WaterHeater1].EnergyFactor,Water Heater Energy Factor,,TRUE,TRUE,%,2,,295,5557
 414,X3549,HPXML.Building.BuildingDetails.Enclosure.Slabs.Slab[SlabOnGrade1].Thickness,,,FALSE,,,1,,296,5392
 380,X2678,HPXML.Building.BuildingDetails.Enclosure.RimJoists.RimJoist[RimJoistStory3Exposed].Insulation.AssemblyEffectiveRValue,Rim Joist 3rd Story R Value,,TRUE,TRUE,,1,,297,5392
@@ -364,7 +364,7 @@
 295,X0094,HPXML.Building.BuildingDetails.Appliances.CookingRange.FuelType,Cooking Range Fuel Type,electricity,TRUE,TRUE,,,,315,1601
 296,X0096,HPXML.Building.BuildingDetails.Appliances.CookingRange.FuelType,,natural gas,FALSE,,,,,315,1601
 297,X0107,HPXML.Building.BuildingDetails.Appliances.CookingRange.FuelType,,propane,FALSE,,,,,315,1601
-524,X5799,HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[MiniSplitHP1].BackupAnnualHeatingEfficiency.Value,,,TRUE,TRUE,%,2,,316,1601
+524,X5799,HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[MiniSplitHP1].BackupAnnualHeatingEfficiency.Value,,,TRUE,TRUE,%,1,,316,1601
 521,X5733,HPXML.Building.BuildingDetails.Systems.HVAC.HVACPlant[HVACPlant1].HeatPump[MiniSplitHP1].AnnualHeatingEfficiency.Units,,HSPF,FALSE,,,,,317,1601
 485,X4494,HPXML.Building.BuildingDetails.Systems.HVAC.HVACDistribution[HVACDistributionAir1].DistributionSystemType.AirDistribution.DuctLeakageMeasurement[HVACDistributionAir1Supply].DuctType,,supply,FALSE,,,,,318,1601
 324,X0303,HPXML.Building.BuildingDetails.Enclosure.FoundationWalls.FoundationWall[FoundationWallBasementConditionedExposed1].ExteriorAdjacentTo,,ground,FALSE,,,,,319,1601

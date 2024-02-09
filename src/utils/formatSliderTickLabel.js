@@ -7,5 +7,5 @@ export function formatSliderTickLabel(value, displayPrecision, showSliderLabels)
   }
   return displayPrecision
     ? format(`.${displayPrecision}s`)(value) // D3 SI notation: https://observablehq.com/@observablehq/plot-cheatsheets-scales
-    : value
+    : Math.round(value)
 }
