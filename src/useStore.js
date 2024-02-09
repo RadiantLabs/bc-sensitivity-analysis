@@ -14,18 +14,18 @@ const initialSliderValues = getInitialSliderValues(chartDataSetMixed, 'evenSteps
 
 export const useStore = create(
   devtools((set) => ({
-    chartDataSetId: 'mixed', // mixed, actionable
-    chartDataSet: take(chartDataSetMixed, chartCount), // Initialized to mixed
+    chartDataSetType: 'mixed', // mixed, actionable
+    chartDataSet: getChartDataSet('mixed'), // take(chartDataSetMixed, chartCount), // Initialized to mixed
     model: null, // Loads async remotely from fetchModel
     stepType: 'evenSteps',
     sliderValues: initialSliderValues, // stored in an object with chartId as key
     yAxisDomain: [0, 6000], // Hardcode for now, later detect max from initial prediction (but not every prediction). See getMaxPredictionValue.js
     chartLayout: 'single', // single, double, triple
 
-    setChartDataSetId: (newChartDataSetId) =>
+    setChartDataSetType: (newChartDataSetType) =>
       set({
-        chartDataSetId: newChartDataSetId,
-        chartDataSet: getChartDataSet(newChartDataSetId),
+        chartDataSetType: newChartDataSetType,
+        chartDataSet: getChartDataSet(newChartDataSetType),
       }),
     setStepType: (newStepType) => set({ stepType: newStepType }), // Can be evenly distributed or based on percentiles
     setSliderValue: (chartId, newSliderValue) =>
@@ -61,8 +61,8 @@ const fetchModel = async () => {
 }
 fetchModel()
 
-function getChartDataSet(newChartDataSetId) {
-  return newChartDataSetId === 'mixed'
+function getChartDataSet(newChartDataSetType) {
+  return newChartDataSetType === 'mixed'
     ? take(chartDataSetMixed, chartCount) // Return a subset of non-actionable and actionable charts (mixed)
     : take(chartDataSetActionable, chartCount) // Return only actionable chartDataSet
 }

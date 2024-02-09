@@ -13,16 +13,16 @@ import './App.css'
 const App = () => {
   const [weatherFile, setWeatherFile] = useState('file1') // TODO: convert to Zustand
 
-  const { chartLayout, setChartLayout, chartDataSetId, setChartDataSetId } = useStore((state) => ({
-    chartDataSetId: state.chartDataSetId,
-    setChartDataSetId: state.setChartDataSetId,
+  const { chartLayout, setChartLayout, chartDataSetType, setChartDataSetType } = useStore((state) => ({
+    chartDataSetType: state.chartDataSetType,
+    setChartDataSetType: state.setChartDataSetType,
     chartLayout: state.chartLayout,
     setChartLayout: state.setChartLayout,
   }))
 
-  const handleChartDataSetIdChange = (event, newChartDataSetId) => {
-    if (newChartDataSetId !== null) {
-      setChartDataSetId(newChartDataSetId)
+  const handleChartDataSetTypeChange = (event, newChartDataSetType) => {
+    if (newChartDataSetType !== null) {
+      setChartDataSetType(newChartDataSetType)
     }
   }
 
@@ -71,9 +71,9 @@ const App = () => {
             <ToggleButtonGroup
               fullWidth
               size='small'
-              value={chartDataSetId}
+              value={chartDataSetType}
               exclusive
-              onChange={handleChartDataSetIdChange}
+              onChange={handleChartDataSetTypeChange}
               style={{ width: '100%' }}
             >
               <ToggleButton value='mixed' sx={ToggleButtonStyles}>
