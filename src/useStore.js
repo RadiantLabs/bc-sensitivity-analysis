@@ -7,20 +7,24 @@ import { chartDataSetMixed } from './assets/chartDataSetMixed.js'
 import { chartDataSetActionable } from './assets/chartDataSetActionable.js'
 import { getInitialSliderValues } from './utils/getInitialSliderValues'
 import { predict } from './utils/predict.js'
+// import { getMaxPredictionValue } from './utils/getMaxPredictionValue.js'
 import { chartCount } from './utils/const.js'
 const modelPath = 'https://permanent-public.s3.us-west-2.amazonaws.com/bill-calibration/model3/model.json'
 
-const initialSliderValues = getInitialSliderValues(chartDataSetMixed, 'evenSteps') // returns middle step
+const initialChartDataSetType = 'mixed'
+const initialChartDataSet = getChartDataSet(initialChartDataSetType)
+const initialStepType = 'evenSteps'
+const initialSliderValues = getInitialSliderValues(initialChartDataSet, initialStepType) // returns middle step
 
 export const useStore = create(
   devtools((set) => ({
-    chartDataSetType: 'mixed', // mixed, actionable
-    chartDataSet: getChartDataSet('mixed'), // take(chartDataSetMixed, chartCount), // Initialized to mixed
+    chartDataSetType: initialChartDataSetType, // mixed | actionable
+    chartDataSet: initialChartDataSet,
     model: null, // Loads async remotely from fetchModel
-    stepType: 'evenSteps',
-    sliderValues: initialSliderValues, // stored in an object with chartId as key
-    yAxisDomain: [0, 6000], // Hardcode for now, later detect max from initial prediction (but not every prediction). See getMaxPredictionValue.js
-    chartLayout: 'single', // single, double, triple
+    stepType: initialStepType,
+    sliderValues: initialSliderValues, // Stored in an object with chartId as key
+    yAxisDomain: [0, 8000], // Hardcode for now, later detect max from initial prediction (but not on every prediction)
+    chartLayout: 'single', // single | double | triple
 
     setChartDataSetType: (newChartDataSetType) =>
       set({
