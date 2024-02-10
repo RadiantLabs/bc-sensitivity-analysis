@@ -15,16 +15,16 @@ export const chartConfig = {
   single: {
     chartWidth: 700,
     chartHeight: 100,
-    barSlopeIndicatorHeight: 150,
+    barSlopeIndicatorHeight: 200,
   },
   double: {
     chartWidth: 700,
-    chartHeight: 100,
-    barSlopeIndicatorHeight: 150,
+    chartHeight: 150,
+    barSlopeIndicatorHeight: 200,
   },
   triple: {
     chartWidth: 700,
-    chartHeight: 200,
-    barSlopeIndicatorHeight: 250,
+    chartHeight: 150,
+    barSlopeIndicatorHeight: 200,
   },
 }

@@ -19,15 +19,16 @@ const SensitivityPlots = () => {
   }
   return (
     <>
-      <Grid container spacing={2}>
+      <Grid container spacing={1}>
         {chartDataSet.map((chartData, index) => {
           const { xmlPath, label, units } = chartData
           const predictedData = predictedDataSet[xmlPath]
           return (
-            <Grid container item xs={gridSize} key={index}>
+            <Grid container item xs={gridSize} style={{ paddingTop: 0, paddingBottom: 0 }} key={index}>
               <div>
                 <h5 style={{ marginBottom: 0 }}>
-                  {label} <small>({formatUnits(units)})</small>
+                  {label}
+                  {chartLayout === 'single' && <small>&nbsp;({formatUnits(units)})</small>}
                 </h5>
                 <SensitivityPlot chartId={xmlPath} predictedData={predictedData} chartData={chartData} />
               </div>

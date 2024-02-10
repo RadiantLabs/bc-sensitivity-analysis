@@ -1,5 +1,10 @@
 ### TODO
 
+- [ ] Create view 1: x metrics makes up 80% of the
+- [ ] Create view 2: Bar charts of the most important metrics
+- [ ] Display view 3: Sensitivity analysis
+
+- [ ] Look into Joy UI: https://mui.com/joy-ui/getting-started/
 - [ ] Refine how chartHeight is used for different layouts (modify containing div)
 - [ ] Update input tensor when switching between mixed and actionable
 - [ ] Toggle even and percentile steps

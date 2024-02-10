@@ -15,7 +15,6 @@ const initialChartDataSetType = 'mixed'
 const initialChartDataSet = getChartDataSet(initialChartDataSetType)
 const initialStepType = 'evenSteps'
 const initialSliderValues = getInitialSliderValues(initialChartDataSet, initialStepType) // returns middle step
-console.log('initialSliderValues :>> ', initialSliderValues)
 
 export const useStore = create(
   devtools((set, get) => ({

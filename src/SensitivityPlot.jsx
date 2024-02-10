@@ -51,18 +51,17 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
       marks: [
         // Add a small colored bar to the top of each bar to represent the slope
         Plot.barY(
-          predictedData.map((d) => ({ ...d, predicted: d.predicted + barSlopeIndicatorHeight })), // Pick a value to make the bar taller
+          predictedData.map((d) => ({ ...d, predicted: d.predicted + barSlopeIndicatorHeight })), // This allows the colored bar to peak out above the primary bar
           {
             x: 'inputValue',
             y: 'predicted',
             fill: (d, i) => getColorFromSlope(slopes[i]), // Color based on slope
           }
         ),
-        // Plot inactive bars
+        // Plot primary bars
         Plot.barY(predictedData, {
           x: 'inputValue',
           y: 'predicted',
-          // fill: (d) => (d.inputValue === sliderValue ? highlightColor : inactiveColor),
           fill: (d, i) => (d.inputValue === sliderValue ? getColorFromSlope(slopes[i]) : inactiveColor),
           stroke: barStroke,
           strokeWidth: 0.5,
@@ -73,12 +72,13 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
               Plot.text([activeData], {
                 x: 'inputValue',
                 y: 'predicted',
-                text: (d) => `${d.predicted}`,
-                dy: -10,
+                text: (d) => (chartLayout === 'single' ? `${d.predicted}` : null),
+                dy: -14,
                 fill: 'black',
                 textAlign: 'center',
                 font: 'small-caption',
                 fontWeight: 'bold',
+                fontSize: 14,
               }),
             ]
           : []),
@@ -110,21 +110,19 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
   }))
   return (
     <div style={{ position: 'relative' }}>
-      <div style={{ marginBottom: '50px' }}>
-        <div ref={chartRef} style={{ width: '100%', marginBottom: '-15px' }} />
-        <CustomSlider
-          value={sliderValue}
-          onChange={handleSliderChange}
-          marks={marks}
-          max={maxSteps}
-          min={minSteps}
-          step={null}
-          valueLabelDisplay='auto'
-          aria-label='Model Input Value'
-          size='small'
-          track={false}
-        />
-      </div>
+      <div ref={chartRef} style={{ width: '100%', marginBottom: '-15px' }} />
+      <CustomSlider
+        value={sliderValue}
+        onChange={handleSliderChange}
+        marks={marks}
+        max={maxSteps}
+        min={minSteps}
+        step={null}
+        valueLabelDisplay='auto'
+        aria-label='Model Input Value'
+        size='small'
+        track={false}
+      />
     </div>
   )
 }
