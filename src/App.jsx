@@ -58,6 +58,19 @@ const App = () => {
         </Grid>
 
         <Grid item xs={3}>
+          <Box
+            height={40}
+            width={80}
+            // my={4}
+            display='flex'
+            alignItems='center'
+            color={'text.primary'}
+            border={1}
+            borderRadius={1}
+          >
+            XOXO
+          </Box>
+
           <Typography variant='subtitle1' align='left' mb={2}>
             Notice the slope of the curve the bars make. If the slope is up and to the right, if you increase the value
             of that building characteristic, you will increase a building&rsquo;s energy use. If it goes down, you
