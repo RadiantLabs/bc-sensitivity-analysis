@@ -1,8 +1,8 @@
 import Grid from '@mui/material/Grid'
 import SensitivityPlot from './SensitivityPlot'
 import isEmpty from 'lodash/isEmpty'
-import { useStore, usePredictedDataSet } from './useStore'
-import { formatUnits } from './utils/formatUnits'
+import { useStore, usePredictedDataSet } from '../useStore'
+import { formatUnits } from '../utils/formatUnits'
 
 const SensitivityPlots = () => {
   const { chartLayout, chartDataSet } = useStore((state) => ({

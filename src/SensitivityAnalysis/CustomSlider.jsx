@@ -1,6 +1,6 @@
 import Slider from '@mui/material/Slider'
 import { styled } from '@mui/material/styles'
-import { highlightColor, inactiveColor, barStroke } from './utils/const'
+import { highlightColor, inactiveColor, barStroke } from '../utils/const'
 
 // Create a styled version of the Slider
 export const CustomSlider = styled(Slider)({

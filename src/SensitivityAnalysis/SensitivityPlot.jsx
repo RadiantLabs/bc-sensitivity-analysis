@@ -2,12 +2,12 @@ import { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import * as Plot from '@observablehq/plot'
 import { CustomSlider } from './CustomSlider'
-import { useStore } from './useStore'
+import { useStore } from '../useStore'
 import isEmpty from 'lodash/isEmpty'
-import { inactiveColor, barStroke, chartConfig } from './utils/const'
-import { calculateSlope } from './utils/calculateSlope'
-import { formatSliderTickLabel } from './utils/formatSliderTickLabel'
-import { getColorFromSlope } from './utils/getColorFromSlope'
+import { inactiveColor, barStroke, chartConfig } from '../utils/const'
+import { calculateSlope } from '../utils/calculateSlope'
+import { formatSliderTickLabel } from '../utils/formatSliderTickLabel'
+import { getColorFromSlope } from '../utils/getColorFromSlope'
 
 const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
   const { sliderValues, setSliderValue, stepType, yAxisDomain, chartLayout } = useStore((state) => ({
