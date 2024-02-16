@@ -1,6 +1,7 @@
-import { useState } from 'react'
 import PropTypes from 'prop-types'
 import Sensitivity from '../Sensitivity/Sensitivity'
+import MissingData from '../MissingData/MissingData'
+import MostImportantData from '../MostImportantData/MostImportantData'
 import Grid from '@mui/material/Grid'
 import { Tabs, Tab, Box, Typography } from '@mui/material'
 import { useStore } from '../useStore'
@@ -8,9 +9,10 @@ import { styled } from '@mui/material/styles'
 import './App.css'
 
 const App = () => {
-  const [tabValue, setValue] = useState(0)
-  const handleTabChange = (event, newTabValue) => {
-    setValue(newTabValue)
+  const { currentTab, setCurrentTab } = useStore()
+
+  const handleTabChange = (event, newTab) => {
+    setCurrentTab(newTab)
   }
 
   return (
@@ -28,7 +30,7 @@ const App = () => {
 
       <Box sx={{ bgcolor: 'background.paper', width: '100%' }}>
         <Tabs
-          value={tabValue}
+          value={currentTab}
           onChange={handleTabChange}
           indicatorColor='primary'
           textColor='primary'
@@ -44,7 +46,7 @@ const App = () => {
                 imageUrl='/path/to/image1.jpg'
               />
             }
-            selected={tabValue === 0}
+            value='missingData'
             disableRipple
           />
           <CustomTab
@@ -55,7 +57,7 @@ const App = () => {
                 imageUrl='/path/to/image2.jpg'
               />
             }
-            selected={tabValue === 1}
+            value='mostImportantData'
             disableRipple
           />
           <CustomTab
@@ -66,14 +68,16 @@ const App = () => {
                 imageUrl='/path/to/image3.jpg'
               />
             }
-            selected={tabValue === 2}
+            value='sensitivity'
             disableRipple
           />
         </Tabs>
         {/* TabPanel components */}
       </Box>
 
-      <Sensitivity />
+      {currentTab === 'missingData' && <MissingData />}
+      {currentTab === 'mostImportantData' && <MostImportantData />}
+      {currentTab === 'sensitivity' && <Sensitivity />}
     </Grid>
   )
 }

@@ -25,6 +25,7 @@ export const useStore = create(
     sliderValues: initialSliderValues, // Stored in an object with chartId as key
     yAxisDomain: [0, 8000], // Hardcode for now, later detect max from initial prediction (but not on every prediction)
     chartLayout: 'single', // single | double | triple
+    currentTab: 'missingData', // missingData | importantData | sensitivity
 
     setChartDataSetType: (newChartDataSetType) =>
       set({
@@ -40,6 +41,7 @@ export const useStore = create(
 
     setStepType: (newStepType) => set({ stepType: newStepType }), // Can be evenly distributed or based on percentiles
     setChartLayout: (layout) => set({ chartLayout: layout }),
+    setCurrentTab: (tabName) => set({ currentTab: tabName }),
   }))
 )
 
