@@ -1,13 +1,11 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types'
-import SensitivityPlots from './SensitivityAnalysis/SensitivityPlots'
+import SensitivityPlots from '../Sensitivity/SensitivityPlots'
 import Grid from '@mui/material/Grid'
-import { Tabs, Tab, Box, Typography, ToggleButton, ToggleButtonGroup } from '@mui/material'
-import { useStore } from './useStore'
-import { styled } from '@mui/material/styles'
-import './App.css'
+import { Box, Typography, ToggleButton, ToggleButtonGroup } from '@mui/material'
+import { useStore } from '../useStore'
 
-const App = () => {
+const Sensitivity = () => {
   const [weatherFile, setWeatherFile] = useState('file1') // TODO: convert to Zustand
 
   const { chartLayout, setChartLayout, chartDataSetType, setChartDataSetType } = useStore((state) => ({
@@ -16,11 +14,6 @@ const App = () => {
     chartLayout: state.chartLayout,
     setChartLayout: state.setChartLayout,
   }))
-
-  const [tabValue, setValue] = useState(0)
-  const handleTabChange = (event, newTabValue) => {
-    setValue(newTabValue)
-  }
 
   const handleChartDataSetTypeChange = (event, newChartDataSetType) => {
     if (newChartDataSetType !== null) {
@@ -40,51 +33,18 @@ const App = () => {
     }
   }
 
+  //
+
   return (
     <Grid container spacing={2}>
-      <Grid item xs={12}>
-        <Typography variant='h4'>How a Building Loses Energy</Typography>
+      <Grid container item xs={12} marginTop={2}>
         <Typography variant='subtitle1' align='left'>
           How sensitive is a building&rsquo;s energy use to different characteristics of the building? The charts below
           shows the typical annual electricity consumption based on variations of the building characteristics. This is
           sorted by the most impactful at the top and that drops as you go down. There are over 500 inputs to this
-          calculation so this is a sample of the most important.
-          <br />
-          Try moving the sliders on the charts left and right
+          calculation so this is a sample of the most important. Try moving the sliders on the charts left and right.
         </Typography>
       </Grid>
-
-      <Box sx={{ bgcolor: 'background.paper', width: '100%' }}>
-        <Tabs
-          value={tabValue}
-          onChange={handleTabChange}
-          indicatorColor='primary'
-          textColor='primary'
-          variant='fullWidth'
-          aria-label='full width tabs'
-          sx={{ borderBottom: '1px solid #e0e0e0' }}
-        >
-          <CustomTab
-            label={<CustomTabLabel title='Title 1' description='Description 1' imageUrl='/path/to/image1.jpg' />}
-            selected={tabValue === 0}
-            disableRipple
-          />
-          <CustomTab
-            label={<CustomTabLabel title='Title 2' description='Description 2' imageUrl='/path/to/image2.jpg' />}
-            selected={tabValue === 1}
-            disableRipple
-          />
-          <CustomTab
-            label={<CustomTabLabel title='Title 3' description='Description 3' imageUrl='/path/to/image3.jpg' />}
-            selected={tabValue === 2}
-            disableRipple
-          />
-        </Tabs>
-        {/* TabPanel components */}
-      </Box>
-
-      {/* --- Sensitivity Content ------------------------ */}
-
       <Grid container item xs={8}>
         <SensitivityPlots />
       </Grid>
@@ -178,7 +138,7 @@ const App = () => {
   )
 }
 
-export default App
+export default Sensitivity
 
 // ---------------------------------------------------------------------------------------------
 // Helper functions
@@ -187,66 +147,3 @@ const ToggleButtonStyles = {
   padding: '6px 10px',
   fontSize: '0.7rem',
 }
-
-function TabPanel(props) {
-  const { children, value, index, ...other } = props
-  return (
-    <div
-      role='tabpanel'
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  )
-}
-
-TabPanel.propTypes = {
-  children: PropTypes.node, // React node, for the content inside the tab panel
-  value: PropTypes.number.isRequired, // Current value/index of the tab
-  index: PropTypes.number.isRequired, // The index to match against the current value
-  // Include any other props that need validation
-}
-
-function CustomTabLabel({ title, description, imageUrl }) {
-  return (
-    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-      <img src={imageUrl} alt={`${title}`} style={{ width: 24, height: 24, marginRight: 8 }} />
-      <Box>
-        <Typography variant='subtitle1'>{title}</Typography>
-        <Typography variant='body2' sx={{ opacity: 0.7 }}>
-          {description}
-        </Typography>
-      </Box>
-    </Box>
-  )
-}
-
-CustomTabLabel.propTypes = {
-  title: PropTypes.string.isRequired, // Title should be a string and is required
-  description: PropTypes.string.isRequired, // Description should be a string and is required
-  imageUrl: PropTypes.string.isRequired, // Image URL should be a string and is required
-}
-
-const CustomTab = styled((props) => <Tab {...props} />)(({ theme, selected }) => ({
-  flexDirection: 'row',
-  alignItems: 'center',
-  justifyContent: 'flex-start',
-  textAlign: 'left',
-  padding: theme.spacing(1),
-  backgroundColor: selected ? 'rgba(0, 0, 0, 0.08)' : 'transparent',
-  borderBottom: selected ? '2px solid #1976d2' : 'none',
-  '&:not(:last-child)': {
-    marginRight: theme.spacing(1),
-  },
-  '& .MuiTab-wrapper': {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-}))
