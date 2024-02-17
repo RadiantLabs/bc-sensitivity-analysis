@@ -2,6 +2,7 @@
 // import PropTypes from 'prop-types'
 import Grid from '@mui/material/Grid'
 import { Box, Typography } from '@mui/material'
+import StdevBarChart from './StdevBarChart'
 // import { useStore } from '../useStore'
 
 const MostImportantData = () => {
@@ -12,7 +13,11 @@ const MostImportantData = () => {
           What is the most important data?
         </Typography>
       </Grid>
-      <Grid container item xs={8}></Grid>
+      <Grid container item xs={12}>
+        <Box>
+          <StdevBarChart />
+        </Box>
+      </Grid>
     </Grid>
   )
 }

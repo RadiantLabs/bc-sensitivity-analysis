@@ -9,9 +9,13 @@ const MissingData = () => {
   return (
     <Grid container spacing={2}>
       <Grid container item xs={12} marginTop={2}>
-        <Typography variant='subtitle1' align='left'>
-          How do you handle missing data?
+        <Typography variant='h5' align='left'>
+          The more building data we have, the better we can predict energy use.
         </Typography>
+        <p>
+          But at any scale that matters to business or the climate, we will be missing the majority of the building
+          data.
+        </p>
       </Grid>
       <Grid container item xs={12} marginTop={2}>
         <Box>

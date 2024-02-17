@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import PropTypes from 'prop-types'
 import SensitivityPlots from '../Sensitivity/SensitivityPlots'
 import Grid from '@mui/material/Grid'
 import { Box, Typography, ToggleButton, ToggleButtonGroup } from '@mui/material'

@@ -28,51 +28,53 @@ const App = () => {
         </Typography>
       </Grid>
 
-      <Box sx={{ bgcolor: 'background.paper', width: '100%' }}>
-        <Tabs
-          value={currentTab}
-          onChange={handleTabChange}
-          indicatorColor='primary'
-          textColor='primary'
-          variant='fullWidth'
-          aria-label='analysis tabs'
-          sx={{ borderBottom: '1px solid #e0e0e0' }}
-        >
-          <CustomTab
-            label={
-              <CustomTabLabel
-                title='Working with Missing Data'
-                description='Description 1'
-                imageUrl='/path/to/image1.jpg'
-              />
-            }
-            value='missingData'
-            disableRipple
-          />
-          <CustomTab
-            label={
-              <CustomTabLabel
-                title="What's the Most Important Data?"
-                description='Description 2'
-                imageUrl='/path/to/image2.jpg'
-              />
-            }
-            value='mostImportantData'
-            disableRipple
-          />
-          <CustomTab
-            label={
-              <CustomTabLabel
-                title='Sensitivity to Building Changes'
-                description='Description 3'
-                imageUrl='/path/to/image3.jpg'
-              />
-            }
-            value='sensitivity'
-            disableRipple
-          />
-        </Tabs>
-      </Box>
+      <Grid xs={12} item>
+        <Box sx={{ bgcolor: 'background.paper', width: '100%' }}>
+          <Tabs
+            value={currentTab}
+            onChange={handleTabChange}
+            indicatorColor='primary'
+            textColor='primary'
+            variant='fullWidth'
+            aria-label='analysis tabs'
+            sx={{ borderBottom: '1px solid #e0e0e0' }}
+          >
+            <CustomTab
+              label={
+                <CustomTabLabel
+                  title='Building Data & Energy Use'
+                  // description='The more building data we have, the better we can predict energy use.'
+                  imageUrl='/path/to/image1.jpg'
+                />
+              }
+              value='missingData'
+              disableRipple
+            />
+            <CustomTab
+              label={
+                <CustomTabLabel
+                  title="What's the Most Important Data?"
+                  description='Description 2'
+                  imageUrl='/path/to/image2.jpg'
+                />
+              }
+              value='mostImportantData'
+              disableRipple
+            />
+            <CustomTab
+              label={
+                <CustomTabLabel
+                  title='Sensitivity to Building Changes'
+                  description='Description 3'
+                  imageUrl='/path/to/image3.jpg'
+                />
+              }
+              value='sensitivity'
+              disableRipple
+            />
+          </Tabs>
+        </Box>
+      </Grid>
 
       {currentTab === 'missingData' && <MissingData />}
       {currentTab === 'mostImportantData' && <MostImportantData />}
@@ -128,7 +130,7 @@ function CustomTabLabel({ title, description, imageUrl }) {
 
 CustomTabLabel.propTypes = {
   title: PropTypes.string.isRequired, // Title should be a string and is required
-  description: PropTypes.string.isRequired, // Description should be a string and is required
+  description: PropTypes.string, // Description should be a string and is required
   imageUrl: PropTypes.string.isRequired, // Image URL should be a string and is required
 }
 
