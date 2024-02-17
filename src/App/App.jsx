@@ -35,7 +35,7 @@ const App = () => {
           indicatorColor='primary'
           textColor='primary'
           variant='fullWidth'
-          aria-label='full width tabs'
+          aria-label='analysis tabs'
           sx={{ borderBottom: '1px solid #e0e0e0' }}
         >
           <CustomTab
@@ -72,7 +72,6 @@ const App = () => {
             disableRipple
           />
         </Tabs>
-        {/* TabPanel components */}
       </Box>
 
       {currentTab === 'missingData' && <MissingData />}

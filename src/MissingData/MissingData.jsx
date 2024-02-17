@@ -1,7 +1,8 @@
 // import { useState } from 'react'
 // import PropTypes from 'prop-types'
 import Grid from '@mui/material/Grid'
-import { Box, Typography, ToggleButton, ToggleButtonGroup } from '@mui/material'
+import { Box, Typography } from '@mui/material'
+import PCAPlot from './PCAPlot'
 // import { useStore } from '../useStore'
 
 const MissingData = () => {
@@ -12,7 +13,11 @@ const MissingData = () => {
           How do you handle missing data?
         </Typography>
       </Grid>
-      <Grid container item xs={8}></Grid>
+      <Grid container item xs={12} marginTop={2}>
+        <Box>
+          <PCAPlot />
+        </Box>
+      </Grid>
     </Grid>
   )
 }
