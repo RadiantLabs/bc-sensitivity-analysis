@@ -1,9 +1,6 @@
-// import { useState } from 'react'
-// import PropTypes from 'prop-types'
 import Grid from '@mui/material/Grid'
 import { Box, Typography } from '@mui/material'
 import StdevBarChart from './StdevBarChart'
-// import { useStore } from '../useStore'
 
 const MostImportantData = () => {
   return (

@@ -1,14 +1,24 @@
+import React from 'react'
 import PropTypes from 'prop-types'
 import Sensitivity from '../Sensitivity/Sensitivity'
 import MissingData from '../MissingData/MissingData'
 import MostImportantData from '../MostImportantData/MostImportantData'
+import CalibratedVsUncalibrated from '../CalibratedVsUncalibrated/CalibratedVsUncalibrated'
 import Grid from '@mui/material/Grid'
 import { Tabs, Tab, Box, Typography } from '@mui/material'
-import AssessmentIcon from '@mui/icons-material/Assessment'
+import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked'
+import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked'
 
 import { useStore } from '../useStore'
 import { styled } from '@mui/material/styles'
 import './App.css'
+
+const tabLabels = [
+  { title: 'Building Data & Energy Use', value: 'missingData' },
+  { title: "What's the Most Important Data?", value: 'mostImportantData' },
+  { title: 'Sensitivity to Building Changes', value: 'sensitivity' },
+  { title: 'Calibrated vs Uncalibrated', value: 'calibrated' },
+]
 
 const App = () => {
   const { currentTab, setCurrentTab } = useStore()
@@ -20,13 +30,30 @@ const App = () => {
   return (
     <Grid container padding={4}>
       <Grid xs={12} item marginBottom={4}>
-        <Typography variant='h4'>How a Building Loses Energy</Typography>
-        <Typography variant='subtitle1' align='left'>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-          est laborum.{' '}
+        <Typography variant='h5'>How a Building Uses & Loses Energy</Typography>
+        <Typography variant='body2' align='left'>
+          Accurate building energy and financial modeling can no longer be a niche skill practiced by a few energy
+          nerds. Pressure from a couple directions is making this need existential:
+        </Typography>
+        <ol>
+          <li>
+            <Typography variant='body2' align='left' sx={{ fontStyle: 'italic' }}>
+              The climate crisis is forcing us to rip fossil fuels out of our buildings as quickly as we can. We need to
+              be doing this at a rate of about 10 million homes per year to make a real impact.
+            </Typography>
+          </li>
+          <li>
+            <Typography variant='body2' align='left' sx={{ fontStyle: 'italic' }}>
+              The current and impending loss of solar net metering across the country makes the solar value proposition
+              (which is necessary for cost effective decarbonization) more difficult. Without great solar economics,
+              thousands of solar jobs are at risk.
+            </Typography>
+          </li>
+        </ol>
+        <Typography variant='body2' align='left'>
+          Accurate modeling that incorporates the whole picture: building shell, HVAC, solar, vehicle, batteries and
+          financials is the only way to find the profitable upgrades at the scale we need to save the solar industry and
+          get the carbon reductions we need.
         </Typography>
       </Grid>
 
@@ -41,31 +68,19 @@ const App = () => {
             aria-label='analysis tabs'
             sx={{ borderBottom: '1px solid #e0e0e0' }}
           >
-            <CustomTab
-              label={
-                <CustomTabLabel
-                  title='Building Data & Energy Use'
-                  icon={<AssessmentIcon style={{ transform: 'rotate(90deg)' }} />}
-                />
-              }
-              value='missingData'
-              disableRipple
-            />
-            <CustomTab
-              label={
-                <CustomTabLabel
-                  title="What's the Most Important Data?"
-                  icon={<AssessmentIcon style={{ transform: 'rotate(90deg)' }} />}
-                />
-              }
-              value='mostImportantData'
-              disableRipple
-            />
-            <CustomTab
-              label={<CustomTabLabel title='Sensitivity to Building Changes' icon={<AssessmentIcon />} />}
-              value='sensitivity'
-              disableRipple
-            />
+            {tabLabels.map((tab) => (
+              <CustomTab
+                key={tab.value}
+                label={
+                  <CustomTabLabel
+                    title={tab.title}
+                    icon={currentTab === tab.value ? <RadioButtonCheckedIcon /> : <RadioButtonUncheckedIcon />}
+                  />
+                }
+                value={tab.value}
+                disableRipple
+              />
+            ))}
           </Tabs>
         </Box>
       </Grid>
@@ -73,6 +88,7 @@ const App = () => {
       {currentTab === 'missingData' && <MissingData />}
       {currentTab === 'mostImportantData' && <MostImportantData />}
       {currentTab === 'sensitivity' && <Sensitivity />}
+      {currentTab === 'calibrated' && <CalibratedVsUncalibrated />}
     </Grid>
   )
 }
@@ -82,35 +98,33 @@ export default App
 // ---------------------------------------------------------------------------------------------
 // Helper functions
 // ---------------------------------------------------------------------------------------------
-function CustomTabLabel({ title, description, icon }) {
+function CustomTabLabel({ title, icon }) {
+  const iconStyle = {
+    // Match icon size with line height of the title
+    fontSize: '1em',
+  }
+
   return (
     <Box sx={{ display: 'flex', alignItems: 'center' }}>
-      {/* <img src={imageUrl} alt={`${title}`} style={{ width: 24, height: 24, marginRight: 8 }} /> */}
-      {icon}
-      <Box>
-        <Typography variant='subtitle1'>{title}</Typography>
-        <Typography variant='body2' sx={{ opacity: 0.7 }}>
-          {description}
-        </Typography>
+      {React.cloneElement(icon, { style: iconStyle })}
+      <Box sx={{ marginLeft: 1 }}>
+        <Typography variant='caption'>{title}</Typography>
       </Box>
     </Box>
   )
 }
 
 CustomTabLabel.propTypes = {
-  title: PropTypes.string.isRequired, // Title should be a string and is required
-  description: PropTypes.string, // Description should be a string and is required
-  // imageUrl: PropTypes.string, // Image URL should be a string and is required
-  icon: PropTypes.node,
+  title: PropTypes.string.isRequired,
+  icon: PropTypes.node.isRequired,
 }
 
-const CustomTab = styled((props) => <Tab {...props} />)(({ theme, selected }) => ({
+const CustomTab = styled((props) => <Tab {...props} disableRipple />)(({ theme, selected }) => ({
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'flex-start',
   textAlign: 'left',
   padding: theme.spacing(1),
-  // backgroundColor: selected ? 'rgba(0, 0, 0, 0.04)' : 'transparent',
   borderBottom: selected ? '2px solid #1976d2' : 'none',
   '&:not(:last-child)': {
     marginRight: theme.spacing(1),
@@ -121,6 +135,6 @@ const CustomTab = styled((props) => <Tab {...props} />)(({ theme, selected }) =>
   },
   '&:focus': {
     outline: 'none',
-    border: 'none', // This line removes the border on focus
+    border: 'none',
   },
 }))

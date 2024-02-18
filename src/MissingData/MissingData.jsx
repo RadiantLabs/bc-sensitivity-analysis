@@ -3,6 +3,7 @@
 import Grid from '@mui/material/Grid'
 import { Box, Typography } from '@mui/material'
 import PCAPlot from './PCAPlot'
+import DataPercentPie from './DataPercentPie'
 // import { useStore } from '../useStore'
 
 const MissingData = () => {
@@ -20,6 +21,7 @@ const MissingData = () => {
       <Grid container item xs={12} marginTop={2}>
         <Box>
           <PCAPlot />
+          <DataPercentPie />
         </Box>
       </Grid>
     </Grid>
