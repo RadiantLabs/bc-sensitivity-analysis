@@ -73,7 +73,7 @@ const PCAPlot = () => {
       marginLeft: 40, // Adjust to ensure labels fit
       marginBottom: 30, // Adjust for legibility
       width: 980, // Adjust width as needed
-      height: 480, // Set height to match the original plot's aspect ratio
+      height: 600, // Set height to match the original plot's aspect ratio
     })
 
     // Append the chart to the ref'd container.
