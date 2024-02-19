@@ -18,9 +18,17 @@ const MissingData = () => {
           data.
         </p>
       </Grid>
-      <Grid container item xs={12} marginTop={2}>
+      <Grid container item xs={10} marginTop={2}>
         <Box>
           <PCAPlot />
+        </Box>
+      </Grid>
+      <Grid container item xs={2} marginTop={8}>
+        <Typography variant='caption' align='left' marginBottom={0}>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua.
+        </Typography>
+        <Box>
           <DataPercentPie />
         </Box>
       </Grid>

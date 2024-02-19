@@ -1,83 +1,89 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import * as d3 from 'd3'
 
-const data = [
-  { category: 'allData', value: 548 },
-  { category: 'topData', value: 40 },
-]
-
-const PieChartWithLabels = () => {
+function PieChartWithLabels() {
   const ref = useRef()
+  const containerRef = useRef()
+  const [size, setSize] = useState({ width: 0, height: 400 })
+
+  // Adjusted data order so that 'topData' comes first
+  const data = [
+    { category: 'topData', value: 40, label: 'Top Data' },
+    { category: 'allData', value: 548, label: 'All Data' },
+  ]
 
   useEffect(() => {
-    const svgElement = d3.select(ref.current)
-    svgElement.selectAll('*').remove() // Clear svg content before adding new elements
+    const updateSize = () => {
+      if (containerRef.current) {
+        setSize({
+          width: containerRef.current.offsetWidth * 0.7, // 70% of container width
+          height: 400,
+        })
+      }
+    }
 
-    const width = 450
-    const height = 450
-    const radius = Math.min(width, height) / 2
+    updateSize()
+    window.addEventListener('resize', updateSize)
 
-    const color = d3.scaleOrdinal(d3.schemeCategory10)
+    return () => window.removeEventListener('resize', updateSize)
+  }, [])
 
-    const pie = d3.pie().value((d) => d.value)
-    const arc = d3
+  useEffect(() => {
+    if (size.width === 0) return
+
+    const width = size.width
+    const height = size.height
+    const radius = Math.min(width, height) / 2 - 40 // Reduced radius to provide margin
+
+    const svg = d3.select(ref.current).attr('width', width).attr('height', height)
+
+    svg.selectAll('*').remove()
+
+    const g = svg.append('g').attr('transform', `translate(${width / 2}, ${height / 2})`)
+
+    const pie = d3
+      .pie()
+      .value((d) => d.value)
+      .sort(null) // Disable sorting to maintain data order
+
+    const arc = d3.arc().outerRadius(radius).innerRadius(0)
+    const labelArc = d3
       .arc()
-      .outerRadius(radius - 10)
-      .innerRadius(0)
-    const outerArc = d3
-      .arc()
-      .outerRadius(radius * 0.9)
-      .innerRadius(radius * 0.9)
+      .outerRadius(radius + 30)
+      .innerRadius(radius + 30) // Adjusted for label
 
-    svgElement.attr('width', width).attr('height', height)
+    const arcs = g.selectAll('.arc').data(pie(data)).enter().append('g').attr('class', 'arc')
 
-    const g = svgElement.append('g').attr('transform', `translate(${width / 2},${height / 2})`)
-
-    g.selectAll('path')
-      .data(pie(data))
-      .enter()
+    arcs
       .append('path')
       .attr('d', arc)
-      .attr('fill', (d) => color(d.data.category))
+      .attr('fill', (d, i) => (i === 0 ? '#8a89a6' : '#98abc5')) // Adjusted color order
 
-    const textLines = g
-      .selectAll('polyline')
-      .data(pie(data))
-      .enter()
-      .append('polyline')
+    arcs
+      .filter((d) => d.data.category === 'topData')
+      .append('line')
+      .attr('x1', (d) => arc.centroid(d)[0])
+      .attr('y1', (d) => arc.centroid(d)[1])
+      .attr('x2', (d) => labelArc.centroid(d)[0])
+      .attr('y2', (d) => labelArc.centroid(d)[1])
       .attr('stroke', 'black')
-      .style('fill', 'none')
       .attr('stroke-width', 1)
-      .attr('points', (d) => {
-        const posA = arc.centroid(d)
-        const posB = outerArc.centroid(d)
-        const posC = outerArc.centroid(d)
-        const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
-        posC[0] = radius * 0.95 * (midangle < Math.PI ? 1 : -1)
-        return [posA, posB, posC]
-      })
 
-    g.selectAll('text')
-      .data(pie(data))
-      .enter()
+    arcs
+      .filter((d) => d.data.category === 'topData')
       .append('text')
-      .text((d) => d.data.category)
-      .attr('transform', (d) => {
-        const pos = outerArc.centroid(d)
-        const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
-        pos[0] = radius * 0.99 * (midangle < Math.PI ? 1 : -1)
-        return `translate(${pos})`
-      })
-      .style('text-anchor', (d) => {
-        const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
-        return midangle < Math.PI ? 'start' : 'end'
-      })
-  }, [data])
+      .attr('transform', (d) => `translate(${labelArc.centroid(d)[0]}, ${labelArc.centroid(d)[1]})`)
+      .attr('dy', '0.35em')
+      .attr('text-anchor', 'middle')
+      .attr('fill', 'darkslategray')
+      .text((d) => d.data.label)
+  }, [size])
 
-  return <svg ref={ref}></svg>
+  return (
+    <div ref={containerRef} style={{ width: '100%' }}>
+      <svg ref={ref}></svg>
+    </div>
+  )
 }
 
 export default PieChartWithLabels
-
-// Example usage:
-// <PieChartWithLabels data={[{ category: 'food', value: 29 }, { category: 'outdoor activities', value: 71 }]} />
