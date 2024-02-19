@@ -1,22 +1,21 @@
-// import { useState } from 'react'
-// import PropTypes from 'prop-types'
 import Grid from '@mui/material/Grid'
 import { Box, Typography } from '@mui/material'
 import PCAPlot from './PCAPlot'
-import DataPercentPie from './DataPercentPie'
-// import { useStore } from '../useStore'
+import TopDataPie from './TopDataPie'
 
 const MissingData = () => {
   return (
     <Grid container spacing={2} align='left'>
       <Grid container item xs={12} marginTop={2}>
-        <Typography variant='h5' align='left'>
-          The more building data we have, the better we can predict energy use.
-        </Typography>
-        <p>
+        <Typography variant='h5'>The more building data we have, the better we can predict energy use.</Typography>
+        <Typography variant='body'>
           But at any scale that matters to business or the climate, we will be missing the majority of the building
-          data.
-        </p>
+          data. The analysis below shows that we can still get an accurate model without measuring every inch of the
+          house.{' '}
+          <em>
+            Note: this does not include utility bills. We will cover that in &ldquo;Calibrated vs. Uncalibrated&rdquo;.
+          </em>
+        </Typography>
       </Grid>
       <Grid item xs={10} marginTop={2}>
         <Box>
@@ -28,7 +27,7 @@ const MissingData = () => {
           Out of 548 data points to run an energy model, it takes only 40 to explain 86% of the energy consumption.
         </Typography>
         <Box marginTop={2}>
-          <DataPercentPie />
+          <TopDataPie />
         </Box>
       </Grid>
     </Grid>
@@ -36,7 +35,3 @@ const MissingData = () => {
 }
 
 export default MissingData
-
-// ---------------------------------------------------------------------------------------------
-// Helper functions
-// ---------------------------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Sensitivity from '../Sensitivity/Sensitivity'
-import MissingData from '../MissingData/MissingData'
+import EnergyContribution from '../EnergyContribution/EnergyContribution'
 import MostImportantData from '../MostImportantData/MostImportantData'
 import CalibratedVsUncalibrated from '../CalibratedVsUncalibrated/CalibratedVsUncalibrated'
 import Grid from '@mui/material/Grid'
@@ -14,10 +14,10 @@ import { styled } from '@mui/material/styles'
 import './App.css'
 
 const tabLabels = [
-  { title: 'Building Data & Energy Use', value: 'missingData' },
+  { title: 'Contribution to Energy Use', value: 'energyContribution' },
   { title: "What's the Most Important Data?", value: 'mostImportantData' },
   { title: 'Sensitivity to Building Changes', value: 'sensitivity' },
-  { title: 'Calibrated vs Uncalibrated', value: 'calibrated' },
+  { title: 'Calibrated vs. Uncalibrated', value: 'calibrated' },
 ]
 
 const App = () => {
@@ -85,7 +85,7 @@ const App = () => {
         </Box>
       </Grid>
 
-      {currentTab === 'missingData' && <MissingData />}
+      {currentTab === 'energyContribution' && <EnergyContribution />}
       {currentTab === 'mostImportantData' && <MostImportantData />}
       {currentTab === 'sensitivity' && <Sensitivity />}
       {currentTab === 'calibrated' && <CalibratedVsUncalibrated />}

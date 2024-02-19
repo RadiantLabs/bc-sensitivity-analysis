@@ -6,9 +6,9 @@ const data = [
   { category: 'allData', count: 548, label: 'All Data' },
 ]
 
-function PieChartWithLabels() {
+function TopDataPie() {
   const ref = useRef()
-  const fixedWidth = 140 // Fixed width for the SVG
+  const fixedWidth = 150 // Fixed width for the SVG
   const height = 200 // Fixed height for the SVG
   const radius = Math.min(fixedWidth, height) / 2 // Radius for the pie chart
 
@@ -29,7 +29,7 @@ function PieChartWithLabels() {
     // Calculate the line start point inside the segment
     const lineArc = d3
       .arc()
-      .outerRadius(radius - 10) // Start line slightly inside the outer edge of the pie segment
+      .outerRadius(radius + 30) // Start line slightly inside the outer edge of the pie segment
       .innerRadius(0)
 
     // Calculate the label position
@@ -50,8 +50,8 @@ function PieChartWithLabels() {
       .append('line')
       .attr('x1', (d) => lineArc.centroid(d)[0])
       .attr('y1', (d) => lineArc.centroid(d)[1])
-      .attr('x2', (d) => labelArc.centroid(d)[0] * 0.8) // End line before it reaches the label
-      .attr('y2', (d) => labelArc.centroid(d)[1] * 0.8)
+      .attr('x2', (d) => labelArc.centroid(d)[0] * 0.9) // End line before it reaches the label
+      .attr('y2', (d) => labelArc.centroid(d)[1] * 0.9)
       .attr('stroke', 'black')
       .attr('stroke-width', 1)
 
@@ -69,4 +69,4 @@ function PieChartWithLabels() {
   return <svg ref={ref}></svg>
 }
 
-export default PieChartWithLabels
+export default TopDataPie
