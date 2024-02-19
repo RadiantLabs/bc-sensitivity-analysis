@@ -6,7 +6,7 @@ import TopDataPie from './TopDataPie'
 const MissingData = () => {
   return (
     <Grid container spacing={2} align='left'>
-      <Grid container item xs={12} marginTop={2}>
+      <Grid item xs={12} marginTop={2}>
         <Typography variant='h5'>The more building data we have, the better we can predict energy use.</Typography>
         <Typography variant='body'>
           But at any scale that matters to business or the climate, we will be missing the majority of the building
