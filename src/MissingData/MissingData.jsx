@@ -8,7 +8,7 @@ import DataPercentPie from './DataPercentPie'
 
 const MissingData = () => {
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2} align='left'>
       <Grid container item xs={12} marginTop={2}>
         <Typography variant='h5' align='left'>
           The more building data we have, the better we can predict energy use.
@@ -18,17 +18,16 @@ const MissingData = () => {
           data.
         </p>
       </Grid>
-      <Grid container item xs={10} marginTop={2}>
+      <Grid item xs={10} marginTop={2}>
         <Box>
           <PCAPlot />
         </Box>
       </Grid>
-      <Grid container item xs={2} marginTop={8}>
-        <Typography variant='caption' align='left' marginBottom={0}>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua.
+      <Grid item xs={2} marginTop={10}>
+        <Typography variant='caption' sx={{ display: 'inline-block', lineHeight: '1.6' }}>
+          Out of 548 data points to run an energy model, it takes only 40 to explain 86% of the energy consumption.
         </Typography>
-        <Box>
+        <Box marginTop={2}>
           <DataPercentPie />
         </Box>
       </Grid>

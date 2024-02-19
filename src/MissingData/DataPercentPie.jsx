@@ -1,71 +1,57 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import * as d3 from 'd3'
+
+const data = [
+  { category: 'topData', count: 40, label: 'Top 40 Data Points' },
+  { category: 'allData', count: 548, label: 'All Data' },
+]
 
 function PieChartWithLabels() {
   const ref = useRef()
-  const containerRef = useRef()
-  const [size, setSize] = useState({ width: 0, height: 400 })
-
-  // Adjusted data order so that 'topData' comes first
-  const data = [
-    { category: 'topData', value: 40, label: 'Top Data' },
-    { category: 'allData', value: 548, label: 'All Data' },
-  ]
+  const fixedWidth = 140 // Fixed width for the SVG
+  const height = 200 // Fixed height for the SVG
+  const radius = Math.min(fixedWidth, height) / 2 // Radius for the pie chart
 
   useEffect(() => {
-    const updateSize = () => {
-      if (containerRef.current) {
-        setSize({
-          width: containerRef.current.offsetWidth * 0.7, // 70% of container width
-          height: 400,
-        })
-      }
-    }
-
-    updateSize()
-    window.addEventListener('resize', updateSize)
-
-    return () => window.removeEventListener('resize', updateSize)
-  }, [])
-
-  useEffect(() => {
-    if (size.width === 0) return
-
-    const width = size.width
-    const height = size.height
-    const radius = Math.min(width, height) / 2 - 40 // Reduced radius to provide margin
-
-    const svg = d3.select(ref.current).attr('width', width).attr('height', height)
+    const svg = d3.select(ref.current).attr('width', fixedWidth).attr('height', height)
 
     svg.selectAll('*').remove()
 
-    const g = svg.append('g').attr('transform', `translate(${width / 2}, ${height / 2})`)
+    const g = svg.append('g').attr('transform', `translate(${fixedWidth / 2}, ${height / 2})`)
 
     const pie = d3
       .pie()
-      .value((d) => d.value)
-      .sort(null) // Disable sorting to maintain data order
+      .value((d) => d.count)
+      .sort(null)
 
     const arc = d3.arc().outerRadius(radius).innerRadius(0)
+
+    // Calculate the line start point inside the segment
+    const lineArc = d3
+      .arc()
+      .outerRadius(radius - 10) // Start line slightly inside the outer edge of the pie segment
+      .innerRadius(0)
+
+    // Calculate the label position
     const labelArc = d3
       .arc()
-      .outerRadius(radius + 30)
-      .innerRadius(radius + 30) // Adjusted for label
+      .outerRadius(radius + 20) // Position for the label
+      .innerRadius(radius + 20)
 
     const arcs = g.selectAll('.arc').data(pie(data)).enter().append('g').attr('class', 'arc')
 
     arcs
       .append('path')
       .attr('d', arc)
-      .attr('fill', (d, i) => (i === 0 ? '#8a89a6' : '#98abc5')) // Adjusted color order
+      .attr('fill', (d, i) => (i === 0 ? '#8a89a6' : '#98abc5'))
 
     arcs
       .filter((d) => d.data.category === 'topData')
       .append('line')
-      .attr('x1', (d) => arc.centroid(d)[0])
-      .attr('y1', (d) => arc.centroid(d)[1])
-      .attr('x2', (d) => labelArc.centroid(d)[0])
-      .attr('y2', (d) => labelArc.centroid(d)[1])
+      .attr('x1', (d) => lineArc.centroid(d)[0])
+      .attr('y1', (d) => lineArc.centroid(d)[1])
+      .attr('x2', (d) => labelArc.centroid(d)[0] * 0.8) // End line before it reaches the label
+      .attr('y2', (d) => labelArc.centroid(d)[1] * 0.8)
       .attr('stroke', 'black')
       .attr('stroke-width', 1)
 
@@ -76,14 +62,11 @@ function PieChartWithLabels() {
       .attr('dy', '0.35em')
       .attr('text-anchor', 'middle')
       .attr('fill', 'darkslategray')
+      .attr('font-size', '10px') // Set text size
       .text((d) => d.data.label)
-  }, [size])
+  }, [radius])
 
-  return (
-    <div ref={containerRef} style={{ width: '100%' }}>
-      <svg ref={ref}></svg>
-    </div>
-  )
+  return <svg ref={ref}></svg>
 }
 
 export default PieChartWithLabels
