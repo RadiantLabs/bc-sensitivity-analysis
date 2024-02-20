@@ -3,6 +3,7 @@ import SensitivityPlots from '../Sensitivity/SensitivityPlots'
 import Grid from '@mui/material/Grid'
 import { Box, Typography, ToggleButton, ToggleButtonGroup } from '@mui/material'
 import { useStore } from '../useStore'
+import { ToggleButtonStyles } from '../utils/ToggleButtonStyles'
 
 const Sensitivity = () => {
   const [weatherFile, setWeatherFile] = useState('file1') // TODO: convert to Zustand
@@ -36,8 +37,8 @@ const Sensitivity = () => {
 
   return (
     <Grid container spacing={2}>
-      <Grid container item xs={12} marginTop={2}>
-        <Typography variant='subtitle1' align='left'>
+      <Grid container item xs={12} marginTop={2} align='left'>
+        <Typography variant='body'>
           How sensitive is a building&rsquo;s energy use to different characteristics of the building? The charts below
           shows the typical annual electricity consumption based on variations of the building characteristics. This is
           sorted by the most impactful at the top and that drops as you go down. There are over 500 inputs to this
@@ -48,11 +49,10 @@ const Sensitivity = () => {
         <SensitivityPlots />
       </Grid>
 
-      <Grid item xs={4}>
+      <Grid item xs={4} align='left'>
         <Box
           height={40}
           width={80}
-          // my={4}
           display='flex'
           alignItems='center'
           color={'text.primary'}
@@ -62,13 +62,13 @@ const Sensitivity = () => {
           XOXO
         </Box>
 
-        <Typography variant='subtitle1' align='left' mb={2}>
+        <Typography variant='caption' marginBottom={2}>
           Notice the slope of the curve the bars make. If the slope is up and to the right, if you increase the value of
           that building characteristic, you will increase a building&rsquo;s energy use. If it goes down, you decrease.
         </Typography>
 
-        <Box mb={2} sx={{ display: 'flex', flexDirection: 'column' }}>
-          <Typography variant='caption' align='left'>
+        <Box marginBottom={2} sx={{ display: 'flex', flexDirection: 'column' }}>
+          <Typography variant='caption'>
             <strong>Upgradability:</strong> Show only building attributes that you can typically change
           </Typography>
           <ToggleButtonGroup
@@ -88,8 +88,8 @@ const Sensitivity = () => {
           </ToggleButtonGroup>
         </Box>
 
-        <Box mb={2} sx={{ display: 'flex', flexDirection: 'column' }}>
-          <Typography variant='caption' align='left'>
+        <Box marginBottom={2} sx={{ display: 'flex', flexDirection: 'column' }}>
+          <Typography variant='caption'>
             <strong>Weather</strong>
           </Typography>
           <ToggleButtonGroup
@@ -109,8 +109,8 @@ const Sensitivity = () => {
           </ToggleButtonGroup>
         </Box>
 
-        <Box mb={2} sx={{ display: 'flex', flexDirection: 'column' }}>
-          <Typography variant='caption' align='left'>
+        <Box marginBottom={2} sx={{ display: 'flex', flexDirection: 'column' }}>
+          <Typography variant='caption'>
             <strong>Column Layout</strong>
           </Typography>
           <ToggleButtonGroup
@@ -138,11 +138,3 @@ const Sensitivity = () => {
 }
 
 export default Sensitivity
-
-// ---------------------------------------------------------------------------------------------
-// Helper functions
-// ---------------------------------------------------------------------------------------------
-const ToggleButtonStyles = {
-  padding: '6px 10px',
-  fontSize: '0.7rem',
-}

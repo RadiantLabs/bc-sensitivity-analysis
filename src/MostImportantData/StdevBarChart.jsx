@@ -12,22 +12,30 @@ const StdevBarChart = () => {
   useEffect(() => {
     // Create a horizontal bar chart
     const chart = Plot.plot({
-      marginLeft: 200, // Adjust this value as needed for label space
-      // grid: true,
       x: {
         label: 'Standard Deviation',
+        tickFormat: 's', // SI notation
+        axis: 'top', // Move x-axis to the top
       },
       y: {
-        label: null,
         domain: chartDataSet.map((d) => d.label),
-        tickSize: 0,
+        ticks: [],
+        label: null,
+        grid: true,
       },
-      marks: [Plot.barX(chartDataSet, { x: 'stdev', y: 'label' })],
-      width: 600,
+      marks: [
+        Plot.barX(chartDataSet, { x: 'stdev', y: 'label' }),
+        Plot.text(chartDataSet, {
+          x: 'stdev',
+          y: 'label',
+          text: (d) => d.label,
+          dx: 5,
+          textAnchor: 'start',
+        }),
+      ],
+      marginRight: 120,
+      width: 800,
       height: 800,
-      style: {
-        marginLeft: '60px', // Adjust this value as needed
-      },
     })
 
     const currentRef = chartRef.current

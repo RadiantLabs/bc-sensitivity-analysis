@@ -3,7 +3,7 @@ import { Box, Typography } from '@mui/material'
 import PCAPlot from './PCAPlot'
 import TopDataPie from './TopDataPie'
 
-const MissingData = () => {
+const EnergyContribution = () => {
   return (
     <Grid container spacing={2} align='left'>
       <Grid item xs={12} marginTop={2}>
@@ -34,4 +34,4 @@ const MissingData = () => {
   )
 }
 
-export default MissingData
+export default EnergyContribution
