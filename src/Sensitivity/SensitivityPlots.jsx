@@ -24,9 +24,16 @@ const SensitivityPlots = () => {
           const { xmlPath, label, units } = chartData
           const predictedData = predictedDataSet[xmlPath]
           return (
-            <Grid container item xs={gridSize} style={{ paddingTop: 0, paddingBottom: 0 }} key={index}>
+            <Grid container item xs={gridSize} style={{ padding: 0 }} key={index}>
               <div>
-                <h5 style={{ marginBottom: 0 }}>
+                <h5
+                  style={{
+                    marginBottom: 0,
+                    textAlign: 'left',
+                    paddingLeft: '12px',
+                    fontSize: fontSizeByColumnLayout(chartLayout),
+                  }}
+                >
                   {label}
                   {chartLayout === 'single' && <small>&nbsp;({formatUnits(units)})</small>}
                 </h5>
@@ -41,3 +48,19 @@ const SensitivityPlots = () => {
 }
 
 export default SensitivityPlots
+
+// ---------------------------------------------------------------------------------------------
+// Helper functions
+// ---------------------------------------------------------------------------------------------
+function fontSizeByColumnLayout(chartLayout) {
+  switch (chartLayout) {
+    case 'single':
+      return '0.9rem'
+    case 'double':
+      return '0.8rem'
+    case 'triple':
+      return '0.7rem'
+    default:
+      return '0.9rem'
+  }
+}
