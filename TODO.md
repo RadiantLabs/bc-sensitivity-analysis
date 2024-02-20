@@ -1,20 +1,12 @@
 ### TODO
 
-- [ ] Create view 1: x metrics makes up 80% of the
-- [ ] Create view 2: Bar charts of the most important metrics
-- [ ] Display view 3: Sensitivity analysis
-
-- [ ] Active tab has color thumbnail, inactive has greyscale(?)
-
+- [ ] Put Sensitivity toggles into a grid
 - [ ] Look into Joy UI: https://mui.com/joy-ui/getting-started/
-- [ ] Refine how chartHeight is used for different layouts (modify containing div)
-- [ ] Update input tensor when switching between mixed and actionable
 - [ ] Toggle even and percentile steps
 - [ ] Get rid of vite.svg in the prod build
 - [ ] Double check input tensor for prediction: Harder than it seems
-- [ ] How do I define steps for something lik e thermostat setpoints?
+- [ ] How do I define steps for something like thermostat setpoints?
 - [ ] Toggle weather
-- [ ] Create chart to show stdev of the shown xmlPaths
 
 ### Maybe
 
@@ -27,6 +19,13 @@
 
 ### Done
 
+- [x] Create chart to show stdev of the shown xmlPaths
+- [x] Refine how chartHeight is used for different layouts (modify containing div)
+- [x] Update input tensor when switching between mixed and actionable
+- [x] Create view 1: x metrics makes up 80% of the
+- [x] Create view 2: Bar charts of the most important metrics
+- [x] Display view 3: Sensitivity analysis
+- [x] Active tab has color thumbnail, inactive has greyscale(?)
 - [x] Toggle between actionable and mixed actionable
 - [x] change chartDataSet to chartDataSetMixed
 - [x] Lock y axis scale dynamically (or lock it into a fixed scale for all?)

@@ -2,11 +2,13 @@ import { useState } from 'react'
 import SensitivityPlots from '../Sensitivity/SensitivityPlots'
 import Grid from '@mui/material/Grid'
 import { Box, Typography, ToggleButton, ToggleButtonGroup } from '@mui/material'
-import { useStore } from '../useStore'
+import { useStore, usePredictedSliderPoint } from '../useStore'
 import { ToggleButtonStyles } from '../utils/ToggleButtonStyles'
 
 const Sensitivity = () => {
   const [weatherFile, setWeatherFile] = useState('file1') // TODO: convert to Zustand
+
+  const predictedSliderPoint = usePredictedSliderPoint()
 
   const { chartLayout, setChartLayout, chartDataSetType, setChartDataSetType } = useStore((state) => ({
     chartDataSetType: state.chartDataSetType,
@@ -49,25 +51,17 @@ const Sensitivity = () => {
         <SensitivityPlots />
       </Grid>
 
-      <Grid item xs={4} align='left'>
-        <Box
-          height={40}
-          width={80}
-          display='flex'
-          alignItems='center'
-          color={'text.primary'}
-          border={1}
-          borderRadius={1}
-        >
-          XOXO
+      <Grid item xs={4} align='left' marginTop={5}>
+        <Box p={2} bgcolor='primary.main' color='primary.contrastText' padding={1} borderRadius={1}>
+          {predictedSliderPoint} kWh/year
         </Box>
 
-        <Typography variant='caption' marginBottom={2}>
+        <Typography variant='caption' marginBottom={2} lineHeight={1}>
           Notice the slope of the curve the bars make. If the slope is up and to the right, if you increase the value of
           that building characteristic, you will increase a building&rsquo;s energy use. If it goes down, you decrease.
         </Typography>
 
-        <Box marginBottom={2} sx={{ display: 'flex', flexDirection: 'column' }}>
+        <Box marginBottom={2} marginTop={2}>
           <Typography variant='caption'>
             <strong>Upgradability:</strong> Show only building attributes that you can typically change
           </Typography>

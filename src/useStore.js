@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
 import take from 'lodash/take'
+import find from 'lodash/find'
 import { loadLayersModel } from '@tensorflow/tfjs'
 import { chartDataSetMixed } from './assets/chartDataSetMixed.js'
 import { chartDataSetActionable } from './assets/chartDataSetActionable.js'
@@ -45,7 +46,7 @@ export const useStore = create(
   }))
 )
 
-window.useStore = useStore // Debugging
+// window.useStore = useStore // Debugging
 
 // Custom React hook that derives predicted results from state. It should only update when dependencies change
 // Therefore, any components that depend on this should re-render only when these values change.
@@ -54,6 +55,20 @@ export const usePredictedDataSet = () => {
   return useMemo(() => {
     return predict(chartDataSet, model, sliderValues, stepType) // returns null if any of the inputs are empty
   }, [chartDataSet, model, sliderValues, stepType])
+}
+
+// Custom React hook to calculate the predicted point for any of the sliders
+// Use the first slider since all should be the same
+export const usePredictedSliderPoint = () => {
+  const { sliderValues } = useStore()
+  const predictedDataSet = usePredictedDataSet()
+  return useMemo(() => {
+    const firstSliderXmlPath = Object.keys(sliderValues)[0]
+    const firstSliderValue = sliderValues[firstSliderXmlPath]
+    const firstSliderPredictedData = predictedDataSet[firstSliderXmlPath]
+    const { predicted: predictedPoint } = find(firstSliderPredictedData, { inputValue: firstSliderValue })
+    return predictedPoint
+  }, [predictedDataSet, sliderValues])
 }
 
 // -------------------------------------------------------------------------------------------------

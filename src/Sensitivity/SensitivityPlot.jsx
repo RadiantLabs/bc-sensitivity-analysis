@@ -18,7 +18,7 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
     chartLayout: state.chartLayout,
   }))
 
-  const chartRef = useRef()
+  const barChartRef = useRef()
   const sliderValue = sliderValues[chartId]
   const slopes = calculateSlope(predictedData)
   const handleSliderChange = (event, newSliderVal) => {
@@ -26,7 +26,7 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
   }
 
   useEffect(() => {
-    const currentRef = chartRef.current
+    const currentRef = barChartRef.current
     if (!currentRef) {
       return undefined
     }
@@ -88,7 +88,7 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
       marginTop: 20,
     })
 
-    // Append chart to chartRef div & define cleanup function to remove it on component unmount.
+    // Append chart to barChartRef div & define cleanup function to remove it on component unmount.
     currentRef.appendChild(chart)
     return () => {
       currentRef.removeChild(chart)
@@ -110,7 +110,7 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
   }))
   return (
     <div style={{ position: 'relative' }}>
-      <div ref={chartRef} style={{ width: '100%', marginBottom: '-15px' }} />
+      <div ref={barChartRef} style={{ width: '100%', marginBottom: '-15px' }} />
       <CustomSlider
         value={sliderValue}
         onChange={handleSliderChange}
