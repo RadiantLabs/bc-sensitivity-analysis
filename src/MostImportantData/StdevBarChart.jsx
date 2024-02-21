@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import * as Plot from '@observablehq/plot'
 import { useStore } from '../useStore'
+import { useTheme } from '@mui/material/styles'
 
 const StdevBarChart = () => {
   const { chartDataSet } = useStore((state) => ({
@@ -8,6 +9,7 @@ const StdevBarChart = () => {
   }))
 
   const chartRef = useRef(null)
+  const theme = useTheme()
 
   useEffect(() => {
     // Create a horizontal bar chart
@@ -24,7 +26,7 @@ const StdevBarChart = () => {
         grid: true,
       },
       marks: [
-        Plot.barX(chartDataSet, { x: 'stdev', y: 'label' }),
+        Plot.barX(chartDataSet, { x: 'stdev', y: 'label', fill: theme.palette.primary.mainChart }),
         Plot.text(chartDataSet, {
           x: 'stdev',
           y: 'label',

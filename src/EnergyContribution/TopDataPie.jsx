@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import * as d3 from 'd3'
+import { useTheme } from '@mui/material/styles'
 
 const data = [
   { category: 'topData', count: 40, label: 'Top 40 Data Points' },
@@ -8,6 +9,7 @@ const data = [
 
 function TopDataPie() {
   const ref = useRef()
+  const theme = useTheme()
   const fixedWidth = 150 // Fixed width for the SVG
   const height = 200 // Fixed height for the SVG
   const radius = Math.min(fixedWidth, height) / 2 // Radius for the pie chart
@@ -43,7 +45,7 @@ function TopDataPie() {
     arcs
       .append('path')
       .attr('d', arc)
-      .attr('fill', (d, i) => (i === 0 ? '#8a89a6' : '#98abc5'))
+      .attr('fill', (d, i) => (i === 0 ? theme.palette.secondary.light : theme.palette.primary.mainChart))
 
     arcs
       .filter((d) => d.data.category === 'topData')

@@ -22,7 +22,7 @@ const EnergyContribution = () => {
           <PCAPlot />
         </Box>
       </Grid>
-      <Grid item xs={2} marginTop={10}>
+      <Grid item xs={2} marginTop={14}>
         <Typography variant='caption' sx={{ display: 'inline-block', lineHeight: '1.6' }}>
           Out of 548 data points to run an energy model, it takes only 40 to explain 86% of the energy consumption.
         </Typography>

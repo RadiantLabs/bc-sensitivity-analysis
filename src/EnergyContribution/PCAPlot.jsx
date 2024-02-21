@@ -1,5 +1,6 @@
 import { useRef, useEffect } from 'react'
 import * as Plot from '@observablehq/plot'
+import { useTheme } from '@mui/material/styles'
 
 // Provided static data for the first 10 principal components.
 const data = [
@@ -25,6 +26,7 @@ const cumulativeData = data.reduce((acc, currentValue) => {
 
 const PCAPlot = () => {
   const chartRef = useRef()
+  const theme = useTheme()
 
   useEffect(() => {
     // Create the chart.
@@ -41,19 +43,20 @@ const PCAPlot = () => {
         Plot.barY(data, {
           x: 'component',
           y: (d) => d.explainedVariance * 100, // Convert to percentage
-          fill: 'lightblue',
+          fill: theme.palette.primary.mainChart,
           title: (d) => `${d.label}: ${(d.explainedVariance * 100).toFixed(0)}%`, // Show the label and variance as a percentage on hover
         }),
         Plot.line(cumulativeData, {
           x: 'component',
           y: (d) => d.cumulativeVariance * 100, // Convert to percentage
-          stroke: 'red',
+          stroke: theme.palette.secondary.light,
         }),
         Plot.text(cumulativeData, {
           x: 'component',
           y: (d) => d.cumulativeVariance * 100, // Convert to percentage
           text: (d) => `${d.label}: ${Math.round(d.cumulativeVariance * 100)}%`, // Text labels with percentages
           fill: 'black',
+          fontSize: '0.8rem',
           dy: 0, // Set the vertical position to align with the dot
           dx: 10, // Set a small horizontal offset to the right of the dot
           textAnchor: 'start', // Aligns the text to the start (right side) of the dot
@@ -61,7 +64,7 @@ const PCAPlot = () => {
         Plot.dot(cumulativeData, {
           x: 'component',
           y: (d) => d.cumulativeVariance * 100,
-          fill: 'red',
+          fill: theme.palette.secondary.light,
         }),
       ],
       style: {
