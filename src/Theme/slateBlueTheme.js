@@ -1,16 +1,15 @@
-export const clearSkyTheme = {
+export const slateBlueTheme = {
   palette: {
     primary: {
-      light: '#757ce8',
-      // main: '#3f50b5',
-      main: '#002884',
-      dark: '#002884',
+      light: '#2B4F61',
+      main: '#1C3948',
+      dark: '#153438',
       contrastText: '#fff',
     },
     secondary: {
-      light: '#ff7961',
-      main: '#f44336',
-      dark: '#ba000d',
+      light: '#EBA92A',
+      main: '#71989B',
+      dark: '#E4960E',
       contrastText: '#000',
     },
   },

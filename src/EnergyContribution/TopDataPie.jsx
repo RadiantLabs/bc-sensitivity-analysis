@@ -3,7 +3,7 @@ import * as d3 from 'd3'
 import { useTheme } from '@mui/material/styles'
 
 const data = [
-  { category: 'topData', count: 40, label: 'Top 40 Data Points' },
+  { category: 'topData', count: 40, label: 'Top 10 Data Points' },
   { category: 'allData', count: 548, label: 'All Data' },
 ]
 
@@ -45,8 +45,13 @@ function TopDataPie() {
     arcs
       .append('path')
       .attr('d', arc)
-      .attr('fill', (d, i) => (i === 0 ? theme.palette.secondary.light : theme.palette.primary.mainChart))
+      .attr('fill', (d, i) => {
+        return i === 0
+          ? theme.palette.secondary.light // Set the color for the topData (small) segment
+          : theme.palette.primary.light // Set the color for the allData (large) segment
+      })
 
+    // Line segment going from the pie segment to the label
     arcs
       .filter((d) => d.data.category === 'topData')
       .append('line')
@@ -54,16 +59,17 @@ function TopDataPie() {
       .attr('y1', (d) => lineArc.centroid(d)[1])
       .attr('x2', (d) => labelArc.centroid(d)[0] * 0.9) // End line before it reaches the label
       .attr('y2', (d) => labelArc.centroid(d)[1] * 0.9)
-      .attr('stroke', 'black')
+      .attr('stroke', theme.palette.primary.main)
       .attr('stroke-width', 1)
 
+    // Label attached to line segment
     arcs
       .filter((d) => d.data.category === 'topData')
       .append('text')
       .attr('transform', (d) => `translate(${labelArc.centroid(d)[0]}, ${labelArc.centroid(d)[1]})`)
       .attr('dy', '0.35em')
       .attr('text-anchor', 'middle')
-      .attr('fill', 'darkslategray')
+      .attr('fill', theme.palette.primary.main)
       .attr('font-size', '10px') // Set text size
       .text((d) => d.data.label)
   }, [radius])

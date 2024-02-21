@@ -43,13 +43,14 @@ const PCAPlot = () => {
         Plot.barY(data, {
           x: 'component',
           y: (d) => d.explainedVariance * 100, // Convert to percentage
-          fill: theme.palette.primary.mainChart,
+          fill: theme.palette.primary.light,
           title: (d) => `${d.label}: ${(d.explainedVariance * 100).toFixed(0)}%`, // Show the label and variance as a percentage on hover
         }),
         Plot.line(cumulativeData, {
           x: 'component',
           y: (d) => d.cumulativeVariance * 100, // Convert to percentage
           stroke: theme.palette.secondary.light,
+          // stroke: theme.palette.secondary.main,
         }),
         Plot.text(cumulativeData, {
           x: 'component',
@@ -65,6 +66,7 @@ const PCAPlot = () => {
           x: 'component',
           y: (d) => d.cumulativeVariance * 100,
           fill: theme.palette.secondary.light,
+          // fill: theme.palette.secondary.main,
         }),
       ],
       style: {

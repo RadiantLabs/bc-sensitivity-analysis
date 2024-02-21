@@ -26,7 +26,7 @@ const StdevBarChart = () => {
         grid: true,
       },
       marks: [
-        Plot.barX(chartDataSet, { x: 'stdev', y: 'label', fill: theme.palette.primary.mainChart }),
+        Plot.barX(chartDataSet, { x: 'stdev', y: 'label', fill: theme.palette.primary.light }),
         Plot.text(chartDataSet, {
           x: 'stdev',
           y: 'label',

@@ -1,6 +1,5 @@
 import { createTheme } from '@mui/material/styles'
-// import { clearSkyTheme } from './clearSkyTheme'
-import { darkIndigoTheme } from './darkIndigoTheme'
+import { slateBlueTheme } from './slateBlueTheme'
 
 export const theme = createTheme({
   components: {
@@ -29,6 +28,5 @@ export const theme = createTheme({
       },
     },
   },
-  // ...clearSkyTheme,
-  ...darkIndigoTheme,
+  ...slateBlueTheme,
 })
