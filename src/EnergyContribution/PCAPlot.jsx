@@ -14,7 +14,6 @@ const data = [
   { component: 'PC8', explainedVariance: 0.04, label: 'Building Component 8' },
   { component: 'PC9', explainedVariance: 0.03, label: 'Building Component 9' },
   { component: 'PC10', explainedVariance: 0.02, label: 'Building Component 10' },
-  // ... Add the rest of the components as needed
 ]
 
 // Calculate cumulative variance
@@ -27,9 +26,9 @@ const cumulativeData = data.reduce((acc, currentValue) => {
 const PCAPlot = () => {
   const chartRef = useRef()
   const theme = useTheme()
+  const { palette } = theme
 
   useEffect(() => {
-    // Create the chart.
     const chart = Plot.plot({
       x: {
         label: 'Principal Component', // Set the label for the x-axis
@@ -43,20 +42,19 @@ const PCAPlot = () => {
         Plot.barY(data, {
           x: 'component',
           y: (d) => d.explainedVariance * 100, // Convert to percentage
-          fill: theme.palette.primary.light,
+          fill: palette.primary.light,
           title: (d) => `${d.label}: ${(d.explainedVariance * 100).toFixed(0)}%`, // Show the label and variance as a percentage on hover
         }),
         Plot.line(cumulativeData, {
           x: 'component',
           y: (d) => d.cumulativeVariance * 100, // Convert to percentage
-          stroke: theme.palette.secondary.light,
-          // stroke: theme.palette.secondary.main,
+          stroke: palette.secondary.light,
         }),
         Plot.text(cumulativeData, {
           x: 'component',
           y: (d) => d.cumulativeVariance * 100, // Convert to percentage
           text: (d) => `${d.label}: ${Math.round(d.cumulativeVariance * 100)}%`, // Text labels with percentages
-          fill: 'black',
+          // fill: palette.text.primary, // Doesn't work. Need to set in CSS (index.css)
           fontSize: '0.8rem',
           dy: 0, // Set the vertical position to align with the dot
           dx: 10, // Set a small horizontal offset to the right of the dot
@@ -65,8 +63,7 @@ const PCAPlot = () => {
         Plot.dot(cumulativeData, {
           x: 'component',
           y: (d) => d.cumulativeVariance * 100,
-          fill: theme.palette.secondary.light,
-          // fill: theme.palette.secondary.main,
+          fill: palette.secondary.light,
         }),
       ],
       style: {
@@ -86,7 +83,7 @@ const PCAPlot = () => {
       chartRef.current.innerHTML = ''
       chartRef.current.appendChild(chart)
     }
-  }, [])
+  }, [palette])
 
   return <div ref={chartRef} />
 }

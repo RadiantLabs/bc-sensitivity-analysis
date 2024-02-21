@@ -4,18 +4,21 @@ import Grid from '@mui/material/Grid'
 import { Box, Typography, ToggleButton, ToggleButtonGroup } from '@mui/material'
 import { useStore, usePredictedSliderPoint } from '../useStore'
 import { ToggleButtonStyles } from '../utils/ToggleButtonStyles'
+import { formatNumbersWithCommas } from '../utils/formatNumbersWithCommas'
+import { useTheme } from '@mui/material/styles'
 
 const Sensitivity = () => {
   const [weatherFile, setWeatherFile] = useState('file1') // TODO: convert to Zustand
-
   const predictedSliderPoint = usePredictedSliderPoint()
-
   const { chartLayout, setChartLayout, chartDataSetType, setChartDataSetType } = useStore((state) => ({
     chartDataSetType: state.chartDataSetType,
     setChartDataSetType: state.setChartDataSetType,
     chartLayout: state.chartLayout,
     setChartLayout: state.setChartLayout,
   }))
+
+  const theme = useTheme()
+  const { fontFamily } = theme.typography
 
   const handleChartDataSetTypeChange = (event, newChartDataSetType) => {
     if (newChartDataSetType !== null) {
@@ -51,9 +54,16 @@ const Sensitivity = () => {
         <SensitivityPlots />
       </Grid>
 
-      <Grid item xs={4} align='left' marginTop={5}>
-        <Box p={2} bgcolor='primary.main' color='primary.contrastText' padding={1} borderRadius={1}>
-          {predictedSliderPoint} kWh/year
+      <Grid item xs={4} align='left' marginTop={9}>
+        <Box
+          p={2}
+          bgcolor='primary.main'
+          color='primary.contrastText'
+          padding={1}
+          borderRadius={1}
+          fontFamily={fontFamily}
+        >
+          Estimated: {formatNumbersWithCommas(predictedSliderPoint)} kWh/year
         </Box>
 
         <Typography variant='caption' marginBottom={2} lineHeight={1}>

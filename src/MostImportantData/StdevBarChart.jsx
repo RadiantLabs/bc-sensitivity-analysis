@@ -10,6 +10,7 @@ const StdevBarChart = () => {
 
   const chartRef = useRef(null)
   const theme = useTheme()
+  const { palette } = theme
 
   useEffect(() => {
     // Create a horizontal bar chart
@@ -26,7 +27,7 @@ const StdevBarChart = () => {
         grid: true,
       },
       marks: [
-        Plot.barX(chartDataSet, { x: 'stdev', y: 'label', fill: theme.palette.primary.light }),
+        Plot.barX(chartDataSet, { x: 'stdev', y: 'label', fill: palette.primary.light }),
         Plot.text(chartDataSet, {
           x: 'stdev',
           y: 'label',
@@ -51,7 +52,7 @@ const StdevBarChart = () => {
         currentRef.removeChild(chart)
       }
     }
-  }, [chartDataSet])
+  }, [chartDataSet, palette])
 
   return <div ref={chartRef} />
 }

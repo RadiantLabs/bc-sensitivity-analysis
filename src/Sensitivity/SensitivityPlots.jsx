@@ -1,6 +1,8 @@
 import Grid from '@mui/material/Grid'
 import SensitivityPlot from './SensitivityPlot'
 import isEmpty from 'lodash/isEmpty'
+import { Typography } from '@mui/material'
+
 import { useStore, usePredictedDataSet } from '../useStore'
 import { formatUnits } from '../utils/formatUnits'
 
@@ -19,26 +21,23 @@ const SensitivityPlots = () => {
   }
   return (
     <>
-      <Grid container spacing={1}>
+      <Grid container spacing={1} marginTop={2}>
         {chartDataSet.map((chartData, index) => {
           const { xmlPath, label, units } = chartData
           const predictedData = predictedDataSet[xmlPath]
           return (
             <Grid container item xs={gridSize} style={{ padding: 0 }} key={index}>
-              <div>
-                <h5
-                  style={{
-                    marginBottom: 0,
-                    textAlign: 'left',
-                    paddingLeft: '12px',
-                    fontSize: fontSizeByColumnLayout(chartLayout),
-                  }}
-                >
-                  {label}
-                  {chartLayout === 'single' && <small>&nbsp;({formatUnits(units)})</small>}
-                </h5>
-                <SensitivityPlot chartId={xmlPath} predictedData={predictedData} chartData={chartData} />
-              </div>
+              <Typography
+                variant='h6'
+                fontSize={fontSizeByColumnLayout(chartLayout)}
+                align='left'
+                marginTop={1}
+                paddingLeft={1}
+              >
+                {label}
+                {chartLayout === 'single' && <small>&nbsp;({formatUnits(units)})</small>}
+              </Typography>
+              <SensitivityPlot chartId={xmlPath} predictedData={predictedData} chartData={chartData} />
             </Grid>
           )
         })}

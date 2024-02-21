@@ -66,3 +66,9 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* Set SVG text color of plots  */
+svg text {
+  fill: #1c3948;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+}
