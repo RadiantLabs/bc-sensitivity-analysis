@@ -12,10 +12,8 @@ const EnergyContribution = () => {
         <Typography variant='body2'>
           But at any scale that matters to business or the climate, we will be missing the majority of the building
           data. The analysis below shows that we can still get an accurate model without measuring every inch of the
-          house.{' '}
-          <em>
-            Note: this does not include utility bills. We will cover that in &ldquo;Calibrated vs. Uncalibrated&rdquo;.
-          </em>
+          house. <em>Note:</em> this does not include utility bills. We will cover that in &ldquo;Calibrated vs.
+          Uncalibrated&rdquo;.
         </Typography>
       </Grid>
       <Grid item xs={10} marginTop={2}>

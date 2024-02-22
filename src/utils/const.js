@@ -33,3 +33,14 @@ export const captionStyles = {
   display: 'inline-block',
   lineHeight: '1.6',
 }
+
+export const orderedListStyles = {
+  paddingLeft: '16px',
+  listStyle: 'decimal inside',
+  '& .MuiListItem-root': {
+    paddingTop: '4px',
+    paddingBottom: '4px',
+    typography: 'body2',
+    lineHeight: '0.8',
+  },
+}

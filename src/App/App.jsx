@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Sensitivity from '../Sensitivity/Sensitivity'
 import EnergyContribution from '../EnergyContribution/EnergyContribution'
 import MostImportantData from '../MostImportantData/MostImportantData'
-import CalibratedVsUncalibrated from '../CalibratedVsUncalibrated/CalibratedVsUncalibrated'
+import UncalibratedVsCalibrated from '../UncalibratedVsCalibrated/UncalibratedVsCalibrated'
 import Grid from '@mui/material/Grid'
 import { Tabs, Tab, Box, Typography } from '@mui/material'
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked'
@@ -16,7 +16,7 @@ const tabLabels = [
   { title: 'Contribution to Energy Use', value: 'energyContribution' },
   { title: "What's the Most Important Data?", value: 'mostImportantData' },
   { title: 'Sensitivity to Building Changes', value: 'sensitivity' },
-  { title: 'Calibrated vs. Uncalibrated', value: 'calibrated' },
+  { title: 'Uncalibrated vs. Calibrated', value: 'calibrated' },
 ]
 
 const App = () => {
@@ -87,7 +87,7 @@ const App = () => {
       {currentTab === 'energyContribution' && <EnergyContribution />}
       {currentTab === 'mostImportantData' && <MostImportantData />}
       {currentTab === 'sensitivity' && <Sensitivity />}
-      {currentTab === 'calibrated' && <CalibratedVsUncalibrated />}
+      {currentTab === 'calibrated' && <UncalibratedVsCalibrated />}
     </Grid>
   )
 }
