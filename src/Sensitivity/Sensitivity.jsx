@@ -6,6 +6,7 @@ import { useStore, usePredictedSliderPoint } from '../useStore'
 import { ToggleButtonStyles } from '../utils/ToggleButtonStyles'
 import { formatNumbersWithCommas } from '../utils/formatNumbersWithCommas'
 import { useTheme } from '@mui/material/styles'
+import { captionStyles } from '../utils/const'
 
 const Sensitivity = () => {
   const [weatherFile, setWeatherFile] = useState('file1') // TODO: convert to Zustand
@@ -66,13 +67,13 @@ const Sensitivity = () => {
           Estimated: {formatNumbersWithCommas(predictedSliderPoint)} kWh/year
         </Box>
 
-        <Typography variant='caption' marginBottom={2} lineHeight={1}>
+        <Typography variant='body2' marginTop={2} marginBottom={2}>
           Notice the slope of the curve the bars make. If the slope is up and to the right, if you increase the value of
           that building characteristic, you will increase a building&rsquo;s energy use. If it goes down, you decrease.
         </Typography>
 
         <Box marginBottom={2} marginTop={2}>
-          <Typography variant='caption'>
+          <Typography variant='caption' align='left' sx={captionStyles}>
             <strong>Upgradability:</strong> Show only building attributes that you can typically change
           </Typography>
           <ToggleButtonGroup

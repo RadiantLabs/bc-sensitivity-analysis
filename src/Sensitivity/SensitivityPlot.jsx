@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import * as Plot from '@observablehq/plot'
 import { CustomSlider } from './CustomSlider'
+import { Box, Typography } from '@mui/material'
 import { useStore } from '../useStore'
 import isEmpty from 'lodash/isEmpty'
 import { inactiveColor, barStroke, chartConfig } from '../utils/const'
@@ -96,7 +97,7 @@ const SensitivityPlot = ({ chartData, predictedData, chartId }) => {
   }, [predictedData, sliderValue, slopes, yAxisDomain, chartLayout]) // The chart will re-render only when these values change
 
   if (isEmpty(predictedData)) {
-    return <div>Loading...</div>
+    return <Typography variant='body2'>Loading...</Typography>
   }
 
   const steps = chartData[stepType]

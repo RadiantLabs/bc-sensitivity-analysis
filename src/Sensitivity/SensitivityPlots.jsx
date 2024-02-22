@@ -17,7 +17,7 @@ const SensitivityPlots = () => {
   const gridSize = chartLayout === 'single' ? 12 : chartLayout === 'double' ? 6 : 4
 
   if (isEmpty(predictedDataSet)) {
-    return <div>Loading...</div>
+    return <Typography variant='body2'>Loading...</Typography>
   }
   return (
     <>

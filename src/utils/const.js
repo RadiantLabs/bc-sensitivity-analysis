@@ -28,3 +28,8 @@ export const chartConfig = {
     barSlopeIndicatorHeight: 200,
   },
 }
+
+export const captionStyles = {
+  display: 'inline-block',
+  lineHeight: '1.6',
+}

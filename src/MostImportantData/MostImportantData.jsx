@@ -3,6 +3,7 @@ import { Box, Typography, ToggleButton, ToggleButtonGroup } from '@mui/material'
 import StdevBarChart from './StdevBarChart'
 import { useStore } from '../useStore'
 import { ToggleButtonStyles } from '../utils/ToggleButtonStyles'
+import { captionStyles } from '../utils/const'
 
 const MostImportantData = () => {
   const { chartDataSetType, setChartDataSetType } = useStore((state) => ({
@@ -29,7 +30,7 @@ const MostImportantData = () => {
           areas and perimeters.
         </Typography>
         <Box marginTop={2} sx={{ display: 'flex', flexDirection: 'column' }}>
-          <Typography variant='caption' align='left'>
+          <Typography variant='caption' align='left' sx={captionStyles}>
             <strong>Upgradability:</strong> Show only building attributes that you can typically change
           </Typography>
           <ToggleButtonGroup
