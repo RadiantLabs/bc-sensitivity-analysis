@@ -3,6 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "license": "UNLICENSED",
+  "contributors": [
+    "Jeff Friesen <jeff@radiantlabs.co> (https://radiantlabs.co)",
+    "Junghwan Park <ffee21@gmail.com> (https://agileelectrification.org)",
+    "Emi Lee <eal003@ucsd.edu> (https://agileelectrification.org)",
+    "Kelly O'Connell <kelly@radiantlabs.co> (https://radiantlabs.co)"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
